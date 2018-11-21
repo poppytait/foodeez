@@ -1,6 +1,5 @@
-TEAM JAPPI
-
-Foodeez
+# Team Name
+Jappi
 
 # Project Name
 Foodeez

@@ -59,8 +59,6 @@ addressCordinates: {
 }
 ```
 
-Homepage
-- ...
 
 
 ## ROUTES:
@@ -145,11 +143,11 @@ phoneNumber: String - required - unique
 preferences: {
 	allergies: Array,
 	address: {
-          firstLine: String, 
-          secondLine: String,
-          city: String, 
-          postCode: Number
-        },
+		firstLine: String, 
+		secondLine: String,
+		city: String, 
+		postCode: Number
+	},
 	dietaryRequirement: Array,
 }
 ```
@@ -163,17 +161,18 @@ userId: ObjectID - ref User - required
 preferences: {
 	allergies: Array,
 	address - required: {
-          firstLine: String, 
-          secondLine: String,
-          city: String, 
-          postCode: Number
-        },
+		firstLine: String, 
+		secondLine: String,
+		city: String, 
+		postCode: Number
+	},
 	dietaryRequirement: Enum,
 }
 undesiredFoodType: Array,
 restaurantAddress: [firstLine: , secondLine: , city: , postCode: ]
 Budget: Number - required
 Price: Number 
+NumberOfFoodeez: Number - required
 willServe: Boolean - required 
 isCompleted: Boolean - required 
 ```

@@ -19,15 +19,18 @@ Web app to make random food orders based on preferences
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
 - **order page** - As a customer I want to create an order so that I can get random food based on my preferences
 - **tracking order page** - As a customer I want to see the tracking order page so that I can know when I am going to receive it
-- **order delivered page** - As a customer I want to see know information of the order so that my order is finished
+- **edit order** - As a customer I want to edit my order so that I can update some details of it
+- **order delivered page** - As a customer I want to see information of the order so that I know when my order is finished
 - **sign up (restaurant)** - As a restaurant I want to sign up on the webpage so that I can have an account
 - **order list page** - As a restaurant I want to see all the orders available so that I can provide sign off after the delivery
-- **order detail page** - As a restaurant I want to see a close order page so that I can accept and set a price, reject or provide sign off after delivery
+- **accept order** - As a restaurant I want to see a close order page so that I can accept a delivery
+- **reject order** - As a restaurant I want to see a close order page so that I can reject a delivery
+- **provide signoff to order** - As a restaurant I want to see a page so that I can request a customer to sign to accept a delivery has finished
 
 
 
 ## Backlog
-
+- list of orders
 - Profile page
 - Customer can restrict order
 - Add restaurants to map
@@ -48,7 +51,7 @@ Web app to make random food orders based on preferences
 - Map to look at what you might get (which are signed up in the area)
 - A button to reveal what you ordered before it arrives	
 
-For live tracking feature we should modify "preferences" from  User Model:
+For live tracking feature we should modify "preferences" in the User Model:
 ```
 addressCordinates: {
   type: {
@@ -57,6 +60,18 @@ addressCordinates: {
   coordinates: [Number],
   }
 }
+```
+
+For pre set preferences in User Profile we should add this to the User Model:
+```
+preferences: {
+	allergies: Array:String,
+	address: {
+		firstLine: String, 
+		secondLine: String,
+		city: String, 
+		postCode: Number
+	},
 ```
 
 
@@ -77,58 +92,74 @@ addressCordinates: {
   - body:
     - email
     - password
+  - redirects to /order if user is not logged in
 
 - GET /auth/login
-  - redirects to / if user logged in
+  - redirects to / if user is logged in
   - renders the login form (with flash msg)
 - POST /auth/login
-  - redirects to / if user logged in
+  - redirects to /order if user is logged in
   - body:
     - email
     - password
-    - phone Number
+  - redirects to /auth/login if user is not logged in
 
 - POST /auth/logout
+  - redirects to /auth/login if user is not logged in
   - body: (empty)
+  - redirects to / if user is logged in
 
 ### Routes when the customer user is logged in:
 
-- GET /:user_id/order
-  - redirects to signup / if user is anonymous
-  - create order page with form
+- GET /order
+  - redirects to /auth/login if user is anonymous
+  - render order page with form
 
-- POST /:user_id/order 
+- POST /order 
+  - redirects to /auth/login if user is anonymous
   - body: 
     - address
     - undesired cuisine
     - allergies
     - payment details
+  - redirects to /order/:order_id if user is logged in
 
-- GET /:user_id/order/:order_id
+- GET /order/:order_id
+  - redirects to /auth/login if user is anonymous
   - renders the tracking order page
+	- redirects to /order/:order_id/delivered if user is logged in and restaurant has provided signoff
 
-- GET /:user_id/order/:order_id/delivered
+- GET /order/:order_id/delivered
+	- redirects to /auth/login if user is anonymous
+	- redirects to /order/:order_id if user is logged in and isDelivered is false
   - renders the order delivered page (after the restaurant signed off) with a some nice star animation
+	
 
 ### Routes when the restaurant user is logged in:
 
-- GET /:user_id/orderlist
-  - redirects to signup / if user is anonymous
-  - create page with list of orders related to that restaurant
+- GET /orderlist
+  - redirects to login / if user is anonymous
+  - render page with list of orders related to that restaurant
 
-- GET /:user_id/orderlist/:order_id
+- GET /orderlist/:order_id
+  - redirects to login / if user is anonymous
+  - render page with an specific order details, accept/reject, price box and a signoff buttons
+- POST /orderlist/:order_id/accept
   - redirects to signup / if user is anonymous
-  - create page with an specific order details, accept/reject, price box and a signoff buttons
-- POST /:user_id/orderlist/:order_id/accept
   - body: 
     - willServe: changed to true
     - Price
-- POST /:user_id/orderlist/:order_id/reject
+	- redirects to /orderlist/:order_id if user is logged in
+- POST /orderlist/:order_id/reject
+  - redirects to signup / if user is anonymous
   - body: 
-    - look for another restaurant that fits the order requirements
-- POST /:user_id/orderlist/:order_id/signoff
+		- willServe: changed to false
+	- redirects to /orderlist if user is logged in
+- POST /orderlist/:order_id/signoff
+  - redirects to signup / if user is anonymous
   - body: 
     - isCompleted: changed to true
+	- redirects to /orderlist if user is logged in
 
 ## Models
 
@@ -137,18 +168,10 @@ User model
 ```
 email: String - required - unique
 password: String - required
-Name: String - required
+name: String - required
 isOwner: Bool - required
 phoneNumber: String - required - unique
-preferences: {
-	allergies: Array,
-	address: {
-		firstLine: String, 
-		secondLine: String,
-		city: String, 
-		postCode: Number
-	},
-	dietaryRequirement: Array,
+	dietaryRequirement: Array:Strings,
 }
 ```
 
@@ -159,7 +182,7 @@ timestamp: Date - required
 restaurantId: ObjectID - ref Restaurant - required
 userId: ObjectID - ref User - required
 preferences: {
-	allergies: Array,
+	allergies: Array:String,
 	address - required: {
 		firstLine: String, 
 		secondLine: String,
@@ -169,11 +192,10 @@ preferences: {
 	dietaryRequirement: Enum,
 }
 undesiredFoodType: Array,
-restaurantAddress: [firstLine: , secondLine: , city: , postCode: ]
 Budget: Number - required
 Price: Number 
 NumberOfFoodeez: Number - required
-willServe: Boolean - required 
+willServe: Boolean - null - required 
 isCompleted: Boolean - required 
 ```
 

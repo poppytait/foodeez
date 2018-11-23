@@ -52,7 +52,7 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
       }
       if (bcrypt.compareSync(password, user.password)) {
         req.session.currentUser = user;
-        res.redirect('/');
+        res.redirect('/order');
       } else {
         res.redirect('/auth/login');
       }

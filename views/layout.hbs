@@ -10,13 +10,13 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
-      {{#unless currentUser}}
+      {{#if currentUser}}
       <li>
         <form action="/auth/logout" method="POST">
           <button type="submit">Logout</button>
         </form>
       </li>
-      {{/unless}}
+      {{/if}}
     </ul>
   </nav>
   {{{body}}}

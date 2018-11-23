@@ -28,7 +28,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
         password: hashedPassword
       })
         .then((newUser) => {
-          req.session.currentuser = newUser;
+          req.session.currentUser = newUser;
           res.redirect('/');
         })
         .catch(next);

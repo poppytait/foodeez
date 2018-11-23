@@ -1,7 +1,7 @@
 <h1>New Order</h1>
 
 
-<form method="POST" action="/order/{{order._id}}">
+<form method="POST" action="/order/{{order._id}}" id="order">
 
 <!--############# Adress section #############-->
 <h2>Address</h2>
@@ -30,41 +30,40 @@
 
 
 <!--############# Food Select section #############-->
-<!--
+
 <h2>Anything you dont want?</h2>
 
-<input type="checkbox" id="american" name="american"
+<input type="checkbox" id="american" value="american" name="undesiredFoodType"
          checked>
   <label for="american">American</label>
 
-<input type="checkbox" id="chinese" name="chinese"
+<input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
          checked>
   <label for="chinese">chinese</label>
 
-  <input type="checkbox" id="spanish" name="spanish"
+  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
          checked>
   <label for="spanish">Spanish</label>
 
-  <input type="checkbox" id="indian" name="indian"
+  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
          checked>
   <label for="indian">Indian</label>
 
-  <input type="checkbox" id="italian" name="italian"
+  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
          checked>
   <label for="italian">Italian</label>
 
-  <input type="checkbox" id="japanese" name="japanese"
+  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
          checked>
   <label for="japanese">Japanese</label>
 
-  <input type="checkbox" id="turkish" name="turkish"
+  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
          checked>
   <label for="turkish">Turkish</label>
 
-  <input type="checkbox" id="mexican" name="mexican"
+  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
          checked>
   <label for="mexican">Mexican</label>
-  -->
 
 <!--############# Allergies #############-->
 

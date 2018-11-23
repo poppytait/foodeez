@@ -38,8 +38,8 @@ const orderSchema = new Schema({
     type: String
   },
   dietaryRequirements: {
-    type: String,
-    enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian']
+    type: String
+    // enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian']
   },
   budget: {
     type: Number

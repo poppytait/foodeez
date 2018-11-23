@@ -13,8 +13,8 @@ router.get('/', authMiddleware.requireForOrder, (req, res, next) => {
 
 /* POST order page */
 router.post('/', authMiddleware.requireForOrder, (req, res, next) => {
-  const { addressLine1, addressLine2, city, postcode, phoneNumber, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
-  Order.create({ addressLine1, addressLine2, city, postcode, phoneNumber, allergies, dietaryRequirements, budget, numberOfFoodeez })
+  const { addressLine1, addressLine2, city, postcode, phoneNumber, undesiredFoodType, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
+  Order.create(req.body)
     .then(() => {
       res.redirect('/'); // Redirect to home by now
     })

@@ -35,7 +35,6 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
         })
         .catch(next);
     })
-
     .catch(next);
 });
 

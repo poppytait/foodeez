@@ -3,7 +3,9 @@
 const mongoose = require('mongoose');
 
 const User = require('../models/user');
-// --
+// -- bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 mongoose.connect('mongodb://localhost/foodeze', {
   keepAlive: true,
@@ -22,6 +24,11 @@ const users = [
   }
 
 ];
+users.forEach((user) => {
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hashedPassword = bcrypt.hashSync(user.password, salt);
+  user.password = hashedPassword;
+});
 
 User.create(users)
   .then(() => {

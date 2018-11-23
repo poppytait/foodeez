@@ -7,7 +7,7 @@ const formMiddleware = require('../middlewares/formMiddleware');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-/* GET sign in page. */
+/* GET sign in page */
 router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
   res.render('auth/signup', { title: 'Sign Up' });
 });

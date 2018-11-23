@@ -1,5 +1,7 @@
-/* eventlistener 
+/* eventlistener
 
-upon clicking dropbtn, add class to dropdown-content 
+upon clicking dropbtn, add class to dropdown-content
 
-toggle class javascript 
+toggle class javascript
+
+*/

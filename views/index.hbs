@@ -1,5 +1,33 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
-<a href="/auth/signup"><button>Sign Up</button></a>
-<a href="/auth/login"><button>Log In</button></a>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav>
+      <nav id="nav-bar">
+        <div class="dropdown">
+        <a href ="#" class="dropbtn">Location <i class="fas fa-angle-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">Location 1</a>
+          <a href="#">Location 2</a>
+          <a href="#">Location 3</a>
+        </div>
+        </div>
+      </nav>
+      <div class="bottom-nav-bar">
+      <a href="/auth/signup" id="signup-btn">Sign Up</a>
+      <a href="/auth/login" id="login-btn">Log In</a>
+      </div>
+    </nav>
+    <img src="images/transparent-foodeez.png" class="logo">
+    
+    {{{body}}}
+  </body>
+</html>
+
+
+

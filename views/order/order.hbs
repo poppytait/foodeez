@@ -1,0 +1,120 @@
+<h1>New Order</h1>
+
+
+<form method="POST" action="/order">
+
+<!--############# Adress section #############-->
+<h2>Address</h2>
+  <div class="field" >
+    <label>Address Line 1:</label>
+    <input type="text" name="addressline1"/>
+  </div>
+  <div class="field" >
+    <label>Address Line 2:</label>
+    <input type="text" name="addressline2"/>
+  </div>
+  <div class="field" >
+    <label>City</label>
+    <input type="text" name="city"/>
+  </div>
+
+  <div class="field" >
+    <label>Postcode</label>
+    <input type="text" name="postcode"/>
+  </div>
+
+  <div class="field" >
+    <label>Phone Number</label>
+    <input type="text" name="phoneNumber"/>
+  </div>
+
+
+<!--############# Food Select section #############-->
+<h2>Anything you dont want?</h2>
+
+<input type="checkbox" id="american" name="american"
+         checked>
+  <label for="american">American</label>
+
+<input type="checkbox" id="chinese" name="chinese"
+         checked>
+  <label for="chinese">chinese</label>
+
+  <input type="checkbox" id="spanish" name="spanish"
+         checked>
+  <label for="spanish">Spanish</label>
+
+  <input type="checkbox" id="indian" name="indian"
+         checked>
+  <label for="indian">Indian</label>
+
+  <input type="checkbox" id="italian" name="italian"
+         checked>
+  <label for="italian">Italian</label>
+
+  <input type="checkbox" id="japanese" name="japanese"
+         checked>
+  <label for="japanese">Japanese</label>
+
+  <input type="checkbox" id="turkish" name="turkish"
+         checked>
+  <label for="turkish">Turkish</label>
+
+  <input type="checkbox" id="mexican" name="mexican"
+         checked>
+  <label for="mexican">Mexican</label>
+
+<!--############# Allergys #############-->
+
+<h3>Allergys</h3>
+
+<div class="field" >
+    <label>Allergys?</label>
+    <input type="text" name="allergys"/>
+</div>
+<!--############# Dietry requirements #############-->
+
+<h3>Dietry requirements</h3>
+
+<div class="field" >
+    <label>What are your dietry requirements?</label>
+    <input type="text" name="dietryRequirements"/>
+</div>
+
+
+<!--############# budget #############-->
+
+<h3>Budget</h3>
+
+<input type="range" min="1" max="100" value="50" id="budget">
+
+<!--############# Quantity #############-->
+<h3>How Many Are You?</h3>
+<input type="checkbox" id="onePerson" name="onePerson"
+         checked>
+  <label for="onePerson">One</label>
+  
+  <input type="checkbox" id="twoPeople" name="twoPeople"
+         checked>
+  <label for="twoPeople">Two</label>
+
+  <input type="checkbox" id="threePeople" name="threePeople"
+         checked>
+  <label for="threePeople">Three</label>
+
+  <input type="checkbox" id="fourPeople" name="fourPeople"
+         checked>
+  <label for="fourPeople">Four</label>
+
+  <input type="checkbox" id="fivePeople" name="fivePeople"
+         checked>
+  <label for="fivePeople">Five</label>
+
+  <input type="checkbox" id="sixPeople" name="sixPeople"
+         checked>
+  <label for="sixPeople">6+</label>
+
+  <div class="field submit">
+    <button type="submit">Log in</button>
+  </div>
+</form>

@@ -15,11 +15,5 @@ authMiddleware.requireUser = (req, res, next) => { // requireUser is the name of
   }
   next();
 };
-authMiddleware.requireForOrder = (req, res, next) => { // requireForOrder is the name of the function
-  if (!req.session.currentUser) { // If the user is not loged in and tries to go to Order page, redirect him to login page
-    return res.redirect('/auth/login');
-  }
-  next();
-};
 
 module.exports = authMiddleware;

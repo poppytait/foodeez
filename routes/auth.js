@@ -35,7 +35,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
       })
         .then((newUser) => {
           req.session.currentUser = newUser;
-          res.redirect('/');
+          res.redirect('/order');
         })
         .catch(next);
     })

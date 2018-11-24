@@ -2,34 +2,33 @@
 
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+// const User = require('../models/user');
 const Order = require('../models/order');
 const authMiddleware = require('../middlewares/authMiddleware');
 // const formMiddleware = require('../middlewares/formMiddleware');
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
-  const userId = req.session.currentUser._id;
+  const userId = req.session.currentUser;
   const timestamp = new Date();
   Order.create({ userId, timestamp })
     .then(result => {
-      res.render('order/order', { order: result });
+      res.render('order/order', { order: 'Order' });
     })
     .catch(next);
 });
 
 /* POST order page */
-/* to redirect to pending page */
-
 router.post('/', authMiddleware.requireUser, (req, res, next) => {
   const { addressLine1, addressLine2, city, postcode, phoneNumber, undesiredFoodType, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
-  const user = User._id;
-  console.log(user);
-  // const lastOrder = Order.find().sort({ timestamp: 1, userId: user });
-  // console.log(lastOrder._id);
-  Order.findByIdAndUpdate(order._id, { $set: req.body })
-    .then(() => {
-      res.redirect('/order/:id'); // Redirect to home by now
+  Order.findOne({ userId: req.session.currentUser }, {}, { sort: { 'timestamp': -1 } })
+    .then((result) => {
+      const id = result._id;
+      Order.findByIdAndUpdate(id, { $set: req.body })
+        .then((result) => {
+          res.redirect('/'); // Redirect to home by now
+        })
+        .catch(next);
     })
     .catch(next);
 });

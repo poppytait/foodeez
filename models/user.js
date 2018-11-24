@@ -12,20 +12,12 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
-  /*  isOwner: {
+  },
+  isCustomer: {
     type: Boolean,
     required: true
-  },
-  name: {
-    type: String,
-    required: true
   }
-  phoneNumber: {
-      type: String,
-      required: true
 
-  } */
 });
 
 const User = mongoose.model('User', userSchema);

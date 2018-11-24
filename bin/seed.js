@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Restaurant = require('../models/restaurant');
 // const Order = require('../models/order');
 
 // -- bcrypt
@@ -15,7 +16,7 @@ mongoose.connect('mongodb://localhost/foodeez', {
 });
 
 // Users seed
-const users = [
+const customers = [
   {
     email: 'jackwatk@hotmail.co.uk',
     password: 'jack'
@@ -26,20 +27,69 @@ const users = [
   }
 
 ];
-users.forEach((user) => {
+
+customers.forEach((customer) => {
   const salt = bcrypt.genSaltSync(saltRounds);
-  const hashedPassword = bcrypt.hashSync(user.password, salt);
-  user.password = hashedPassword;
+  const hashedPassword = bcrypt.hashSync(customer.password, salt);
+  customer.password = hashedPassword;
 });
 
-User.create(users)
+User.create(customers)
   .then(() => {
-    console.log('users created');
-    mongoose.connection.close();
+    console.log('customers created');
   })
   .catch(error => {
     console.error(error);
   });
+
+// Restaurant seed
+
+const restauranteurs = [
+  {
+    email: 'chinese@gmail.com',
+    password: 'chinese'
+  },
+  {
+    email: 'mexican@gmail.com',
+    password: 'mexican'
+  }
+]
+;
+
+restauranteurs.forEach((restauranteurs) => {
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hashedPassword = bcrypt.hashSync(restauranteurs.password, salt);
+  restauranteurs.password = hashedPassword;
+});
+
+const restaurants = [
+  {
+    restaurantName: 'China King',
+    foodType: 'Chinese'
+  },
+  {
+    restaurantName: 'Mexican Madness',
+    foodType: 'Mexican'
+  }
+];
+
+for (let i = 0; i < restauranteurs.length; i++) {
+  const restaurantName = restaurants[i].restaurantName;
+  const restaurantFoodType = restaurants[i].foodType;
+
+  User.create(restauranteurs[i])
+    .then((restauranteur) => {
+      Restaurant.create({
+        restaurantName: restaurantName,
+        foodType: restaurantFoodType,
+        ownerId: restauranteur._id
+      });
+      console.log('restaurant created');
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
 
 // Order seed
 /*

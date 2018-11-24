@@ -6,12 +6,6 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-}
-
-
-body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #ffc244;
@@ -41,12 +35,12 @@ h1{
   text-decoration: none;
   font-size: 30px;
   width: 100%;
+  box-shadow: 2px 2px 20px 0px #0000005e;
   
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-content {
@@ -56,7 +50,6 @@ h1{
   min-width: 260px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  
 }
 
 .dropdown-content a {
@@ -64,7 +57,7 @@ h1{
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: center;
   padding: 10px 2px;
   margin: 0;
   
@@ -72,14 +65,23 @@ h1{
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
-  
 }
 
+/*
 .dropdown:hover .dropdown-content {
     display: block;
-    
+    width:100%;
+}
+*/
+
+.blue {
+  background-color: blue;
 }
 
+.menuToggle {
+  display: block;
+    width:100%;
+}
 .dropdown:hover .dropbtn {
     color:#08b9ff80;
 }
@@ -127,6 +129,7 @@ h1{
   
 }
 
+<<<<<<< HEAD
 /*---- 404 styles ----*/
 
 .dropped-image{
@@ -191,4 +194,14 @@ form .field.has-error label {
 }
 form .field.has-error input {
 	border: 1px solid  red;
+=======
+/* Error images */
+
+.client-error-image {
+  width:100%;
+}
+
+.server-error-image {
+  width:100%;
+>>>>>>> 07b761c3a77e2168209928fb504258c9287d080e
 }

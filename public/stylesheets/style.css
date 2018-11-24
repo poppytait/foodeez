@@ -187,6 +187,7 @@ a:hover {
     transition-duration: 150ms;
     transition-timing-function: ease-out;
     width: 100%;
+    margin-bottom: 8px;
 }
 
 .email-password-titles {

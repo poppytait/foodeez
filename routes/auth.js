@@ -1,18 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const User = require('../models/user');
+const Restaurant = require('../models/restaurant');
 const authMiddleware = require('../middlewares/authMiddleware');
 const formMiddleware = require('../middlewares/formMiddleware');
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-/* GET sign in page */
+/* GET sign up page */
 router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
   res.render('auth/signup', { title: 'Sign Up' });
 });
 
-/* POST sign in page */
+/* POST sign up page */
 router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields, (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email })
@@ -64,6 +65,41 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
 router.post('/logout', authMiddleware.requireUser, (req, res, next) => {
   delete req.session.currentUser;
   res.redirect('/auth/login');
+});
+
+/* GET restaurant sign up page */
+router.get('/restaurantSignup', authMiddleware.requireAnon, (req, res, next) => {
+  res.render('auth/restaurantSignup', { title: 'Register' });
+});
+
+/* POST restaurant sign up page */
+router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requireFields, (req, res, next) => {
+  const { restaurantName, foodType, email, password } = req.body;
+  User.findOne({ email })
+    .then((user) => {
+      if (user) {
+        return res.redirect('/auth/login');
+      }
+      const salt = bcrypt.genSaltSync(saltRounds);
+      const hashedPassword = bcrypt.hashSync(password, salt);
+
+      User.create({
+        email,
+        password: hashedPassword
+      })
+        .then((newUser) => {
+          Restaurant.create({
+            restaurantName,
+            foodType,
+            ownerId: newUser._id
+          });
+        })
+        .then(() => {
+          //  req.session.currentUser = newUser;
+          res.redirect('/orderlist');
+        })
+        .catch(next);
+    });
 });
 
 module.exports = router;

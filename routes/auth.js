@@ -61,10 +61,14 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
         req.flash('message-name', 'Email not registered'); // Email not registered
         return res.redirect('/auth/login');
       }
-      if (bcrypt.compareSync(password, user.password)) {
+      if (bcrypt.compareSync(password, user.password) && !user.isCustomer) {
+        req.session.currentUser = user;
+        res.redirect('/orderlist');
+      } else if (bcrypt.compareSync(password, user.password) && user.isCustomer){
         req.session.currentUser = user;
         res.redirect('/order');
-      } else {
+      }
+      else {
         req.flash('message-name', 'Email or password is not correct'); // Email or password is not correct
         res.redirect('/auth/login');
       }

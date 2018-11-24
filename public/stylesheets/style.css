@@ -138,6 +138,7 @@ a:hover {
 }
 
 /* Log in pages */
+
 .wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
@@ -172,7 +173,7 @@ a:hover {
   margin-bottom: 30px;
 }
 
-#login-info{
+.login-info{
   
     height: 48px;
     box-sizing: border-box;
@@ -198,3 +199,7 @@ a:hover {
   padding-bottom: 8px;
 }
 
+.cross {
+  float: right;
+  margin-top: 15px;
+}

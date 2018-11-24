@@ -1,7 +1,11 @@
-/* eventlistener
+'use strict';
 
-upon clicking dropbtn, add class to dropdown-content
+const main = () => {
+  const toggleMenu = () => {
+    document.querySelector('.dropdown-content').classList.toggle('menuToggle');
+  };
 
-toggle class javascript
+  document.querySelector('.dropbtn').addEventListener('click', toggleMenu);
+};
 
-*/
+window.document.addEventListener('load', main);

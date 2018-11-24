@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const orderRouter = require('./routes/order');
 const authRouter = require('./routes/auth');
+const orderListRouter = require('./routes/orderlist');
 
 const flash = require('connect-flash');
 
@@ -66,6 +67,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/order', orderRouter);
 app.use('/auth', authRouter);
+app.use('/orderlist', orderListRouter);
 
 // -- 404 and error handler
 

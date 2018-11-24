@@ -21,11 +21,11 @@ router.get('/', authMiddleware.requireUser, (req, res, next) => {
 /* POST order page */
 router.post('/', authMiddleware.requireUser, (req, res, next) => {
   const { addressLine1, addressLine2, city, postcode, phoneNumber, undesiredFoodType, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
-  Order.find({ userId: req.session.currentUser }, { timestamp: 1 })
+  Order.findOne({ userId: req.session.currentUser }, {}, { sort: { 'timestamp': -1 } })
     .then((result) => {
-      console.log(result);
-      Order.findOneAndUpdate(result._id, { $set: req.body })
-        .then(() => {
+      const id = result._id;
+      Order.findByIdAndUpdate(id, { $set: req.body })
+        .then((result) => {
           res.redirect('/'); // Redirect to home by now
         })
         .catch(next);

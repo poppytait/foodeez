@@ -6,12 +6,6 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-}
-
-
-body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #ffc244;
@@ -131,4 +125,14 @@ a:hover {
   background-color: #177e89;
   padding: 10px 20px;
   
+}
+
+/* Error images */
+
+.client-error-image {
+  width:100%;
+}
+
+.server-error-image {
+  width:100%;
 }

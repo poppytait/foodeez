@@ -26,7 +26,7 @@ router.post('/', authMiddleware.requireUser, (req, res, next) => {
       const id = result._id;
       Order.findByIdAndUpdate(id, { $set: req.body })
         .then((result) => {
-          res.redirect('/'); // Redirect to home by now
+          res.redirect('/order/' + result._id); // Redirect to /order/:order_id
         })
         .catch(next);
     })

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Restaurant = require('../models/restaurant');
-// const Order = require('../models/order');
+const Order = require('../models/order');
 
 // -- bcrypt
 const bcrypt = require('bcrypt');
@@ -92,60 +92,71 @@ for (let i = 0; i < restauranteurs.length; i++) {
 }
 
 // Order seed
-/*
+
 const orders = [
   {
-    timestamp: '',
-    restaurantId: '',
-    userId: '',
-    preferences: {
-      allergies: {
-
-      },
-      address: {
-
-      },
-      dietaryRequirements: {
-
-      }
-    },
-    undesiredFoodType: '',
-    budget: '',
-    price: '',
-    numberOfFoodeez: '',
-    willServe: '',
-    isCompleted: ''
+    undesiredFoodType: [
+      'spanish',
+      'indian'
+    ],
+    willServe: null,
+    addressLine1: 'Pamplona 96',
+    addressLine2: 'Bajos',
+    budget: 50,
+    city: 'Barcelona',
+    dietaryRequirements: 'Gluten-free',
+    numberOfFoodeez: 2,
+    phoneNumber: '612345678',
+    postcode: '08018'
   },
   {
-    timestamp: '',
-    restaurantId: '',
-    userId: '',
-    preferences: {
-      allergies: {
-
-      },
-      address: {
-
-      },
-      dietaryRequirements: {
-
-      }
-    },
-    undesiredFoodType: '',
-    budget: '',
-    price: '',
-    numberOfFoodeez: '',
-    willServe: '',
-    isCompleted: ''
+    undesiredFoodType: [
+      'italian',
+      'indian'
+    ],
+    willServe: null,
+    addressLine1: 'Pamplona 96',
+    addressLine2: '1º 2ª',
+    budget: 30,
+    city: 'Barcelona',
+    dietaryRequirements: 'Halal',
+    numberOfFoodeez: 1,
+    phoneNumber: '612345679',
+    postcode: '08018'
   }
 ];
 
-Order.create(orders)
-  .then(() => {
-    console.log('orders created');
-    mongoose.connection.close();
-  })
-  .catch(error => {
-    console.error(error);
-  });
-*/
+for (let i = 0; i < orders.length; i++) {
+  const timestamp = Date();
+  const undesiredFoodType = orders[i].undesiredFoodType;
+  const willServe = orders[i].willServe;
+  const addressLine1 = orders[i].addressLine1;
+  const addressLine2 = orders[i].addressLine2;
+  const budget = orders[i].budget;
+  const city = orders[i].addressLine1;
+  const dietaryRequirements = orders[i].dietaryRequirements;
+  const numberOfFoodeez = orders[i].numberOfFoodeez;
+  const phoneNumber = orders[i].phoneNumber;
+  const postcode = orders[i].postcode;
+
+  Order.create(orders[i])
+    .then((order) => {
+      Order.create({
+        timestamp,
+        undesiredFoodType,
+        willServe,
+        addressLine1,
+        addressLine2,
+        budget,
+        city,
+        dietaryRequirements,
+        numberOfFoodeez,
+        phoneNumber,
+        postcode
+      });
+      console.log('order created');
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}

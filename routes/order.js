@@ -13,21 +13,21 @@ router.get('/', authMiddleware.requireUser, (req, res, next) => {
   const timestamp = new Date();
   Order.create({ userId, timestamp })
     .then(result => {
-      console.log(result);
       res.render('order/order', { order: result });
     })
     .catch(next);
 });
 
 /* POST order page */
+/* to redirect to pending page */
 
 router.post('/', authMiddleware.requireUser, (req, res, next) => {
   const { addressLine1, addressLine2, city, postcode, phoneNumber, undesiredFoodType, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
-  const user = User.findById(currentUser._id);
+  const user = User._id;
   console.log(user);
-  const lastOrder = Order.find().sort({ timestamp: 1, userId: user });
+  // const lastOrder = Order.find().sort({ timestamp: 1, userId: user });
   // console.log(lastOrder._id);
-  Order.findByIdAndUpdate(lastOrder._id, { $set: req.body })
+  Order.findByIdAndUpdate(order._id, { $set: req.body })
     .then(() => {
       res.redirect('/order/:id'); // Redirect to home by now
     })

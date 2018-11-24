@@ -27,7 +27,9 @@ a {
 a:hover {
   color: #08b9ff80;
 }
-
+h1{
+  text-align: center;
+}
 /* Nav bar home page */
 
 #nav-bar {
@@ -141,4 +143,52 @@ a:hover {
     font-size: 10vw;
     text-transform: capitalize;
     text-shadow: 2px 2px 2px #ffc000;
+}
+
+/* -- forms -- */
+
+form.is-processing {
+	opacity: 0.5;
+}
+
+form .field {
+	margin-bottom: 20px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 10px;
+	font-style: bold;
+}
+
+form input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+form .submit {
+  padding-top: 20px;
+}
+
+form .submit button {
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #27afdc;
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  justify-content: center;
+}
+form .validation {
+  margin: 5px 0 10px;
+  color: red;
+}
+
+form .field.has-error label {
+	color: red;
+}
+form .field.has-error input {
+	border: 1px solid  red;
 }

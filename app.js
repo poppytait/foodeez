@@ -71,7 +71,7 @@ app.use('/orderlist', orderListRouter);
 
 // -- 404 and error handler
 
-// NOTE: requires a views/not-found.ejs template
+// NOTE: requires a views/not-found.hbs template
 app.use((req, res, next) => {
   res.status(404);
   res.render('not-found');

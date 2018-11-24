@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -9,6 +11,10 @@ const usersRouter = require('./routes/users');
 const orderRouter = require('./routes/order');
 const authRouter = require('./routes/auth');
 const orderListRouter = require('./routes/orderlist');
+
+const flash = require('connect-flash');
+
+const hbs = require('hbs'); // For partials
 
 const app = express();
 
@@ -44,9 +50,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(flash());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, '/views/partials')); // For partials
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -6,55 +6,57 @@ const ObjectID = require('mongodb').ObjectID;
 
 const orderSchema = new Schema({
   timestamp: {
-    type: Date,
-    required: true
+    type: Date
   },
   restaurantId: {
     type: ObjectID,
-    required: false
+    ref: 'Restaurant'
   },
   userId: {
     type: ObjectID,
-    required: true
+    ref: 'User'
   },
-  preferences: {
-    allergies: {
-      type: String,
-      required: false
-    },
-    address: {
-      type: String,
-      required: true
-    },
-    dietaryRequirements: {
-      type: String,
-      enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian'],
-      required: false
-    }
+  addressLine1: {
+    type: String
+  },
+  addressLine2: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  postcode: {
+    type: String
+  },
+  phoneNumber: {
+    type: String
   },
   undesiredFoodType: {
-    type: Array,
-    required: false
+    type: Array
+  },
+  allergies: {
+    type: String
+  },
+  dietaryRequirements: {
+    type: String
+    // enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian']
   },
   budget: {
-    type: Number,
-    required: true
+    type: Number
   },
   price: {
-    type: Number,
-    required: true
+    type: Number
   },
   numberOfFoodeez: {
-    type: Number,
-    required: true
+    type: Number
   },
   willServe: {
     type: Boolean,
-    required: false
+    default: null
   },
   isCompleted: {
     type: Boolean,
-    required: false
+    defaulte: false
   }
 });
 

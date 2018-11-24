@@ -1,7 +1,22 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+    <nav>
+      <nav id="nav-bar">
+        <div class="dropdown">
+        <a href ="#" class="dropbtn">Location <i class="fas fa-angle-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">Location 1</a>
+          <a href="#">Location 2</a>
+          <a href="#">Location 3</a>
+        </div>
+        </div>
+      </nav>
+      <div class="bottom-nav-bar">
+          {{#unless currentUser}}
+      <a href="/auth/signup" id="signup-btn">Sign Up</a>
+      <a href="/auth/login" id="login-btn">Log In</a>
+      {{/unless}}
+      </div>
+    </nav>
+    <img src="images/transparent-foodeez.png" class="logo">
+    
+  
 
-{{#unless currentUser}}
-<a href="/auth/signup"><button>Sign Up</button></a>
-<a href="/auth/login"><button>Log In</button></a>
-{{/unless}}

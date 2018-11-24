@@ -1,13 +1,13 @@
 <h1>New Order</h1>
 
 
-<form method="POST" action="/order">
+<form method="POST" action="/order/{{order._id}}" id="order">
 
 <!--############# Adress section #############-->
 <h2>Address</h2>
   <div class="field" >
     <label>Address Line 1:</label>
-    <input type="text" name="addressline1"/>
+    <input type="text" name="addressLine1"/>
   </div>
   <div class="field" >
     <label>Address Line 2:</label>
@@ -30,55 +30,56 @@
 
 
 <!--############# Food Select section #############-->
+
 <h2>Anything you dont want?</h2>
 
-<input type="checkbox" id="american" name="american"
+<input type="checkbox" id="american" value="american" name="undesiredFoodType"
          checked>
   <label for="american">American</label>
 
-<input type="checkbox" id="chinese" name="chinese"
+<input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
          checked>
   <label for="chinese">chinese</label>
 
-  <input type="checkbox" id="spanish" name="spanish"
+  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
          checked>
   <label for="spanish">Spanish</label>
 
-  <input type="checkbox" id="indian" name="indian"
+  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
          checked>
   <label for="indian">Indian</label>
 
-  <input type="checkbox" id="italian" name="italian"
+  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
          checked>
   <label for="italian">Italian</label>
 
-  <input type="checkbox" id="japanese" name="japanese"
+  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
          checked>
   <label for="japanese">Japanese</label>
 
-  <input type="checkbox" id="turkish" name="turkish"
+  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
          checked>
   <label for="turkish">Turkish</label>
 
-  <input type="checkbox" id="mexican" name="mexican"
+  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
          checked>
   <label for="mexican">Mexican</label>
 
-<!--############# Allergys #############-->
+<!--############# Allergies #############-->
 
 <h3>Allergys</h3>
 
 <div class="field" >
-    <label>Allergys?</label>
-    <input type="text" name="allergys"/>
+    <label>Allergies?</label>
+    <input type="text" name="allergies"/>
 </div>
 <!--############# Dietry requirements #############-->
 
-<h3>Dietry requirements</h3>
+<h3>Dietary requirements</h3>
 
 <div class="field" >
-    <label>What are your dietry requirements?</label>
-    <input type="text" name="dietryRequirements"/>
+    <label>What are your dietary requirements?</label>
+    <input type="text" name="dietaryRequirements"/>
 </div>
 
 
@@ -86,35 +87,14 @@
 
 <h3>Budget</h3>
 
-<input type="range" min="1" max="100" value="50" id="budget">
+<input type="range" min="1" max="100" value="50" name="budget">
 
 <!--############# Quantity #############-->
+
 <h3>How Many Are You?</h3>
-<input type="checkbox" id="onePerson" name="onePerson"
-         checked>
-  <label for="onePerson">One</label>
-  
-  <input type="checkbox" id="twoPeople" name="twoPeople"
-         checked>
-  <label for="twoPeople">Two</label>
-
-  <input type="checkbox" id="threePeople" name="threePeople"
-         checked>
-  <label for="threePeople">Three</label>
-
-  <input type="checkbox" id="fourPeople" name="fourPeople"
-         checked>
-  <label for="fourPeople">Four</label>
-
-  <input type="checkbox" id="fivePeople" name="fivePeople"
-         checked>
-  <label for="fivePeople">Five</label>
-
-  <input type="checkbox" id="sixPeople" name="sixPeople"
-         checked>
-  <label for="sixPeople">6+</label>
+<input type="range" min="1" max="8" value="2" name="numberOfFoodeez">
 
   <div class="field submit">
-    <button type="submit">Log in</button>
+    <button type="submit">Order</button>
   </div>
 </form>

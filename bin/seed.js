@@ -1,18 +1,20 @@
 // npm install mongoose
 
 const mongoose = require('mongoose');
-
 const User = require('../models/user');
+// const Order = require('../models/order');
+
 // -- bcrypt
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-mongoose.connect('mongodb://localhost/foodeze', {
+mongoose.connect('mongodb://localhost/foodeez', {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
 });
 
+// Users seed
 const users = [
   {
     email: 'jackwatk@hotmail.co.uk',
@@ -38,3 +40,62 @@ User.create(users)
   .catch(error => {
     console.error(error);
   });
+
+// Order seed
+/*
+const orders = [
+  {
+    timestamp: '',
+    restaurantId: '',
+    userId: '',
+    preferences: {
+      allergies: {
+
+      },
+      address: {
+
+      },
+      dietaryRequirements: {
+
+      }
+    },
+    undesiredFoodType: '',
+    budget: '',
+    price: '',
+    numberOfFoodeez: '',
+    willServe: '',
+    isCompleted: ''
+  },
+  {
+    timestamp: '',
+    restaurantId: '',
+    userId: '',
+    preferences: {
+      allergies: {
+
+      },
+      address: {
+
+      },
+      dietaryRequirements: {
+
+      }
+    },
+    undesiredFoodType: '',
+    budget: '',
+    price: '',
+    numberOfFoodeez: '',
+    willServe: '',
+    isCompleted: ''
+  }
+];
+
+Order.create(orders)
+  .then(() => {
+    console.log('orders created');
+    mongoose.connection.close();
+  })
+  .catch(error => {
+    console.error(error);
+  });
+*/

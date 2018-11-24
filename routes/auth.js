@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+
+const express = require('express');
+const router = express.Router();
 const User = require('../models/user');
 const authMiddleware = require('../middlewares/authMiddleware');
 const formMiddleware = require('../middlewares/formMiddleware');
@@ -33,7 +35,6 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
         })
         .catch(next);
     })
-
     .catch(next);
 });
 

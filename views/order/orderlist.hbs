@@ -2,9 +2,32 @@
 <div>
 <ul>
   {{#each orders}}
-  <li>{{this._id}}</li>
-  <li>{{this.address}}</li>
-  <li>{{this.phoneNumber}}</li>
+  <ul>
+  <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
+  <li>Address Line 1: {{this.addressLine1}}</li>
+  <li>Address Line 2: {{this.addressLine2}}</li>
+  <li>Phone Number{{this.phoneNumber}}</li>
+  <li>Allergies:{{this.allergies}} </li>
+  <li>Dietary Requirements:{{this.dietaryRequirements}} </li>
+  <li>Budget: {{this.budget}}</li>
+  </ul>
+
+
   {{/each}}
 </ul>
 </div>
+
+{{!--   addressLine1
+   
+  addressLine2
+  city
+  postcode
+  phoneNumber
+  allergies
+  dietaryRequirements:
+  budget
+  price
+  numberOfFoodeez
+  willServe: {
+  isCompleted --}}
+ 

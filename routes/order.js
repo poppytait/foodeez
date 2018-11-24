@@ -38,7 +38,7 @@ router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
-      res.render('order/tracking-order', { order: result });
+      res.render('order/tracking-order', { orders: result });
     })
     .catch(next);
 });

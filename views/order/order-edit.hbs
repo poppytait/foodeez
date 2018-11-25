@@ -1,6 +1,6 @@
 <h1>Edit Order</h1>
 
-<form method="POST" action="/orderlist/{{order._id}}/edit" id="order"></form>
+<form method="POST" action="/orderlist/{{order._id}}/edit" id="order">
 
 <!--############# Adress section #############-->
   <div class="field" >
@@ -64,23 +64,23 @@
 <!--############# Allergies #############-->
 <div class="field" >
     <label>Allergies</label>
-    <input type="text" name="allergies" value={{order.allergies}}/>
+    <input type="text" name="allergies" value="{{order.allergies}}"/>
 </div>
 <!--############# Dietry requirements #############-->
 
 <div class="field" >
     <label>dietary requirements</label>
-    <input type="text" name="dietaryRequirements" value={{order.dietaryRequirements}}/>
+    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}"/>
 </div>
 
 
 <!--############# budget #############-->
 
 
-<input type="range" min="10" max="100" value="50" name="budget"  value={{order.budget}}>
+<input type="range" min="10" max="100" value="50" name="budget"  value="{{order.budget}}"/>
 
 <!--############# Quantity #############-->
-<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value={{order.numberOfFoodeez}}>
+<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}"/>
 
   <div class="field submit">
     <button type="submit">Edit</button>

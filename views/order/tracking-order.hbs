@@ -1,10 +1,10 @@
 <h1>Tracking Order page</h1>
   <ul>
   <li>Order Id: {{order._id}}</li>
-  <li>Address Line 1: {{order.addressLine1}}</li>
-  <li>Address Line 2: {{order.addressLine2}}</li>
-  <li>Phone Number{{order.phoneNumber}}</li>
-  <li>Allergies:{{order.allergies}} </li>
-  <li>Dietary Requirements:{{order.dietaryRequirements}} </li>
+  <li>Address Line 1: {{order.address.addressLine1}}</li>
+  <li>Address Line 2: {{order.address.addressLine2}}</li>
+  <li>Phone Number: {{order.phoneNumber}}</li>
+  <li>Allergies: {{order.allergies}} </li>
+  <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
   </ul>

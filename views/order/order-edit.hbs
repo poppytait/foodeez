@@ -29,7 +29,7 @@
 
 <!--############# Food Select section #############-->
 
-<input type="checkbox" id="foodType" value="american" name="undesiredFoodType"
+<input type="checkbox" id="{{order.undesiredFoodType}}" value="american" name="undesiredFoodType"
          checked>
   <label for="american">American</label>
 
@@ -87,3 +87,32 @@
     <button type="submit">Edit</button>
   </div>
 </form>
+
+<script>
+  const checkBoxes = () => {
+         
+    
+    const topList = document.querySelector('.selectedFoods');
+    const checkOptions = document.getElementsByTagName('input');
+
+    
+    let foodOptions = topList.getAttribute('id');
+    
+    foodOptions = foodOptions.split(',')
+    
+
+    for (let i = 0; i < foodOptions.length; i++) {
+        let foodOption = foodOptions[i]
+        for(let i = 0; i < checkOptions.length; i++){
+
+            if(checkOptions[i].value === foodOption){
+               checkOptions[i].checked = true;
+                
+            }
+        }
+        }
+       
+    }
+
+  checkBoxes();
+</script>

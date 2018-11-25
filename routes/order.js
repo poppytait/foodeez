@@ -49,7 +49,7 @@ router.post('/new', authMiddleware.requireUser, (req, res, next) => {
       const orderId = orderResult._id;
       Restaurant.find({ foodType: { $nin: [orderResult.undesiredFoodType] } })
         .then((restaurantResult) => {
-          const randomRestaurant = Math.floor(Math.random() * restaurantResult.length);
+          const randomRestaurant = Math.floor(Math.random() * restaurantResult.length); // Gets a rondom restaurant that does not have foodType from udeiredFoodType
           Order.findByIdAndUpdate(orderId, { $set: { restaurantId: restaurantResult[randomRestaurant]._id } })
             .then((result) => {
               res.redirect('/order/' + result._id); // Redirect to /order/:order_id

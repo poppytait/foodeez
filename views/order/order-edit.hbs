@@ -29,59 +29,58 @@
 
 <!--############# Food Select section #############-->
 
-<input type="checkbox" id="foodType" value="american" name="undesiredFoodType"
+<input type="checkbox" id="american" value="american" name="undesiredFoodType"
          checked>
   <label for="american">American</label>
 
-<input type="checkbox" id="foodType" value="chinese" name="undesiredFoodType"
+<input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
          checked>
-  <label for="chinese">Chinese</label>
+  <label for="chinese">chinese</label>
 
-  <input type="checkbox" id="foodType" value="spanish" name="undesiredFoodType"
+  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
          checked>
   <label for="spanish">Spanish</label>
 
-  <input type="checkbox" id="foodType" value="indian" name="undesiredFoodType"
+  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
          checked>
   <label for="indian">Indian</label>
 
-  <input type="checkbox" id="foodType" value="italian" name="undesiredFoodType"
+  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
          checked>
   <label for="italian">Italian</label>
 
-  <input type="checkbox" id="foodType" value="japanese" name="undesiredFoodType"
+  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
          checked>
   <label for="japanese">Japanese</label>
 
-  <input type="checkbox" id="foodType" value="turkish" name="undesiredFoodType"
+  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
          checked>
   <label for="turkish">Turkish</label>
 
-  <input type="checkbox" id="foodType" value="mexican" name="undesiredFoodType"
+  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
          checked>
   <label for="mexican">Mexican</label>
-  <input type="checkbox" id="foodType" value="mexican" name="undesiredFoodType"
 
 <!--############# Allergies #############-->
 <div class="field" >
     <label>Allergies</label>
-    <input type="text" name="allergies" value="{{order.allergies}}" />
+    <input type="text" name="allergies" value="{{order.allergies}}"/>
 </div>
 <!--############# Dietry requirements #############-->
 
 <div class="field" >
     <label>dietary requirements</label>
-    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}" />
+    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}"/>
 </div>
 
 
 <!--############# budget #############-->
 
 
-<input type="range" min="10" max="100" value="50" name="budget"  value="{{order.budget}}" />
+<input type="range" min="10" max="100" value="50" name="budget"  value="{{order.budget}}"/>
 
 <!--############# Quantity #############-->
-<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}" />
+<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}"/>
 
   <div class="field submit">
     <button type="submit">Edit</button>

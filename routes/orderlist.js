@@ -2,14 +2,22 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/order');
 
-/* GET home page. */
+/* GET orderlist page. */
 router.get('/', (req, res, next) => {
-  Order.find({ userId: req.session.currentUser })
-    .then((result) => {
-      console.log(result);
-      res.render('order/orderlist', { orders: result });
-    })
-    .catch(next);
+  if (req.session.currentUser.isCustomer) {
+    Order.find({ userId: req.session.currentUser })
+      .then((result) => {
+        res.render('order/orderlist', { orders: result });
+      })
+      .catch(next);
+  } else {
+    Order.find()
+      .populate('ownerID')
+      .then((result) => {
+        res.render('order/orderlist', { orders: result });
+      })
+      .catch(next);
+  }
 });
 
 router.get('/:id', (req, res, next) => {
@@ -20,6 +28,7 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(next);
 });
+
 router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
@@ -56,6 +65,26 @@ router.post('/:id/edit', (req, res, next) => {
     dietaryRequirements,
     budget,
     numberOfFoodeez } })
+    .then(() => {
+      res.redirect('/orderlist');
+    })
+    .catch(next);
+});
+
+/* GET view order page (restaurant user) */
+router.get('/:id/view', (req, res, next) => {
+  const id = req.params.id;
+  Order.findById(id)
+    .then((result) => {
+      res.render('order/order-details', { order: result });
+    })
+    .catch(next);
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  console.log('Hello');
+  const id = req.params.id;
+  Order.findByIdAndRemove(id)
     .then(() => {
       res.redirect('/orderlist');
     })

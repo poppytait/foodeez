@@ -108,6 +108,7 @@ router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requ
         isCustomer: false
       })
         .then((newUser) => {
+          req.session.currentUser = newUser;
           Restaurant.create({
             restaurantName,
             foodType,

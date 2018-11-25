@@ -16,17 +16,19 @@ const orderSchema = new Schema({
     type: ObjectID,
     ref: 'User'
   },
-  addressLine1: {
-    type: String
-  },
-  addressLine2: {
-    type: String
-  },
-  city: {
-    type: String
-  },
-  postcode: {
-    type: String
+  address: {
+    addressLine1: {
+      type: String
+    },
+    addressLine2: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    postcode: {
+      type: String
+    }
   },
   phoneNumber: {
     type: String

@@ -9,26 +9,42 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
-  const userId = req.session.currentUser;
-  const timestamp = new Date();
-  Order.create({ userId, timestamp })
-    .then(result => {
-      res.render('order/order', { order: 'Order' });
-    })
-    .catch(next);
+  res.render('order/order');
 });
 
 /* POST order page */
-router.post('/', authMiddleware.requireUser, (req, res, next) => {
-  const { addressLine1, addressLine2, city, postcode, phoneNumber, undesiredFoodType, allergies, dietaryRequirements, budget, numberOfFoodeez } = req.body;
-  Order.findOne({ userId: req.session.currentUser }, {}, { sort: { 'timestamp': -1 } })
-    .then((result) => {
-      const id = result._id;
-      Order.findByIdAndUpdate(id, { $set: req.body })
-        .then((result) => {
-          res.redirect('/order/' + result._id); // Redirect to /order/:order_id
-        })
-        .catch(next);
+router.post('/new', authMiddleware.requireUser, (req, res, next) => {
+  const timestamp = new Date();
+  const userId = req.session.currentUser;
+  const {
+    addressLine1,
+    addressLine2,
+    city,
+    postcode,
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez
+  } = req.body;
+  Order.create({
+    timestamp,
+    userId,
+    address: {
+      addressLine1,
+      addressLine2,
+      city,
+      postcode
+    },
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez })
+    .then(result => {
+      res.redirect('/order/' + result._id); // Redirect to /order/:order_id
     })
     .catch(next);
 });

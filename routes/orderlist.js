@@ -12,7 +12,6 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)

@@ -129,15 +129,16 @@ h1{
   
 }
 
-<<<<<<< HEAD
 /*---- 404 styles ----*/
 
 .dropped-image{
   max-width: 100%;
 }
+/*
 .not-found-container{
 
 }
+*/
 .not-found-container h1 {
   text-align: center;
     position: relative;

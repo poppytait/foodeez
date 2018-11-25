@@ -9,24 +9,26 @@ const orderSchema = new Schema({
     type: Date
   },
   restaurantId: {
-    type: ObjectID,
+    type: String,
     ref: 'Restaurant'
   },
   userId: {
     type: ObjectID,
     ref: 'User'
   },
-  addressLine1: {
-    type: String
-  },
-  addressLine2: {
-    type: String
-  },
-  city: {
-    type: String
-  },
-  postcode: {
-    type: String
+  address: {
+    addressLine1: {
+      type: String
+    },
+    addressLine2: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    postcode: {
+      type: String
+    }
   },
   phoneNumber: {
     type: String

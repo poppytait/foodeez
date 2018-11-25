@@ -8,6 +8,7 @@
     "seed": "node ./bin/seed.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",

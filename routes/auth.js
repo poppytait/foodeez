@@ -21,6 +21,7 @@ router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
 /* POST sign up page */
 router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields, formMiddleware.isValidEmail, formMiddleware.isPasswordOver6Characters, (req, res, next) => {
   const { email, password } = req.body;
+  const isCustomer = true;
   User.findOne({ email })
     .then((user) => {
       if (user) {
@@ -32,7 +33,8 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
 
       User.create({
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        isCustomer
       })
         .then((newUser) => {
           req.session.currentUser = newUser;
@@ -60,7 +62,10 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
         req.flash('message-name', 'Email not registered'); // Email not registered
         return res.redirect('/auth/login');
       }
-      if (bcrypt.compareSync(password, user.password)) {
+      if (bcrypt.compareSync(password, user.password) && !user.isCustomer) {
+        req.session.currentUser = user;
+        res.redirect('/orderlist');
+      } else if (bcrypt.compareSync(password, user.password) && user.isCustomer) {
         req.session.currentUser = user;
         res.redirect('/order');
       } else {
@@ -99,9 +104,11 @@ router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requ
 
       User.create({
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        isCustomer: false
       })
         .then((newUser) => {
+          req.session.currentUser = newUser;
           Restaurant.create({
             restaurantName,
             foodType,

@@ -1,7 +1,11 @@
+{{> customerNavBar}}
+
+<div class="wrapper">
+<div class="formlogin new-order-container">
 <h1>New Order</h1>
 
 
-<form method="POST" action="/order/{{order._id}}" id="order">
+<form method="POST" action="/order/new" id="order">
 
 <!--############# Adress section #############-->
 <h2>Address</h2>
@@ -99,14 +103,4 @@
   </div>
 </form>
 
-<!--### budget slide ###-->
-<h3>Budget</h3>
-<input class ="budgetslider" type="range" min="0" max="100" value="50" steps="10" onChange="sliderChange(this.value)">
-<br>
-Max price: <span id="sliderStatus">50</span>
 
-<script type="text/javascript">
-const sliderChange = val => {
-  document.getElementById('sliderStatus').innerHTML = val;
-}
-</script>

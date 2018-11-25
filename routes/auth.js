@@ -19,7 +19,7 @@ router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
 });
 
 /* POST sign up page */
-router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields, (req, res, next) => {
+router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields, formMiddleware.isValidEmail, formMiddleware.isPasswordOver6Characters, (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email })
     .then((user) => {
@@ -52,7 +52,7 @@ router.get('/login', authMiddleware.requireAnon, (req, res, next) => {
 });
 
 /* POST log in page */
-router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, (req, res, next) => {
+router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, formMiddleware.isValidEmail, formMiddleware.isPasswordOver6Characters, (req, res, next) => {
   const { email, password } = req.body;
   User.findOne({ email })
     .then(user => {
@@ -79,15 +79,19 @@ router.post('/logout', authMiddleware.requireUser, (req, res, next) => {
 
 /* GET restaurant sign up page */
 router.get('/restaurantSignup', authMiddleware.requireAnon, (req, res, next) => {
-  res.render('auth/restaurantSignup', { title: 'Register' });
+  const data = {
+    messages: req.flash('message-name')
+  };
+  res.render('auth/restaurantSignup', data);
 });
 
 /* POST restaurant sign up page */
-router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requireFields, (req, res, next) => {
+router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requireFields, formMiddleware.isValidEmail, formMiddleware.isPasswordOver6Characters, (req, res, next) => {
   const { restaurantName, foodType, email, password } = req.body;
   User.findOne({ email })
     .then((user) => {
       if (user) {
+        req.flash('message-name', 'Email already used');
         return res.redirect('/auth/login');
       }
       const salt = bcrypt.genSaltSync(saltRounds);

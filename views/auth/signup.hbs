@@ -1,21 +1,26 @@
-<h1>Sign Up</h1>
+<div class="wrapper">
+<div class="formlogin">
+<a href="/" class="cross"><i class="fas fa-times"></i></a>
+<h1>Register to foodeez</h1>
 <p>Are you a restaurant? Click <a href="/auth/restaurantSignup">here</a>.</p>
 
 <form method="POST" action="/auth/signup">
-
+  <div class="inputs">
   <div class="field" >
-    <label>Email</label>
-    <input type="text" name="email"/>
+    <label class="email-password-titles">Email</label>
+    <input class="login-info" type="text" name="email"/>
   </div>
 
   <div class="field" >
-    <label>Password</label>
-    <input type="password" name="password"/>
+    <label class="email-password-titles">Password</label>
+    <input class="login-info" type="password" name="password"/>
   </div>
-
+</div>
   {{> errorMessages}}
 
   <div class="field submit">
-    <button type="submit">Sign up</button>
+    <button class="submit-btn" type="submit">Sign up</button>
   </div>
 </form>
+</div>
+</div>

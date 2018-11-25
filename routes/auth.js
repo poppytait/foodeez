@@ -108,7 +108,6 @@ router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requ
         isCustomer: false
       })
         .then((newUser) => {
-          req.session.currentUser = newUser;
           Restaurant.create({
             restaurantName,
             foodType,
@@ -116,6 +115,7 @@ router.post('/restaurantSignup', authMiddleware.requireAnon, formMiddleware.requ
           });
         })
         .then(() => {
+          //  req.session.currentUser = newUser;
           res.redirect('/orderlist');
         })
         .catch(next);

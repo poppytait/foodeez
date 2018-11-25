@@ -1,22 +1,26 @@
-<h1>Log in</h1>
-<p>New to foodeez? <a href="/auth/signup">Sign up</a>.</p>
+<div class="wrapper">
+<div class="formlogin">
+<h1 id="h1">Welcome back</h1>
+  <p>New to foodeez? <a href="/auth/signup">Sign up</a>.</p> 
+  
 
-<form method="POST" action="/auth/login">
+  <form method="POST" action="/auth/login">
+    <div class="inputs">
+    <div class="field" >
+      <label class="email-password-titles"">Email</label>
+      <input id="login-info" type="text" name="email"/>
+    </div>
 
-  <div class="field" >
-    <label>Email</label>
-    <input type="text" name="email"/>
-  </div>
+    <div class="field" >
+      <label class="email-password-titles">Password</label>
+      <input id="login-info" type="password" name="password"/>
+    </div>
+</div>
+    {{> errorMessages}}
 
-  <div class="field" >
-    <label>Password</label>
-    <input type="password" name="password"/>
-  </div>
-
-  {{> errorMessages}}
-
-  <div class="field submit">
-    <button type="submit">Log in</button>
-  </div>
-</form>
+    <div class="field submit">
+      <button class ="submit-btn" type="submit">Log in</button>
+    </div>
+  </form>
+</div>
 </div>

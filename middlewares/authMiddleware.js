@@ -3,7 +3,7 @@
 const authMiddleware = {}; // We create an empty object and then we modify it
 
 authMiddleware.requireAnon = (req, res, next) => { // requireAnon is the name of the function
-  if (req.session.currentUser) { // If the user is loged in, redirect him to / page
+  if (req.session.currentUser) { // If the user is logged in, redirect him to / page
     return res.redirect('/');
   }
   next();

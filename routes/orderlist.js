@@ -3,7 +3,7 @@ const router = express.Router();
 const Order = require('../models/order');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
   Order.find({ userId: req.session.currentUser })
     .then((result) => {
       console.log(result);

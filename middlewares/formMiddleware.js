@@ -11,4 +11,28 @@ formMiddleware.requireFields = (req, res, next) => { // requireFields is the nam
   next();
 };
 
+formMiddleware.isValidEmail = (req, res, next) => {
+  const { email } = req.body;
+
+  const validateEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+  if (!validateEmail(email)) {
+    req.flash('message-name', 'Email must be valid');
+    return res.redirect(`/auth${req.path}`);
+  }
+  next();
+};
+
+formMiddleware.isPasswordOver6Characters = (req, res, next) => {
+  const { password } = req.body;
+
+  if (password.length < 6) {
+    req.flash('message-name', 'Password must be more than 6 characters');
+    return res.redirect(`/auth${req.path}`);
+  }
+  next();
+};
+
 module.exports = formMiddleware;

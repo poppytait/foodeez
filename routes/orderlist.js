@@ -51,7 +51,19 @@ router.post('/:id/edit', (req, res, next) => {
     budget,
     numberOfFoodeez
   } = req.body;
-  Order.findByIdAndUpdate(id, { $set: req.body })
+  Order.findByIdAndUpdate(id, { $set: {
+    address: {
+      addressLine1,
+      addressLine2,
+      city,
+      postcode
+    },
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez } })
     .then(() => {
       res.redirect('/orderlist');
     })

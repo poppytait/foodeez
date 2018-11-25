@@ -4,8 +4,8 @@
   {{#each orders}}
   <ul>
   <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
-  <li>Address Line 1: {{this.addressLine1}}</li>
-  <li>Address Line 2: {{this.addressLine2}}</li>
+  <li>Address Line 1: {{this.address.addressLine1}}</li>
+  <li>Address Line 2: {{this.address.addressLine2}}</li>
   <li>Phone Number{{this.phoneNumber}}</li>
   <li>Allergies:{{this.allergies}} </li>
   <li>Dietary Requirements:{{this.dietaryRequirements}} </li>

@@ -1,36 +1,33 @@
-<h1>New Order</h1>
+<h1>Edit Order</h1>
 
-
-<form method="POST" action="/order/new" id="order">
+<form method="POST" action="/orderlist/{{order._id}}/edit" id="order"></form>
 
 <!--############# Adress section #############-->
-<h2>Address</h2>
   <div class="field" >
     <label>Address Line 1:</label>
-    <input type="text" name="addressLine1"/>
+    <input type="text" name="addressLine1" value="{{order.address.addressLine1}}"/>
   </div>
   <div class="field" >
     <label>Address Line 2:</label>
-    <input type="text" name="addressLine2"/>
+    <input type="text" name="addressLine2" value="{{order.address.addressLine2}}" />
   </div>
   <div class="field" >
     <label>City</label>
-    <input type="text" name="city"/>
+    <input type="text" name="city" value="{{order.address.city}}"/>
   </div>
 
   <div class="field" >
     <label>Postcode</label>
-    <input type="text" name="postcode"/>
+    <input type="text" name="postcode" value="{{order.address.postcode}}"/>
   </div>
 
   <div class="field" >
     <label>Phone Number</label>
-    <input type="text" name="phoneNumber"/>
+    <input type="text" name="phoneNumber" value="{{order.phoneNumber}}"/>
   </div>
 
 
 <!--############# Food Select section #############-->
-<h2>Anything you don't want?</h2>
 
 <input type="checkbox" id="american" value="american" name="undesiredFoodType"
          checked>
@@ -65,35 +62,27 @@
   <label for="mexican">Mexican</label>
 
 <!--############# Allergies #############-->
-
-<h3>Allergys</h3>
-
 <div class="field" >
-    <label>Allergies?</label>
-    <input type="text" name="allergies"/>
+    <label>Allergies</label>
+    <input type="text" name="allergies" value={{order.allergies}}/>
 </div>
 <!--############# Dietry requirements #############-->
 
-<h3>Dietary requirements</h3>
-
 <div class="field" >
-    <label>What are your dietary requirements?</label>
-    <input type="text" name="dietaryRequirements"/>
+    <label>dietary requirements</label>
+    <input type="text" name="dietaryRequirements" value={{order.dietaryRequirements}}/>
 </div>
 
 
 <!--############# budget #############-->
 
-<h3>Budget</h3>
 
-<input type="range" min="10" max="100" value="50" name="budget">
+<input type="range" min="10" max="100" value="50" name="budget"  value={{order.budget}}>
 
 <!--############# Quantity #############-->
-
-<h3>How Many Are You?</h3>
-<input type="range" min="1" max="8" value="2" name="numberOfFoodeez">
+<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value={{order.numberOfFoodeez}}>
 
   <div class="field submit">
-    <button type="submit">Order</button>
+    <button type="submit">Edit</button>
   </div>
 </form>

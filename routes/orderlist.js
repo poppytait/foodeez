@@ -25,14 +25,25 @@ router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
-      res.render('order/order-details', { order: result });
+      res.render('order/order-edit', { order: result });
     })
     .catch(next);
 });
 
 router.post('/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  const { name, occupation, catchPhrase } = req.body;
+  const {
+    addressLine1,
+    addressLine2,
+    city,
+    postcode,
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez
+  } = req.body;
   Order.findByIdAndUpdate(id, { $set: req.body })
     .then(() => {
       res.redirect('/orderlist');

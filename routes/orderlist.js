@@ -39,10 +39,34 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  Order.findByIdAndUpdate(id, { $set: req.body })
-    .then(() => {
-      res.redirect('/orderlist');
-    })
+  const {
+    addressLine1,
+    addressLine2,
+    city,
+    postcode,
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez
+  } = req.body;
+  Order.findByIdAndUpdate(id, { $set: {
+    address: {
+      addressLine1,
+      addressLine2,
+      city,
+      postcode
+    },
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    numberOfFoodeez } })
+    .then((result) => {
+        res.redirect('/orderlist');
+       })
     .catch(next);
 });
 

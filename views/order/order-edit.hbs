@@ -29,36 +29,36 @@
 
 <!--############# Food Select section #############-->
 
-<input type="checkbox" id="american" value="american" name="undesiredFoodType"
-         checked>
+<input type="checkbox" id="{{order.undesiredFoodType}}" value="american" class="selectedFoods" name="undesiredFoodType"
+         unchecked>
   <label for="american">American</label>
 
 <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="chinese">chinese</label>
 
   <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="spanish">Spanish</label>
 
   <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="indian">Indian</label>
 
   <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="italian">Italian</label>
 
   <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="japanese">Japanese</label>
 
   <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="turkish">Turkish</label>
 
   <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
-         checked>
+         unchecked>
   <label for="mexican">Mexican</label>
 
 <!--############# Allergies #############-->
@@ -86,3 +86,33 @@
     <button type="submit">Edit</button>
   </div>
 </form>
+<script>
+     const checkBoxes = () => {
+         
+    
+    const topList = document.querySelector('.selectedFoods');
+    const checkOptions = document.getElementsByTagName('input');
+
+    
+    let foodOptions = topList.getAttribute('id');
+    
+    foodOptions = foodOptions.split(',')
+    
+
+    for (let i = 0; i < foodOptions.length; i++) {
+        let foodOption = foodOptions[i]
+        for(let i = 0; i < checkOptions.length; i++){
+                console.log(foodOption);
+            console.log(checkOptions[i].value);
+
+            if(checkOptions[i].value === foodOption){
+               checkOptions[i].checked = true;
+                
+            }
+        }
+        }
+       
+    }
+
+  checkBoxes();
+</script>

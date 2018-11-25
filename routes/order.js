@@ -1,3 +1,4 @@
+
 'use strict';
 
 const express = require('express');
@@ -5,7 +6,7 @@ const router = express.Router();
 // const User = require('../models/user');
 const Order = require('../models/order');
 const authMiddleware = require('../middlewares/authMiddleware');
-const formMiddleware = require('../middlewares/formMiddleware');
+// const formMiddleware = require('../middlewares/formMiddleware');
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {

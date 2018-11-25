@@ -129,15 +129,17 @@ h1{
   
 }
 
-
 /*---- 404 styles ----*/
 
 .dropped-image{
-  max-width: 100%;
+  max-width: 75%;
+  text-align: center;
 }
+/*
 .not-found-container{
 
 }
+*/
 .not-found-container h1 {
   text-align: center;
     position: relative;
@@ -194,19 +196,7 @@ form .field.has-error label {
 }
 form .field.has-error input {
 	border: 1px solid  red;
-
-/* Error images */
 }
-.client-error-image {
-  width:100%;
-}
-
-.server-error-image {
-  width:100%;
-
-}
-
-
 
 /* Log in pages */
 

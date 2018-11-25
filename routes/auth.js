@@ -21,6 +21,7 @@ router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
 /* POST sign up page */
 router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields, formMiddleware.isValidEmail, formMiddleware.isPasswordOver6Characters, (req, res, next) => {
   const { email, password } = req.body;
+  const isCustomer = true;
   User.findOne({ email })
     .then((user) => {
       if (user) {
@@ -33,7 +34,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFields,
       User.create({
         email,
         password: hashedPassword,
-        isCustomer: true
+        isCustomer
       })
         .then((newUser) => {
           req.session.currentUser = newUser;
@@ -64,11 +65,10 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
       if (bcrypt.compareSync(password, user.password) && !user.isCustomer) {
         req.session.currentUser = user;
         res.redirect('/orderlist');
-      } else if (bcrypt.compareSync(password, user.password) && user.isCustomer){
+      } else if (bcrypt.compareSync(password, user.password) && user.isCustomer) {
         req.session.currentUser = user;
         res.redirect('/order');
-      }
-      else {
+      } else {
         req.flash('message-name', 'Email or password is not correct'); // Email or password is not correct
         res.redirect('/auth/login');
       }

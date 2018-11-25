@@ -1,34 +1,40 @@
 <h1>Order list</h1>
 <div>
-<ul>
-  {{#each orders}}
   <ul>
-  <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
-  <li>Address Line 1: {{this.address.addressLine1}}</li>
-  <li>Address Line 2: {{this.address.addressLine2}}</li>
-  <li>Phone Number{{this.phoneNumber}}</li>
-  <li>Allergies:{{this.allergies}} </li>
-  <li>Dietary Requirements:{{this.dietaryRequirements}} </li>
-  <li>Budget: {{this.budget}}</li>
-  <a href="/orderlist/{{this._id}}/edit">
-<button>Edit Order</button>
-</a>
+    {{#each orders}}
+    <ul>
+      <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
+      <li>Address Line 1: {{this.address.addressLine1}}</li>
+      <li>Address Line 2: {{this.address.addressLine2}}</li>
+      <li>Phone Number{{this.phoneNumber}}</li>
+      <li>Allergies:{{this.allergies}} </li>
+      <li>Dietary Requirements:{{this.dietaryRequirements}} </li>
+      <li>Budget: {{this.budget}}</li>
+      {{#if currentUser.isCustomer}}
+      <a href="/orderlist/{{this._id}}/edit">
+        <button>Edit Order</button>
+      </a>
+      {{/if}}
+      {{#unless currentUser.isCustomer}}
+      <a href="/orderlist/{{this._id}}/view">
+        <button>View Order</button>
+      </a>
+      {{/unless}}
+    </ul>
+    {{/each}}
   </ul>
-  {{/each}}
-</ul>
 </div>
 
-{{!--   addressLine1
-   
-  addressLine2
-  city
-  postcode
-  phoneNumber
-  allergies
-  dietaryRequirements:
-  budget
-  price
-  numberOfFoodeez
-  willServe: {
-  isCompleted --}}
- 
+{{!-- addressLine1
+
+addressLine2
+city
+postcode
+phoneNumber
+allergies
+dietaryRequirements:
+budget
+price
+numberOfFoodeez
+willServe: {
+isCompleted --}}

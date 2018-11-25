@@ -3,8 +3,9 @@
 
 const express = require('express');
 const router = express.Router();
-// const User = require('../models/user');
+const User = require('../models/user');
 const Order = require('../models/order');
+const Restaurant = require('../models/restaurant');
 const authMiddleware = require('../middlewares/authMiddleware');
 // const formMiddleware = require('../middlewares/formMiddleware');
 
@@ -44,8 +45,18 @@ router.post('/new', authMiddleware.requireUser, (req, res, next) => {
     dietaryRequirements,
     budget,
     numberOfFoodeez })
-    .then(result => {
-      res.redirect('/order/' + result._id); // Redirect to /order/:order_id
+    .then(orderResult => {
+      const orderId = orderResult._id;
+      Restaurant.find({ foodType: { $nin: [orderResult.undesiredFoodType] } })
+        .then((restaurantResult) => {
+          const randomRestaurant = Math.floor(Math.random() * restaurantResult.length);
+          Order.findByIdAndUpdate(orderId, { $set: { restaurantId: restaurantResult[randomRestaurant]._id } })
+            .then((result) => {
+              res.redirect('/order/' + result._id); // Redirect to /order/:order_id
+            })
+            .catch(next);
+        })
+        .catch(next);
     })
     .catch(next);
 });

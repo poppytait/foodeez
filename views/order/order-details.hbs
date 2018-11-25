@@ -1,10 +1,29 @@
-  <h1>Order Details</h1>
-  <ul>
+<h1>Order Details</h1>
+<ul>
   <li>Order Id: {{order._id}}</li>
   <li>Address Line 1: {{order.address.addressLine1}}</li>
   <li>Address Line 2: {{order.address.addressLine2}}</li>
-  <li>Phone Number{{order.phoneNumber}}</li>
-  <li>Allergies:{{order.allergies}} </li>
-  <li>Dietary Requirements:{{order.dietaryRequirements}} </li>
+  <li>Phone Number: {{order.phoneNumber}}</li>
+  <li>Allergies: {{order.allergies}} </li>
+  <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
-  </ul>
+  {{#if currentUser.isCustomer}}
+  <form method="POST" action="/orderlist/{{order._id}}/delete">
+    <div class="field submit">
+      <button type="submit">Delete Order</button>
+    </div>
+  </form>
+  {{/if}}
+  {{#unless currentUser.isCustomer}}
+  <div class="field">
+    <label>Price</label>
+    <input type="number" name="price" />
+  </div>
+  <a href="/orderlist/{{order._id}}/accept">
+    <button>Accept Order</button>
+  </a>
+  <a href="/orderlist/{{order._id}}/reject">
+    <button>Reject Order</button>
+  </a>
+  {{/unless}}
+</ul>

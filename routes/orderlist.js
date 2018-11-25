@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/order');
 
-/* GET home page. */
+/* GET orderlist page. */
 router.get('/', (req, res, next) => {
   if (req.session.currentUser.isCustomer) {
     Order.find({ userId: req.session.currentUser })
@@ -28,6 +28,7 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(next);
 });
+
 router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
@@ -67,6 +68,26 @@ router.post('/:id/edit', (req, res, next) => {
     .then((result) => {
         res.redirect('/orderlist');
        })
+    .catch(next);
+});
+
+/* GET view order page (restaurant user) */
+router.get('/:id/view', (req, res, next) => {
+  const id = req.params.id;
+  Order.findById(id)
+    .then((result) => {
+      res.render('order/order-details', { order: result });
+    })
+    .catch(next);
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  console.log('Hello');
+  const id = req.params.id;
+  Order.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect('/orderlist');
+    })
     .catch(next);
 });
 

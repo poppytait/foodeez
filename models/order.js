@@ -9,7 +9,7 @@ const orderSchema = new Schema({
     type: Date
   },
   restaurantId: {
-    type: ObjectID,
+    type: String,
     ref: 'Restaurant'
   },
   userId: {

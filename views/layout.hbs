@@ -8,22 +8,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Niramit|Righteous" rel="stylesheet">
 </head>
 
 <body>
   {{#if currentUser}}
-  <nav>
-    
+
+  
+ {{!--  <nav>
     <ul>
-      
       <li>
         <form action="/auth/logout" method="POST">
           <button type="submit">Logout</button>
         </form>
       </li>
-      
     </ul>
-  </nav>
+  </nav> --}}
+  
   {{/if}}
   {{{body}}}
   <script src="/javascripts/main.js"></script>

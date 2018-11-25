@@ -88,6 +88,7 @@
 
 <input type="range" min="10" max="100" value="50" name="budget">
 
+
 <!--############# Quantity #############-->
 
 <h3>How Many Are You?</h3>
@@ -97,3 +98,15 @@
     <button type="submit">Order</button>
   </div>
 </form>
+
+<!--### budget slide ###-->
+<h3>Budget</h3>
+<input class ="budgetslider" type="range" min="0" max="100" value="50" steps="10" onChange="sliderChange(this.value)">
+<br>
+Max price: <span id="sliderStatus">50</span>
+
+<script type="text/javascript">
+const sliderChange = val => {
+  document.getElementById('sliderStatus').innerHTML = val;
+}
+</script>

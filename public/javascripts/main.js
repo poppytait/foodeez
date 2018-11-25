@@ -1,5 +1,7 @@
 'use strict';
 
+console.log('linked');
+
 const main = () => {
   const toggleMenu = () => {
     document.querySelector('.dropdown-content').classList.toggle('menuToggle');

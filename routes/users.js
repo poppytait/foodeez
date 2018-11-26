@@ -8,20 +8,31 @@ router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 
-router.get('/profile', (req, res, next) => {
-  const data = {
-    messages: req.flash('message-name')
-  };
-  res.render('users/profile', data);
+router.get('/viewProfile', (req, res, next) => {
+  res.render('users/viewProfile');
 });
 
-router.post('/profile', authMiddleware.requireUser, (req, res, next) => {
-  const { addressLine1, addressLine2, city, postcode, phoneNumber } = req.body;
-  const email = req.session.currentUser.email;
+router.get('/editProfile', (req, res, next) => {
+  const user = req.session.currentUser;
 
-  User.findOneAndUpdate({ email: email }, { address: { addressLine1: addressLine1, addressLine2: addressLine2, city: city, postcode: postcode } })
-    .then(() => {
-      req.flash('message-name', 'Your changes have been updated');
+  const data = {
+    messages: req.flash('message-name'),
+    user
+  };
+  res.render('users/editProfile', data);
+});
+
+router.post('/editProfile', authMiddleware.requireUser, (req, res, next) => {
+  const { addressLine1, addressLine2, city, postcode, phoneNumber, allergies, dietaryRequirements } = req.body;
+  const userId = req.session.currentUser._id;
+
+  User.findByIdAndUpdate(userId, { address: { addressLine1, addressLine2, city, postcode }, phoneNumber, allergies, dietaryRequirements }, { new: true })
+    .then((user) => {
+      req.session.currentUser = user;
+      console.log(user);
+      // req.session.currentUser
+      // req.flash('message-name', 'Your changes have been updated');
+      res.redirect('/users/viewProfile');
     })
     .catch(next);
 });

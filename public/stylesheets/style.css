@@ -420,3 +420,8 @@ form .field.has-error input {
   opacity: 1;
 }
 
+.validation {
+  list-style-type: none;
+  -webkit-transform: translateX(-40px);
+  transform: translateX(-40px); /* 40px to the left */
+}

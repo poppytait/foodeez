@@ -66,8 +66,8 @@ router.post('/:id/edit', (req, res, next) => {
     budget,
     numberOfFoodeez } })
     .then((result) => {
-        res.redirect('/orderlist');
-       })
+      res.redirect('/orderlist');
+    })
     .catch(next);
 });
 

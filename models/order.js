@@ -17,41 +17,30 @@ const orderSchema = new Schema({
     ref: 'User'
   },
   address: {
-    addressLine1: {
-      type: String
-    },
-    addressLine2: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    postcode: {
-      type: String
-    }
+    addressLine1: String,
+
+    addressLine2: String,
+
+    city: String,
+
+    postcode: String
   },
-  phoneNumber: {
-    type: String
-  },
-  undesiredFoodType: {
-    type: Array
-  },
-  allergies: {
-    type: String
-  },
-  dietaryRequirements: {
-    type: String
-    // enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian']
-  },
-  budget: {
-    type: Number
-  },
-  price: {
-    type: Number
-  },
-  numberOfFoodeez: {
-    type: Number
-  },
+
+  phoneNumber: String,
+
+  undesiredFoodType: Array,
+
+  allergies: String,
+
+  dietaryRequirements: String,
+  // enum: ['Gluten-free', 'Halal', 'Kosher', 'Lactose-free', 'Pescatarian', 'Vegan', 'Vegetarian']
+
+  budget: Number,
+
+  price: Number,
+
+  numberOfFoodeez: Number,
+
   willServe: {
     type: Boolean,
     default: null

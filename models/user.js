@@ -25,7 +25,13 @@ const userSchema = new Schema({
     city: String,
 
     postcode: String
-  }
+  },
+
+  phoneNumber: String,
+
+  allergies: String,
+
+  dietaryRequirements: String
 
 });
 

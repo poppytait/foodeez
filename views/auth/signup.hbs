@@ -1,27 +1,27 @@
 <div class="wrapper">
-<div class="formlogin">
-<a href="/" class="cross"><i class="fas fa-times"></i></a>
-<h1>Register to foodeez</h1>
-<p>Are you a restaurant? Click <a href="/auth/restaurantSignup">here</a>.</p>
+  <div class="formlogin">
+    <a href="/" class="cross"><i class="fas fa-times"></i></a>
+    <h1>Register to foodeez</h1>
+    <p>Are you a restaurant? Click <a href="/auth/restaurantSignup">here</a>.</p>
 
-<form method="POST" action="/auth/signup">
-  <div class="inputs">
-  <div class="field" >
-    <label class="email-password-titles">Email</label>
-    <input class="login-info" type="text" name="email"/>
+    <form method="POST" action="/auth/signup">
+      <div class="inputs">
+        <div class="field">
+          <label class="email-password-titles">Email</label>
+          <input class="login-info" type="text" name="email" />
+        </div>
+
+        <div class="field">
+          <label class="email-password-titles">Password</label>
+          <input class="login-info" type="password" name="password" />
+        </div>
+      </div>
+
+      {{> errorMessages}}
+
+      <div class="field submit">
+        <button class="submit-btn" type="submit">Sign up</button>
+      </div>
+    </form>
   </div>
-
-  <div class="field" >
-    <label class="email-password-titles">Password</label>
-    <input class="login-info" type="password" name="password"/>
-  </div>
-</div>
-
-  {{> errorMessages}}
-
-  <div class="field submit">
-    <button class="submit-btn" type="submit">Sign up</button>
-  </div>
-</form>
-</div>
 </div>

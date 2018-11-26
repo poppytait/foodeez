@@ -16,6 +16,4 @@ authMiddleware.requireUser = (req, res, next) => { // requireUser is the name of
   next();
 };
 
-
-
 module.exports = authMiddleware;

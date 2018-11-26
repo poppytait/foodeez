@@ -1,24 +1,32 @@
+{{> customerNavBar}}
+
 <h1>Order list</h1>
 <div>
   <ul>
+
     {{#each orders}}
+
     <ul>
       <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
       <li>Address Line 1: {{this.address.addressLine1}}</li>
       <li>Address Line 2: {{this.address.addressLine2}}</li>
-      <li>Phone Number{{this.phoneNumber}}</li>
-      <li>Allergies:{{this.allergies}} </li>
-      <li>Dietary Requirements:{{this.dietaryRequirements}} </li>
+      <li>Phone Number: {{this.phoneNumber}}</li>
+      <li>Allergies: {{this.allergies}} </li>
+      <li>Dietary Requirements: {{this.dietaryRequirements}} </li>
       <li>Budget: {{this.budget}}</li>
-      {{#if currentUser.isCustomer}}
-      <a href="/orderlist/{{this._id}}/edit">
-        <button>Edit Order</button>
-      </a>
-      {{/if}}
-      {{#unless currentUser.isCustomer}}
+      {{#unless this.userId.isCustomer}}
       <a href="/orderlist/{{this._id}}/view">
         <button>View Order</button>
       </a>
+      {{else}}
+      <a href="/orderlist/{{this._id}}/edit">
+        <button>Edit Order</button>
+      </a>
+      <form method="POST" action="/orderlist/{{this._id}}/delete">
+        <div class="field submit">
+          <button type="submit">Delete Order</button>
+        </div>
+      </form>
       {{/unless}}
     </ul>
     {{/each}}

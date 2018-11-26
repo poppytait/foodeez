@@ -3,32 +3,49 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Restaurant = require('../models/restaurant');
-const Order = require('../models/order');
+// const Order = require('../models/order');
+// const ObjectId = require('mongoose').Types.ObjectId;
 
 // -- bcrypt
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-mongoose.connect('mongodb://localhost/foodeez', {
-  keepAlive: true,
-  useNewUrlParser: true,
-  reconnectTries: Number.MAX_VALUE
-});
+mongoose.connect(
+  'mongodb://localhost/foodeez',
+  {
+    keepAlive: true,
+    useNewUrlParser: true,
+    reconnectTries: Number.MAX_VALUE
+  }
+);
 
 // Users seed
 const customers = [
   {
     email: 'jackwatk@hotmail.co.uk',
-    password: 'jack'
+    password: '123456',
+    isCustomer: true,
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: 'Bajos',
+      city: 'Barcelona',
+      postcode: '08018'
+    }
   },
   {
     email: 'georgia@hotmail.co.uk',
-    password: 'georgia'
+    password: '123456',
+    isCustomer: true,
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: '1º 2ª',
+      city: 'Barcelona',
+      postcode: '08018'
+    }
   }
-
 ];
 
-customers.forEach((customer) => {
+customers.forEach(customer => {
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(customer.password, salt);
   customer.password = hashedPassword;
@@ -47,16 +64,16 @@ User.create(customers)
 const restauranteurs = [
   {
     email: 'chinese@gmail.com',
-    password: 'chinese'
+    password: '123456',
+    isCustomer: false
   },
   {
     email: 'mexican@gmail.com',
-    password: 'mexican'
+    password: '123456',
+    isCustomer: false
   }
-]
-;
-
-restauranteurs.forEach((restauranteurs) => {
+];
+restauranteurs.forEach(restauranteurs => {
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(restauranteurs.password, salt);
   restauranteurs.password = hashedPassword;
@@ -65,11 +82,11 @@ restauranteurs.forEach((restauranteurs) => {
 const restaurants = [
   {
     restaurantName: 'China King',
-    foodType: 'Chinese'
+    foodType: 'chinese'
   },
   {
     restaurantName: 'Mexican Madness',
-    foodType: 'Mexican'
+    foodType: 'mexican'
   }
 ];
 
@@ -78,7 +95,7 @@ for (let i = 0; i < restauranteurs.length; i++) {
   const restaurantFoodType = restaurants[i].foodType;
 
   User.create(restauranteurs[i])
-    .then((restauranteur) => {
+    .then(restauranteur => {
       Restaurant.create({
         restaurantName: restaurantName,
         foodType: restaurantFoodType,
@@ -92,71 +109,88 @@ for (let i = 0; i < restauranteurs.length; i++) {
 }
 
 // Order seed
-
+/*
 const orders = [
   {
-    undesiredFoodType: [
-      'spanish',
-      'indian'
-    ],
-    willServe: null,
-    addressLine1: 'Pamplona 96',
-    addressLine2: 'Bajos',
-    budget: 50,
-    city: 'Barcelona',
-    dietaryRequirements: 'Gluten-free',
-    numberOfFoodeez: 2,
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: 'Bajos',
+      city: 'Barcelona',
+      postcode: '08018'
+    },
     phoneNumber: '612345678',
-    postcode: '08018'
+    undesiredFoodType: ['spanish', 'indian'],
+    allergies: 'Peanuts',
+    dietaryRequirements: 'Gluten-free',
+    budget: 50,
+    price: null,
+    numberOfFoodeez: 2,
+    willServe: null,
+    isCompleted: false
   },
   {
-    undesiredFoodType: [
-      'italian',
-      'indian'
-    ],
-    willServe: null,
-    addressLine1: 'Pamplona 96',
-    addressLine2: '1º 2ª',
-    budget: 30,
-    city: 'Barcelona',
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: '1º 2ª',
+      city: 'Barcelona',
+      postcode: '08018'
+    },
+    phoneNumber: '612345678',
+    undesiredFoodType: ['italian', 'american'],
+    allergies: 'Apples',
     dietaryRequirements: 'Halal',
-    numberOfFoodeez: 1,
-    phoneNumber: '612345679',
-    postcode: '08018'
+    budget: 30,
+    price: null,
+    numberOfFoodeez: 2,
+    willServe: null,
+    isCompleted: false
   }
 ];
 
 for (let i = 0; i < orders.length; i++) {
   const timestamp = Date();
-  const undesiredFoodType = orders[i].undesiredFoodType;
-  const willServe = orders[i].willServe;
+  const restaurantId = ObjectId(restaurants[i]._id);
+  const userId = ObjectId(customers[i]._id);
   const addressLine1 = orders[i].addressLine1;
   const addressLine2 = orders[i].addressLine2;
-  const budget = orders[i].budget;
   const city = orders[i].addressLine1;
-  const dietaryRequirements = orders[i].dietaryRequirements;
-  const numberOfFoodeez = orders[i].numberOfFoodeez;
-  const phoneNumber = orders[i].phoneNumber;
   const postcode = orders[i].postcode;
+  const phoneNumber = orders[i].phoneNumber;
+  const undesiredFoodType = orders[i].undesiredFoodType;
+  const allergies = orders[i].allergies;
+  const dietaryRequirements = orders[i].dietaryRequirements;
+  const budget = orders[i].budget;
+  const price = orders[i].price;
+  const numberOfFoodeez = orders[i].numberOfFoodeez;
+  const willServe = orders[i].willServe;
+  const isCompleted = orders[i].isCompleted;
 
-  Order.create(orders[i])
-    .then((order) => {
-      Order.create({
-        timestamp,
-        undesiredFoodType,
-        willServe,
-        addressLine1,
-        addressLine2,
-        budget,
-        city,
-        dietaryRequirements,
-        numberOfFoodeez,
-        phoneNumber,
-        postcode
-      });
+  Order.create({
+    timestamp,
+    restaurantId,
+    userId,
+    address: {
+      addressLine1,
+      addressLine2,
+      city,
+      postcode
+    },
+    phoneNumber,
+    undesiredFoodType,
+    allergies,
+    dietaryRequirements,
+    budget,
+    price,
+    numberOfFoodeez,
+    willServe,
+    isCompleted
+  })
+    .then(() => {
       console.log('order created');
     })
     .catch(error => {
       console.error(error);
     });
 }
+
+*/

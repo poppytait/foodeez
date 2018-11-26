@@ -12,7 +12,7 @@ For headers: font-family: 'Righteous', cursive;
 
 */
 
-h1, h2, h3 { 
+h1, h2, h3, p { 
   font-family: 'Righteous', cursive;
 }
 
@@ -49,7 +49,7 @@ ul {
 a:hover {
   color: #08b9ff80;
 }
-h1{
+h1, p{
   text-align: center;
 }
 /* Nav bar home page */
@@ -448,3 +448,8 @@ form .field.has-error input {
   opacity: 1;
 }
 
+.validation {
+  list-style-type: none;
+  -webkit-transform: translateX(-40px);
+  transform: translateX(-40px); /* 40px to the left */
+}

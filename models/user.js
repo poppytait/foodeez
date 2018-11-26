@@ -16,7 +16,22 @@ const userSchema = new Schema({
   isCustomer: {
     type: Boolean,
     required: true
-  }
+  },
+  address: {
+    addressLine1: String,
+
+    addressLine2: String,
+
+    city: String,
+
+    postcode: String
+  },
+
+  phoneNumber: String,
+
+  allergies: String,
+
+  dietaryRequirements: String
 
 });
 

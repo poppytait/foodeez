@@ -1,4 +1,3 @@
-
 'use strict';
 
 const express = require('express');
@@ -11,7 +10,10 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
-  res.render('order/order');
+  const user = req.session.currentUser;
+  console.log(user);
+
+  res.render('order/order', user.address);
 });
 
 /* POST order page */

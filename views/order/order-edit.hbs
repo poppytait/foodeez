@@ -1,110 +1,127 @@
-<h1>Edit Order</h1>
+{{> customerNavBar}}
 
-<form method="POST" action="/orderlist/{{order._id}}/edit" id="order">
+<div class="wrapper">
+  <div class="formlogin new-order-container">
+    <h1>Edit Order</h1>
 
-  <!--############# Adress section #############-->
-  <div class="field">
-    <label>Address Line 1:</label>
-    <input type="text" name="addressLine1" value="{{order.address.addressLine1}}" />
-  </div>
-  <div class="field">
-    <label>Address Line 2:</label>
-    <input type="text" name="addressLine2" value="{{order.address.addressLine2}}" />
-  </div>
-  <div class="field">
-    <label>City</label>
-    <input type="text" name="city" value="{{order.address.city}}" />
-  </div>
+    <form method="POST" action="/orderlist/{{order._id}}/edit" id="order">
 
-  <div class="field">
-    <label>Postcode</label>
-    <input type="text" name="postcode" value="{{order.address.postcode}}" />
-  </div>
+      <!--############# Adress section #############-->
+      <div class="field"></div>
+      <h2>Address</h2>
+      <div class="field">
+        <label>Address Line 1:</label>
+        <input type="text" name="addressLine1" value="{{order.address.addressLine1}}" />
+      </div>
+      <div class="field">
+        <label>Address Line 2:</label>
+        <input type="text" name="addressLine2" value="{{order.address.addressLine2}}" />
+      </div>
+      <div class="field">
+        <label>City</label>
+        <input type="text" name="city" value="{{order.address.city}}" />
+      </div>
 
-  <div class="field">
-    <label>Phone Number</label>
-    <input type="text" name="phoneNumber" value="{{order.phoneNumber}}" />
-  </div>
+      <div class="field">
+        <label>Postcode</label>
+        <input type="text" name="postcode" value="{{order.address.postcode}}" />
+      </div>
 
-
-  <!--############# Food Select section #############-->
-
-  <input type="checkbox" id="{{order.undesiredFoodType}}" value="american" class="selectedFoods" name="undesiredFoodType"
-    unchecked>
-  <label for="american">American</label>
-
-  <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
-  <label for="chinese">chinese</label>
-
-  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
-  <label for="spanish">Spanish</label>
-
-  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
-  <label for="indian">Indian</label>
-
-  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
-  <label for="italian">Italian</label>
-
-  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
-  <label for="japanese">Japanese</label>
-
-  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
-  <label for="turkish">Turkish</label>
-
-  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
-  <label for="mexican">Mexican</label>
-
-  <!--############# Allergies #############-->
-  <div class="field">
-    <label>Allergies</label>
-    <input type="text" name="allergies" value="{{order.allergies}}" />
-  </div>
-  <!--############# Dietry requirements #############-->
-
-  <div class="field">
-    <label>dietary requirements</label>
-    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}" />
-  </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="text" name="phoneNumber" value="{{order.phoneNumber}}" />
+      </div>
 
 
-  <!--############# budget #############-->
+      <!--############# Food Select section #############-->
+      <h2>Anything you don't want?</h2>
+
+      <input type="checkbox" id="{{order.undesiredFoodType}}" value="american" class="selectedFoods" name="undesiredFoodType"
+        unchecked>
+      <label for="american">American</label>
+
+      <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
+      <label for="chinese">Chinese</label>
+
+      <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
+      <label for="spanish">Spanish</label>
+
+      <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
+      <label for="indian">Indian</label>
+
+      <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
+      <label for="italian">Italian</label>
+
+      <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
+      <label for="japanese">Japanese</label>
+
+      <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
+      <label for="turkish">Turkish</label>
+
+      <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
+      <label for="mexican">Mexican</label>
+
+      <!--############# Allergies #############-->
+
+      <h3>Allergies</h3>
+
+      <div class="field">
+        <label>Allergies?</label>
+        <input type="text" name="allergies" value="{{order.allergies}}" />
+      </div>
+      <!--############# Dietry requirements #############-->
+
+      <h3>Dietary requirements</h3>
+
+      <div class="field">
+        <label>What are your dietary requirements?</label>
+        <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}" />
+      </div>
 
 
-  <input type="range" min="10" max="100" value="50" name="budget" value="{{order.budget}}" />
+      <!--############# budget #############-->
 
-  <!--############# Quantity #############-->
-  <input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}" />
+      <h3>Budget</h3>
+      <input class="budgetslider" type="range" min="10" max="100" value="{{order.budget}}" steps="10" onInput="sliderChange(this.value)">
+      <br>
+      Max price: <span id="sliderStatus">{{order.budget}}</span>
 
-  <div class="field submit">
-    <button type="submit">Edit</button>
-  </div>
-</form>
+      <!--############# Quantity #############-->
 
-<script>
-  const checkBoxes = () => {
+      <h3>How Many Are You?</h3>
+      <input class="range-slider" type="range" min="1" max="10" value="{{order.numberOfFoodeez}}" name="numberOfFoodeez"
+        steps="10" onInput="peopleCount(this.value)">
 
+      People Count: <span id="peopleStatus">{{order.numberOfFoodeez}}</span>
 
-    const topList = document.querySelector('.selectedFoods');
-    const checkOptions = document.getElementsByTagName('input');
+      <div class="field submit">
+        <button type="submit">Edit</button>
+      </div>
+    </form>
 
-
-    let foodOptions = topList.getAttribute('id');
-
-    foodOptions = foodOptions.split(',')
-
-
-    for (let i = 0; i < foodOptions.length; i++) {
-      let foodOption = foodOptions[i]
-      for (let i = 0; i < checkOptions.length; i++) {
-
-        if (checkOptions[i].value === foodOption) {
-          checkOptions[i].checked = true;
-
+    <script>
+      const checkBoxes = () => {
+        const topList = document.querySelector('.selectedFoods');
+        const checkOptions = document.getElementsByTagName('input');
+        let foodOptions = topList.getAttribute('id');
+        foodOptions = foodOptions.split(',')
+        for (let i = 0; i < foodOptions.length; i++) {
+          let foodOption = foodOptions[i]
+          for (let i = 0; i < checkOptions.length; i++) {
+            if (checkOptions[i].value === foodOption) {
+              checkOptions[i].checked = true;
+            }
+          }
         }
       }
-    }
+      checkBoxes();
+    </script>
 
-  }
-
-  checkBoxes();
-</script>
+    <script type="text/javascript">
+      const sliderChange = val => {
+        document.getElementById('sliderStatus').innerHTML = val;
+      }
+      const peopleCount = val => {
+        document.getElementById('peopleStatus').innerHTML = val;
+      }
+    </script>

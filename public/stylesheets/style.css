@@ -12,7 +12,7 @@ For headers: font-family: 'Righteous', cursive;
 
 */
 
-h1, h2, h3 { 
+h1, h2, h3, p { 
   font-family: 'Righteous', cursive;
 }
 
@@ -40,7 +40,7 @@ a {
 a:hover {
   color: #08b9ff80;
 }
-h1{
+h1, p{
   text-align: center;
 }
 /* Nav bar home page */

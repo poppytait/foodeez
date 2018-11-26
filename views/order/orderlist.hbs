@@ -5,7 +5,7 @@
   <ul>
 
     {{#each orders}}
-  
+
     <ul>
       <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
       <li>Address Line 1: {{this.address.addressLine1}}</li>
@@ -14,7 +14,7 @@
       <li>Allergies: {{this.allergies}} </li>
       <li>Dietary Requirements: {{this.dietaryRequirements}} </li>
       <li>Budget: {{this.budget}}</li>
-      {{#unless this.userId.isCustomer}}      
+      {{#unless this.userId.isCustomer}}
       <a href="/orderlist/{{this._id}}/view">
         <button>View Order</button>
       </a>
@@ -22,6 +22,11 @@
       <a href="/orderlist/{{this._id}}/edit">
         <button>Edit Order</button>
       </a>
+      <form method="POST" action="/orderlist/{{this._id}}/delete">
+        <div class="field submit">
+          <button type="submit">Delete Order</button>
+        </div>
+      </form>
       {{/unless}}
     </ul>
     {{/each}}

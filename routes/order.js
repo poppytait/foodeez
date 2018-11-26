@@ -3,11 +3,11 @@
 
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
 const Order = require('../models/order');
 const Restaurant = require('../models/restaurant');
 const authMiddleware = require('../middlewares/authMiddleware');
 // const formMiddleware = require('../middlewares/formMiddleware');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
@@ -49,8 +49,8 @@ router.post('/new', authMiddleware.requireUser, (req, res, next) => {
       const orderId = orderResult._id;
       Restaurant.find({ foodType: { $nin: [orderResult.undesiredFoodType] } })
         .then((restaurantResult) => {
-          const randomRestaurant = Math.floor(Math.random() * restaurantResult.length); // Gets a rondom restaurant that does not have foodType from udeiredFoodType
-          Order.findByIdAndUpdate(orderId, { $set: { restaurantId: restaurantResult[randomRestaurant]._id } })
+          const randomRestaurant = Math.floor(Math.random() * restaurantResult.length); // Gets a random restaurant that does not have foodType from undesiredFoodType
+          Order.findByIdAndUpdate(orderId, { $set: { restaurantId: ObjectId(restaurantResult[randomRestaurant]._id) } })
             .then((result) => {
               res.redirect('/order/' + result._id); // Redirect to /order/:order_id
             })

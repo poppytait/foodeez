@@ -1,20 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/order');
+const Restaurant = require('../models/restaurant');
 
 /* GET orderlist page. */
 router.get('/', (req, res, next) => {
   if (req.session.currentUser.isCustomer) {
-    Order.find({ userId: req.session.currentUser })
+    Order.find({ userId: req.session.currentUser._id })
+      .populate('userId')
       .then((result) => {
         res.render('order/orderlist', { orders: result });
       })
       .catch(next);
   } else {
-    Order.find()
-      .populate('ownerID')
+    Restaurant.find({ ownerId: req.session.currentUser._id })
       .then((result) => {
-        res.render('order/orderlist', { orders: result });
+        Order.find({ restaurantId: result[0]._id })
+          .then((results) => {
+            console.log(results);
+            res.render('order/orderlist', { orders: results });
+          })
+          .catch(next);
       })
       .catch(next);
   }
@@ -66,8 +72,8 @@ router.post('/:id/edit', (req, res, next) => {
     budget,
     numberOfFoodeez } })
     .then((result) => {
-        res.redirect('/orderlist');
-       })
+      res.redirect('/orderlist');
+    })
     .catch(next);
 });
 

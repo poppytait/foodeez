@@ -1,34 +1,35 @@
-<h1>Register as a restaurant</h1>
+<div class="wrapper">
+  <div class="formlogin">
+    <a href="/auth/signup" class="cross"><i class="fas fa-times"></i></a>
+    <h1>Register as a restaurant</h1>
 
-<form method="POST" action="/auth/restaurantSignup">
+    <form method="POST" action="/auth/restaurantSignup">
+      <div class="inputs">
+        <div class="field">
+          <label class="email-password-titles">Restaurant name</label>
+          <input class="login-info" type="text" name="restaurantName" />
+        </div>
 
-<div class="field" >
-    <label>Restaurant name</label>
-    <input type="text" name="restaurantName"/>
+        <div class="field">
+          <label class="email-password-titles">Food type</label>
+          <input class="login-info" type="text" name="foodType" />
+        </div>
+
+        <div class="field">
+          <label class="email-password-titles">Email</label>
+          <input class="login-info" type="text" name="email" />
+        </div>
+
+        <div class="field">
+          <label class="email-password-titles">Password</label>
+          <input class="login-info" type="password" name="password" />
+        </div>
+
+        {{> errorMessages}}
+
+        <div class="field submit">
+          <button class="submit-btn" type="submit">Register</button>
+        </div>
+    </form>
   </div>
-
-  <div class="field" >
-    <label>Food type</label>
-    <input type="text" name="foodType"/>
-  </div>
-
-  <div class="field" >
-    <label>Email</label>
-    <input type="text" name="email"/>
-  </div>
-
-  <div class="field" >
-    <label>Password</label>
-    <input type="password" name="password"/>
-  </div>
-
-  <div class="field submit">
-    <button type="submit">Register</button>
-  </div>
-</form>
-
-{{#if messages.length}}
-<ul class="validation">
-  {{#each messages}}<li>{{this}}</li>{{/each}}
-</ul>
-{{/if}}
+</div>

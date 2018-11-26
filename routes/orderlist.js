@@ -12,8 +12,9 @@ router.get('/', (req, res, next) => {
       .catch(next);
   } else {
     Order.find()
-      .populate('ownerID')
+      .populate('restaurantId')
       .then((result) => {
+        console.log('This is the result:' + result);
         res.render('order/orderlist', { orders: result });
       })
       .catch(next);

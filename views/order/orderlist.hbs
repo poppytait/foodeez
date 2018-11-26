@@ -8,20 +8,20 @@
       <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
       <li>Address Line 1: {{this.address.addressLine1}}</li>
       <li>Address Line 2: {{this.address.addressLine2}}</li>
-      <li>Phone Number{{this.phoneNumber}}</li>
+      <li>Phone Number: {{this.phoneNumber}}</li>
       <li>Allergies:{{this.allergies}} </li>
       <li>Dietary Requirements:{{this.dietaryRequirements}} </li>
       <li>Budget: {{this.budget}}</li>
-      {{#if currentUser.isCustomer}}
+      {{#unless currentUser.isCustomer}}
       <a href="/orderlist/{{this._id}}/edit">
         <button>Edit Order</button>
       </a>
-      {{/if}}
-      {{#unless currentUser.isCustomer}}
+      {{/unless}}
+      {{#if currentUser.isCustomer}}
       <a href="/orderlist/{{this._id}}/view">
         <button>View Order</button>
       </a>
-      {{/unless}}
+      {{/if}}
     </ul>
     {{/each}}
   </ul>

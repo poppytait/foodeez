@@ -29,67 +29,71 @@
 
 <!--############# Food Select section #############-->
 
-<input type="checkbox" id="{{order.undesiredFoodType}}" value="american" name="undesiredFoodType"
-         checked>
+<input type="checkbox" id="{{order.undesiredFoodType}}" value="american" class="selectedFoods" name="undesiredFoodType"
+         unchecked>
   <label for="american">American</label>
 
-<input type="checkbox" id="foodType" value="chinese" name="undesiredFoodType"
-         checked>
-  <label for="chinese">Chinese</label>
+<input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
+         unchecked>
+  <label for="chinese">chinese</label>
 
-  <input type="checkbox" id="foodType" value="spanish" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
+         unchecked>
   <label for="spanish">Spanish</label>
 
-  <input type="checkbox" id="foodType" value="indian" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
+         unchecked>
   <label for="indian">Indian</label>
 
-  <input type="checkbox" id="foodType" value="italian" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
+         unchecked>
   <label for="italian">Italian</label>
 
-  <input type="checkbox" id="foodType" value="japanese" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
+         unchecked>
   <label for="japanese">Japanese</label>
 
-  <input type="checkbox" id="foodType" value="turkish" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
+         unchecked>
   <label for="turkish">Turkish</label>
 
-  <input type="checkbox" id="foodType" value="mexican" name="undesiredFoodType"
-         checked>
+  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
+         unchecked>
   <label for="mexican">Mexican</label>
-  <input type="checkbox" id="foodType" value="mexican" name="undesiredFoodType"
 
 <!--############# Allergies #############-->
 <div class="field" >
     <label>Allergies</label>
-    <input type="text" name="allergies" value="{{order.allergies}}" />
+    <input type="text" name="allergies" value="{{order.allergies}}"/>
 </div>
 <!--############# Dietry requirements #############-->
 
 <div class="field" >
     <label>dietary requirements</label>
-    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}" />
+    <input type="text" name="dietaryRequirements" value="{{order.dietaryRequirements}}"/>
 </div>
 
 
 <!--############# budget #############-->
 
 
-<input type="range" min="10" max="100" value="50" name="budget"  value="{{order.budget}}" />
+<input type="range" min="10" max="100" value="50" name="budget"  value="{{order.budget}}"/>
 
 <!--############# Quantity #############-->
-<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}" />
+<input type="range" min="1" max="8" value="2" name="numberOfFoodeez" value="{{order.numberOfFoodeez}}"/>
 
   <div class="field submit">
     <button type="submit">Edit</button>
   </div>
 </form>
+<<<<<<< HEAD
+<script>
+     const checkBoxes = () => {
+=======
 
 <script>
   const checkBoxes = () => {
+>>>>>>> b325bca33f2308ba6da4b88b7e4d0e26d7f9657a
          
     
     const topList = document.querySelector('.selectedFoods');

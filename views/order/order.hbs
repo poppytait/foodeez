@@ -1,3 +1,7 @@
+{{> customerNavBar}}
+
+<div class="wrapper">
+<div class="formlogin new-order-container">
 <h1>New Order</h1>
 
 
@@ -66,7 +70,7 @@
 
 <!--############# Allergies #############-->
 
-<h3>Allergys</h3>
+<h3>Allergies</h3>
 
 <div class="field" >
     <label>Allergies?</label>
@@ -85,15 +89,30 @@
 <!--############# budget #############-->
 
 <h3>Budget</h3>
+<input class ="budgetslider" type="range" min="10" max="100" value="50" steps="10" onInput="sliderChange(this.value)">
+<br>
+Max price: <span id="sliderStatus">50</span>
 
-<input type="range" min="10" max="100" value="50" name="budget">
 
 <!--############# Quantity #############-->
 
 <h3>How Many Are You?</h3>
-<input type="range" min="1" max="8" value="2" name="numberOfFoodeez">
+<input class="range-slider"type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
 
+People Count: <span id="peopleStatus">4</span>
   <div class="field submit">
     <button type="submit">Order</button>
   </div>
 </form>
+
+
+
+<script type="text/javascript">
+const sliderChange = val => {
+ document.getElementById('sliderStatus').innerHTML = val;
+}
+const peopleCount = val => {
+  document.getElementById('peopleStatus').innerHTML = val;
+}
+
+</script>

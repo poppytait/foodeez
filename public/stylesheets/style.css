@@ -12,7 +12,7 @@ For headers: font-family: 'Righteous', cursive;
 
 */
 
-h1, h2, h3 { 
+h1, h2, h3, p { 
   font-family: 'Righteous', cursive;
 }
 
@@ -23,39 +23,55 @@ body {
   background-color: #ffc244;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
   text-decoration: none;
 }
+ul {
+  /*for search bar*/
+  list-style: none;
+  padding: 0px;
+  border-top: 0.5px solid #00000052;
+}
 
 .logoutbtn button {
   color: #00B7FF;
   text-decoration: none;
   background: none;
-  border: none;
+  padding: 10px 0;
+  font-size: 22px;
+  border: 0px;
 }
 
 a:hover {
   color: #08b9ff80;
 }
-h1{
+h1, p{
   text-align: center;
 }
 /* Nav bar home page */
 
 #nav-bar {
-  float: center;
   color: #000;
-  text-align: center;
-  padding: 10px 0px;
-  background-color: #fff;
-  text-decoration: none;
-  font-size: 30px;
-  width: 100%;
-  box-shadow: 2px 2px 20px 0px #0000005e;
+    border-top: 12px solid #00808b;
+    text-align: center;
+    background-color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-top: 15px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 2px 2px 0 rgba(0,0,0,.07), 0 0 0 0 rgba(0,0,0,.07);
   
+  
+}
+
+#nav-bar i{
+  color: black;
 }
 
 .dropdown {
@@ -63,11 +79,10 @@ h1{
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
+ 
+  position: relative;
   background-color: #fff;
   min-width: 260px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -86,6 +101,18 @@ h1{
   background-color: #f1f1f1;
 }
 
+.location-input{
+  border: 0px;
+    padding: 6px;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Righteous', cursive;
+    color: #00828d;
+}
+.location-list li:hover {
+  background-color: #00828d;
+  color: white;
+}
 /*
 .dropdown:hover .dropdown-content {
     display: block;
@@ -112,39 +139,34 @@ h1{
 /* Logo */
 
 .logo {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px;
-  margin-left: -250px;
+  width: 89%;
+  z-index: 0;
 }
 
 /* Bottom nav bar */
 .bottom-nav-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 50px;
-  margin-bottom: 40px;
+  padding: 6%;
+  margin: auto;
+  width: 85%;
 }
 
 #signup-btn {
-  margin: 20px 20px;
-  font-size: 40px;
+  font-size: 23px;
   border-radius: 10px;
   background-color: #177e89;
   padding: 10px 20px;
+  float: left;
   
  
 }
 
 #login-btn {
-  margin: 20px 20px;
-  font-size: 40px;
-  border-radius: 10px;
-  background-color: #177e89;
-  padding: 10px 20px;
+  font-size: 23px;
+    border-radius: 10px;
+    background-color: #177e89;
+    padding: 10px 20px;
+    float: right;
+   
   
 }
 
@@ -184,12 +206,18 @@ form label {
 	margin-bottom: 10px;
 	font-style: bold;
 }
-
+/*attempting cool css for form lines*/
 form input {
   padding: 5px;
   font-size: 16px;
   border: white;
   border-bottom: solid 1px black;
+}
+form input {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 3px;
+  margin-right: 10px;
 }
 
 form .submit {

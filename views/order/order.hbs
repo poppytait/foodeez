@@ -1,11 +1,26 @@
 {{> customerNavBar}}
 
 <div class="wrapper">
-<div class="formlogin new-order-container">
-<h1>New Order</h1>
+  <div class="formlogin new-order-container">
+    <h1>New Order</h1>
 
+    <form method="POST" action="/order/new" id="order">
 
-<form method="POST" action="/order/new" id="order">
+      <!--############# Adress section #############-->
+      <div class="field"></div>
+      <h2>Address</h2>
+      <div class="field">
+        <label>Address Line 1:</label>
+        <input type="text" name="addressLine1" />
+      </div>
+      <div class="field">
+        <label>Address Line 2:</label>
+        <input type="text" name="addressLine2" />
+      </div>
+      <div class="field">
+        <label>City</label>
+        <input type="text" name="city" />
+      </div>
 
 <!--############# Adress section 
 <h2>Address</h2>
@@ -22,10 +37,10 @@
     <input type="text" name="city"/>
   </div>
 
-  <div class="field" >
-    <label>Postcode</label>
-    <input type="text" name="postcode"/>
-  </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="text" name="phoneNumber" />
+      </div>
 
   <div class="field" >
     <label>Phone Number</label>
@@ -33,84 +48,80 @@
   </div>
 #############-->
 
-<!--############# Food Select section #############-->
-<h2>Anything you don't want?</h2>
+      <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
+      <label for="american">American</label>
 
-<input type="checkbox" id="american" value="american" name="undesiredFoodType"
-         checked>
-  <label for="american">American</label>
+      <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
+      <label for="chinese">Chinese</label>
 
-<input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType"
-         checked>
-  <label for="chinese">chinese</label>
+      <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
+      <label for="spanish">Spanish</label>
 
-  <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType"
-         checked>
-  <label for="spanish">Spanish</label>
+      <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
+      <label for="indian">Indian</label>
 
-  <input type="checkbox" id="indian" value="indian" name="undesiredFoodType"
-         checked>
-  <label for="indian">Indian</label>
+      <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
+      <label for="italian">Italian</label>
 
-  <input type="checkbox" id="italian" value="italian" name="undesiredFoodType"
-         checked>
-  <label for="italian">Italian</label>
+      <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
+      <label for="japanese">Japanese</label>
 
-  <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType"
-         checked>
-  <label for="japanese">Japanese</label>
+      <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
+      <label for="turkish">Turkish</label>
 
-  <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType"
-         checked>
-  <label for="turkish">Turkish</label>
+      <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
+      <label for="mexican">Mexican</label>
 
-  <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType"
-         checked>
-  <label for="mexican">Mexican</label>
+      <!--############# Allergies #############-->
 
-<!--############# Allergies #############-->
+      <h3>Allergies</h3>
 
-<h3>Allergies</h3>
+      <div class="field">
+        <label>Allergies?</label>
+        <input type="text" name="allergies" />
+      </div>
+      <!--############# Dietry requirements #############-->
 
 <div class="field" >
     <input type="text" name="allergies"/>
 </div>
 <!--############# Dietry requirements #############-->
 
-<h3>Dietary requirements</h3>
+      <div class="field">
+        <label>What are your dietary requirements?</label>
+        <input type="text" name="dietaryRequirements" />
+      </div>
 
 <div class="field" >
     <input type="text" name="dietaryRequirements"/>
 </div>
 
+      <!--############# budget #############-->
 
-<!--############# budget #############-->
-
-<h3>Budget</h3>
-<input class ="budgetslider" type="range" min="10" max="100" value="50" steps="10" onInput="sliderChange(this.value)">
-<br>
-Max price: <span id="sliderStatus">50</span>
-
-
-<!--############# Quantity #############-->
-
-<h3>How Many Are You?</h3>
-<input class="range-slider"type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
-
-People Count: <span id="peopleStatus">4</span>
-  <div class="field submit">
-    <button type="submit">Order</button>
-  </div>
-</form>
+      <h3>Budget</h3>
+      <input class="budgetslider" type="range" min="10" max="100" value="50" name="budget" steps="10" onInput="sliderChange(this.value)">
+      <br>
+      Max price: <span id="sliderStatus">50</span>
 
 
+      <!--############# Quantity #############-->
 
-<script type="text/javascript">
-const sliderChange = val => {
- document.getElementById('sliderStatus').innerHTML = val;
-}
-const peopleCount = val => {
-  document.getElementById('peopleStatus').innerHTML = val;
-}
+      <h3>How Many Are You?</h3>
+      <input class="range-slider" type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
 
-</script>
+      People Count: <span id="peopleStatus">4</span>
+      <div class="field submit">
+        <button type="submit">Order</button>
+      </div>
+    </form>
+
+
+
+    <script type="text/javascript">
+      const sliderChange = val => {
+        document.getElementById('sliderStatus').innerHTML = val;
+      }
+      const peopleCount = val => {
+        document.getElementById('peopleStatus').innerHTML = val;
+      }
+    </script>

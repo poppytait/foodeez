@@ -7,13 +7,6 @@
   <li>Allergies: {{order.allergies}} </li>
   <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
-  {{#if currentUser.isCustomer}}
-  <form method="POST" action="/orderlist/{{order._id}}/delete">
-    <div class="field submit">
-      <button type="submit">Delete Order</button>
-    </div>
-  </form>
-  {{/if}}
   {{#unless currentUser.isCustomer}}
   <div class="field">
     <label>Price</label>
@@ -27,3 +20,4 @@
   </a>
   {{/unless}}
 </ul>
+<script src="javascripts/boxCheck.js"></script>

@@ -108,6 +108,9 @@
       <input class="range-slider" type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
 
       People Count: <span id="peopleStatus">4</span>
+
+      {{> errorMessages}}
+
       <div class="field submit">
         <button type="submit">Order</button>
       </div>

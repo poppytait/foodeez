@@ -10,11 +10,18 @@ formMiddleware.requireFields = (req, res, next) => { // requireFields is the nam
       return res.redirect(`/auth${req.path}`);
     }
     next();
-  } else {
+  } else if (req.path === '/restaurantSignup') {
     const { restaurantName, foodType, email, password } = req.body;
     if (!restaurantName || !foodType || !email || !password) {
       req.flash('message-name', 'Restaurant name or food type or username or password cannot be empty'); // Restaurant name or food type or username or password cannot be empty
       return res.redirect(`/auth${req.path}`);
+    }
+    next();
+  } else if (req.path === '/new') {
+    const { addressLine1, addressLine2, city, postcode } = req.body;
+    if (!addressLine1 || !addressLine2 || !city || !postcode) {
+      req.flash('message-name', 'Address details cannot be empty'); // Address details cannot be empty
+      return res.redirect('/order');
     }
     next();
   }

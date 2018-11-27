@@ -7,21 +7,21 @@
     <form method="POST" action="/order/new" id="order">
 
       <!--############# Adress section #############-->
-     <h2>Address</h2>
+      <h2>Address</h2>
       <div class="field">
-        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}"/>
+        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}" />
       </div>
       <div class="field">
-        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}"/>
+        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}" />
       </div>
       <div class="field">
         <input type="text" name="city" value="{{currentUser.address.city}}" />
       </div>
       <div class="field">
-        <input type="text" name="postcode" value="{{currentUser.address.postcode}}"/>
+        <input type="text" name="postcode" value="{{currentUser.address.postcode}}" />
       </div>
 
-<!--############# Adress section 
+      <!--############# Adress section 
 <h2>Address</h2>
   <div class="field" >
     <label>Address Line 1:</label>
@@ -40,9 +40,9 @@
         <label>Phone Number</label>
         <input type="text" name="phoneNumber" />
       </div>
+-->
 
-
-      <!--############# Food Select section #############-->
+      <!-- ############# Food Select section #############-->
       <h2>Anything you don't want?</h2>
 
       <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
@@ -79,19 +79,19 @@
       </div>
       <!--############# Dietry requirements #############-->
 
-<div class="field" >
-    <input type="text" name="allergies"/>
-</div>
-<!--############# Dietry requirements #############-->
+      <div class="field">
+        <input type="text" name="allergies" />
+      </div>
+      <!--############# Dietry requirements #############-->
 
       <div class="field">
         <label>What are your dietary requirements?</label>
         <input type="text" name="dietaryRequirements" />
       </div>
 
-<div class="field" >
-    <input type="text" name="dietaryRequirements"/>
-</div>
+      <div class="field">
+        <input type="text" name="dietaryRequirements" />
+      </div>
 
       <!--############# budget #############-->
 
@@ -99,8 +99,6 @@
       <input class="budgetslider" type="range" min="10" max="100" value="50" name="budget" steps="10" onInput="sliderChange(this.value)">
       <br>
       Max price: <span id="sliderStatus">50</span>
-
-      <!--############# Quantity #############-->
 
       <!--############# Quantity #############-->
 
@@ -115,8 +113,6 @@
         <button type="submit">Order</button>
       </div>
     </form>
-
-
 
     <script type="text/javascript">
       const sliderChange = val => {

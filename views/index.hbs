@@ -14,6 +14,9 @@
       <a href="/auth/signup" id="signup-btn">Sign Up</a>
       <a href="/auth/login" id="login-btn">Log In</a>
       {{/unless}}
+        {{#if currentUser}}
+        <a href="/order" id="order-btn">Make New Order</a>
+        {{/if}}
       </div>
     <script type="text/javascript" src="javascripts/locations.js"></script>
         <script type="text/javascript" src="javascripts/index.js"></script>

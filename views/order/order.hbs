@@ -3,10 +3,11 @@
 <div class="wrapper">
   <div class="formlogin new-order-container">
     <h1>New Order</h1>
-
     <form method="POST" action="/order/new" id="order">
 
       <!--############# Adress section #############-->
+  <section class="form-section" id="form-address">
+
      <h2>Address</h2>
       <div class="field">
         <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}"/>
@@ -20,29 +21,13 @@
       <div class="field">
         <input type="text" name="postcode" value="{{currentUser.address.postcode}}"/>
       </div>
+      <a class="next" id="go-to-food-button">next</a>
+  </section>
 
-<!--############# Adress section 
-<h2>Address</h2>
-  <div class="field" >
-    <label>Address Line 1:</label>
-    <input type="text" name="addressLine1"/>
-  </div>
-  <div class="field" >
-    <label>Address Line 2:</label>
-    <input type="text" name="addressLine2"/>
-  </div>
-  <div class="field" >
-    <label>City</label>
-    <input type="text" name="city"/>
-  </div>
-
-      <div class="field">
-        <label>Phone Number</label>
-        <input type="text" name="phoneNumber" />
-      </div>
 
 
       <!--############# Food Select section #############-->
+    <section class="form-section" id="form-food">
       <h2>Anything you don't want?</h2>
       <div class="check-boxes">
 
@@ -69,20 +54,21 @@
 
       <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
       <label for="mexican">Mexican</label>
-</div>
+      </div>
+      <a class="next" id="go-to-allergies-button">next</a>
+    </section>
       <!--############# Allergies #############-->
-
-      <h3>Allergies</h3>
+    <section class="form-section" id="form-allergies">
+      <h2>Allergies</h2>
 
       <div class="field">
         <label>Allergies?</label>
         <input type="text" name="allergies" />
       </div>
-      <!--############# Dietry requirements #############-->
 
-<div class="field" >
-    <input type="text" name="allergies"/>
-</div>
+      <div class="field" >
+      <input type="text" name="allergies"/>
+      </div>
 <!--############# Dietry requirements #############-->
 
       <div class="field">
@@ -90,10 +76,12 @@
         <input type="text" name="dietaryRequirements" />
       </div>
 
-<div class="field" >
-    <input type="text" name="dietaryRequirements"/>
-</div>
-
+      <div class="field" >
+          <input type="text" name="dietaryRequirements"/>
+      </div>
+      <a class="next" id="go-to-budget-button">next</a>
+    </section>
+    <section class="form-section" id="form-budget">
       <!--############# budget #############-->
 
       <h3>Budget</h3>
@@ -115,9 +103,10 @@
       <div class="field submit">
         <button type="submit">Order</button>
       </div>
+      </section>
     </form>
 
-
+  <script src="javascripts/orderForm.js"></script>
 
     <script type="text/javascript">
       const sliderChange = val => {

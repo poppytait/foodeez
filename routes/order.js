@@ -82,7 +82,23 @@ router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
-      res.render('order/order-processed', { order: result });
+      if (result.willServe === false) {
+        console.log('false');
+        res.render('order/order-rejected', { order: result });
+      } else if (result.willServe === true) {
+        res.render('order/order-completed', { order: result });
+      } else if (result.willServe === null) {
+        res.render('order/order-processed', { order: result });
+      }
+    })
+    .catch(next);
+});
+
+router.get('/:id/json', (req, res, next) => {
+  const id = req.params.id;
+  Order.findById(id)
+    .then((result) => {
+      res.json(result);
     })
     .catch(next);
 });

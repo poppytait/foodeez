@@ -7,7 +7,7 @@ const main = () => {
     console.log('focus');
   };
   const navBar = document.querySelector('#nav-bar');
-  if (navBar) navBar.addEventListener('click', getFocus);
+  navBar.addEventListener('click', getFocus);
 
   // add click to search return options
   const addClickToInput = (li) => {
@@ -26,17 +26,14 @@ const main = () => {
   const locationList = document.querySelector('.location-list');
   // track the entry in the top bar
   let input = '';
-  if (navBar) {
-    locationEntry.addEventListener('keyup', () => {
-      input = locationEntry.value;
-      if (input.length > 1) {
-        locationFinder(input);
-      } else if (input.length >= 1) {
-        locationList.innerHTML = '';
-      }
-    });
-  }
-
+  locationEntry.addEventListener('keyup', () => {
+    input = locationEntry.value;
+    if (input.length > 1) {
+      locationFinder(input);
+    } else if (input.length >= 1) {
+      locationList.innerHTML = '';
+    }
+  });
   // get locations from json file - places exists in locations
   const locationFinder = (input) => {
     let returnedLocations = [];

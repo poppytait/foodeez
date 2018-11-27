@@ -97,4 +97,30 @@ router.post('/:id/delete', (req, res, next) => {
     .catch(next);
 });
 
+// accepting order
+router.post('/:id/accept', (req, res, next) => {
+  const id = req.params.id;
+  Order.findByIdAndUpdate(id, { $set: {
+    willServe: true
+  }
+  })
+    .then(() => {
+      res.redirect('/orderlist');
+    })
+    .catch(next);
+});
+
+// rejecting order
+// accepting order
+router.post('/:id/reject', (req, res, next) => {
+  const id = req.params.id;
+  Order.findByIdAndUpdate(id, { $set: {
+    willServe: false
+  }
+  })
+    .then(() => {
+      res.redirect('/orderlist');
+    })
+    .catch(next);
+});
 module.exports = router;

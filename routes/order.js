@@ -69,6 +69,11 @@ router.post('/new', authMiddleware.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+/* GET order delivered page */
+router.get('/order-delivered', (req, res, next) => {
+  res.render('order/order-delivered');
+});
+
 /* GET no restaurants found page. */
 router.get('/norestaurantsfound', authMiddleware.requireUser, (req, res, next) => {
   res.render('order/order-norestaurantsfound');

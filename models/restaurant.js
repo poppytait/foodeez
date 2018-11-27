@@ -15,7 +15,7 @@ const restaurantSchema = new Schema({
   },
   foodType: {
     type: String,
-    // enum: ['American', 'Chinese', 'Spanish', 'Indian', 'Italian', 'Japanese', 'Turkish', 'Mexican'],
+    enum: ['american', 'chinese', 'spanish', 'indian', 'italian', 'japanese', 'turkish', 'mexican'],
     required: true
   }
 

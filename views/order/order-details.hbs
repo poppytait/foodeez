@@ -1,5 +1,5 @@
 <h1>Order Details</h1>
-<ul>
+<ul class="order-list">
   <li>Order Id: {{order._id}}</li>
   <li>Address Line 1: {{order.address.addressLine1}}</li>
   <li>Address Line 2: {{order.address.addressLine2}}</li>
@@ -7,17 +7,38 @@
   <li>Allergies: {{order.allergies}} </li>
   <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
+  {{#unless order.isCompleted}}
   {{#unless currentUser.isCustomer}}
+    {{#unless order.willServe}}
   <div class="field">
     <label>Price</label>
     <input type="number" name="price" />
   </div>
+  <form method="POST" action="/orderlist/{{order._id}}/accept">
   <a href="/orderlist/{{order._id}}/accept">
     <button>Accept Order</button>
   </a>
+  </form>
+  <form method="POST" action="/orderlist/{{order._id}}/reject">
   <a href="/orderlist/{{order._id}}/reject">
     <button>Reject Order</button>
   </a>
+  </form>
   {{/unless}}
+  {{/unless}}
+  {{#if order.willServe}}
+  <form method="POST" action="/orderlist/{{order._id}}/close">
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <p>please sign below</p>
+    <canvas class="canvas"></canvas>
+    <button>Close Order</button>
+  </a>
+  </form>
+  {{/if}}
+  {{/unless}}
+  {{#if order.isCompleted}}
+    <h3>Order Delivered!</h3>
+    <a href="/orderlist">Back to order list</a>
+  {{/if}}
 </ul>
-<script src="javascripts/boxCheck.js"></script>
+<script src="../../javascripts/signBox.js"></script>

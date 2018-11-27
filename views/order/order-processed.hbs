@@ -2,3 +2,11 @@
 
 <h1>Your order is being processed</h1>
 <p>Please wait until your order is accepted by a secret restaurant</p>
+
+<div id="order-container">
+<input type="hidden" id="order-id" value="{{order._id}}">
+<h1 id="status"></h1>
+<div id="link-status"></div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../javascripts/order-checking.js"></script>

@@ -5,17 +5,20 @@ const router = express.Router();
 const Order = require('../models/order');
 const Restaurant = require('../models/restaurant');
 const authMiddleware = require('../middlewares/authMiddleware');
-// const formMiddleware = require('../middlewares/formMiddleware');
+const formMiddleware = require('../middlewares/formMiddleware');
 const ObjectId = require('mongoose').Types.ObjectId;
 
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
-  const user = req.session.currentUser;
-  res.render('order/order', user);
+  const data = {
+    messages: req.flash('message-name'),
+    user: req.session.currentUser
+  };
+  res.render('order/order', data);
 });
 
 /* POST order page */
-router.post('/new', authMiddleware.requireUser, (req, res, next) => {
+router.post('/new', authMiddleware.requireUser, formMiddleware.requireFields, (req, res, next) => {
   const timestamp = new Date();
   const userId = req.session.currentUser;
   const willServe = null;
@@ -79,12 +82,28 @@ router.get('/norestaurantsfound', authMiddleware.requireUser, (req, res, next) =
   res.render('order/order-norestaurantsfound');
 });
 
-/* GET tracking delivery page. */
+/* GET order-processed page. */
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
-      res.render('order/order-processed', { order: result });
+      if (result.willServe === false) {
+        console.log('false');
+        res.render('order/order-rejected', { order: result });
+      } else if (result.willServe === true) {
+        res.render('order/order-completed', { order: result });
+      } else if (result.willServe === null) {
+        res.render('order/order-processed', { order: result });
+      }
+    })
+    .catch(next);
+});
+
+router.get('/:id/json', (req, res, next) => {
+  const id = req.params.id;
+  Order.findById(id)
+    .then((result) => {
+      res.json(result);
     })
     .catch(next);
 });

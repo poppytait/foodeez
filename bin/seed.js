@@ -33,12 +33,34 @@ const customers = [
     }
   },
   {
-    email: 'georgia@hotmail.co.uk',
+    email: 'poppytait@gmail.com',
+    password: '123456',
+    isCustomer: true,
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: '1º 1ª',
+      city: 'Barcelona',
+      postcode: '08018'
+    }
+  },
+  {
+    email: 'sllonk@gmail.com',
     password: '123456',
     isCustomer: true,
     address: {
       addressLine1: 'Pamplona 96',
       addressLine2: '1º 2ª',
+      city: 'Barcelona',
+      postcode: '08018'
+    }
+  },
+  {
+    email: 'georgia@hotmail.co.uk',
+    password: '123456',
+    isCustomer: true,
+    address: {
+      addressLine1: 'Pamplona 96',
+      addressLine2: 'Bajos',
       city: 'Barcelona',
       postcode: '08018'
     }

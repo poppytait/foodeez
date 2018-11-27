@@ -12,12 +12,16 @@
     <label>Price</label>
     <input type="number" name="price" />
   </div>
+  <form method="POST" action="/orderlist/{{order._id}}/accept">
   <a href="/orderlist/{{order._id}}/accept">
     <button>Accept Order</button>
   </a>
+  </form>
+  <form method="POST" action="/orderlist/{{order._id}}/reject">
   <a href="/orderlist/{{order._id}}/reject">
     <button>Reject Order</button>
   </a>
+  </form>
   {{/unless}}
 </ul>
 <script src="javascripts/boxCheck.js"></script>

@@ -544,3 +544,9 @@ div.order-list {
   display: inline-block;
   width: 55%;
 }
+
+/* New order */
+
+.do-not-want {
+  color: red;
+}

@@ -131,4 +131,16 @@ router.post('/:id/reject', (req, res, next) => {
     })
     .catch(next);
 });
+
+router.post('/:id/close', (req, res, next) => {
+  const id = req.params.id;
+  Order.findByIdAndUpdate(id, { $set: {
+    isCompleted: true
+  }
+  })
+    .then(() => {
+      res.redirect('/orderlist');
+    })
+    .catch(next);
+});
 module.exports = router;

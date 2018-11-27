@@ -4,48 +4,43 @@
 
 <form method="POST" action="/users/editProfile" id="updateProfile">
 
-<h2>Contact Details</h2>
-  <div class="field" >
+  <h2>Contact Details</h2>
+  <div class="field">
     <label>Address Line 1:</label>
-    <input type="text" name="addressLine1" value="{{user.address.addressLine1}}"/>
+    <input type="text" name="addressLine1" value="{{user.address.addressLine1}}" />
   </div>
-  <div class="field" >
+  <div class="field">
     <label>Address Line 2:</label>
-    <input type="text" name="addressLine2" value="{{user.address.addressLine2}}"/>
+    <input type="text" name="addressLine2" value="{{user.address.addressLine2}}" />
   </div>
-  <div class="field" >
+  <div class="field">
     <label>City:</label>
-    <input type="text" name="city" value="{{user.address.city}}"/>
+    <input type="text" name="city" value="{{user.address.city}}" />
   </div>
-  <div class="field" >
+  <div class="field">
     <label>Postcode:</label>
-    <input type="text" name="postcode" value="{{user.address.postcode}}"/>
+    <input type="text" name="postcode" value="{{user.address.postcode}}" />
   </div>
 
-  <div class="field" >
+  <div class="field">
     <label>Phone:</label>
-    <input type="text" name="phoneNumber" value="{{user.phoneNumber}}"/>
+    <input type="text" name="phoneNumber" value="{{user.phoneNumber}}" />
   </div>
 
   <h2>Allergies?</h2>
   <div class="field">
-       <input type="text" name="allergies" value="{{user.allergies}}"/>
+    <input type="text" name="allergies" value="{{user.allergies}}" />
   </div>
 
   <h2>Dietary Requirements?</h2>
   <div class="field">
-      <input type="text" name="dietaryRequirements" value="{{user.dietaryRequirements}}"/>
+    <input type="text" name="dietaryRequirements" value="{{user.dietaryRequirements}}" />
   </div>
 
   {{> errorMessages}}
 
-   <div class="field submit">
+  <div class="field submit">
     <button type="submit">Update profile</button>
   </div>
 
-  {{#if messages.length}}
-<ul class="validation">
-  {{#each messages}}<li>{{this}}</li>{{/each}}
-</ul>
-{{/if}}
-
+</form>

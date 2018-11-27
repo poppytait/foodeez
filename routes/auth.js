@@ -79,7 +79,7 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFields, 
 /* POST log out */
 router.post('/logout', authMiddleware.requireUser, (req, res, next) => {
   delete req.session.currentUser;
-  res.redirect('/auth/login');
+  res.redirect('/');
 });
 
 /* GET restaurant sign up page */

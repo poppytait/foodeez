@@ -1,11 +1,14 @@
 {{> customerNavBar}}
 
 <h1>Order list</h1>
+
+<div>
+  <ul class="order-list">
 <div class="orders-list">
   
 
     {{#each orders}}
-
+    <div class="order-list">
     <ul>
       <li>Order Id:<a href="/orderlist/{{this.id}}">View Order</a></li>
       <li>Address Line 1: {{this.address.addressLine1}}</li>
@@ -29,6 +32,7 @@
       </form>
       {{/unless}}
     </ul>
+    </div>
     {{/each}}
   
 </div>

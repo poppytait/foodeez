@@ -525,6 +525,10 @@ ul.order-list {
   list-style-type: none;
 }
 
+.check-boxes {
+  text-align:left;
+}
+
 
 /* Order delivered button - star explosion */
 

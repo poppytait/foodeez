@@ -9,10 +9,10 @@
       <!--############# Adress section #############-->
       <h2>Address</h2>
       <div class="field">
-        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}" />
+        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}" placeholder="Street name, Number"/>
       </div>
       <div class="field">
-        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}" />
+        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}" placeholder="Apartment floor and number" />
       </div>
       <div class="field">
         <input type="text" name="city" value="{{currentUser.address.city}}" />
@@ -46,30 +46,30 @@
       <h2>Anything you don't want?</h2>
       <div class="check-boxes">
 
-      <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
-      <label for="american">American</label>
+        <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
+        <label for="american">American</label>
 
-      <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
-      <label for="chinese">Chinese</label>
+        <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
+        <label for="chinese">Chinese</label>
 
-      <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
-      <label for="spanish">Spanish</label>
+        <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
+        <label for="spanish">Spanish</label>
 
-      <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
-      <label for="indian">Indian</label>
+        <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
+        <label for="indian">Indian</label>
 
-      <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
-      <label for="italian">Italian</label>
+        <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
+        <label for="italian">Italian</label>
 
-      <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
-      <label for="japanese">Japanese</label>
+        <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
+        <label for="japanese">Japanese</label>
 
-      <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
-      <label for="turkish">Turkish</label>
+        <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
+        <label for="turkish">Turkish</label>
 
-      <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
-      <label for="mexican">Mexican</label>
-</div>
+        <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
+        <label for="mexican">Mexican</label>
+      </div>
       <!--############# Allergies #############-->
 
       <h3>Allergies</h3>
@@ -105,7 +105,7 @@
 
       <h3>How Many Are You?</h3>
       <input class="range-slider" type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
-
+      <br>
       People Count: <span id="peopleStatus">4</span>
 
       {{> errorMessages}}

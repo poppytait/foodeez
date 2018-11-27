@@ -7,25 +7,34 @@
     <form method="POST" action="/order/new" id="order">
 
       <!--############# Adress section #############-->
-      <div class="field"></div>
-      <h2>Address</h2>
+     <h2>Address</h2>
       <div class="field">
-        <label>Address Line 1:</label>
-        <input type="text" name="addressLine1" />
+        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}"/>
       </div>
       <div class="field">
-        <label>Address Line 2:</label>
-        <input type="text" name="addressLine2" />
+        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}"/>
       </div>
       <div class="field">
-        <label>City</label>
-        <input type="text" name="city" />
+        <input type="text" name="city" value="{{currentUser.address.city}}" />
+      </div>
+      <div class="field">
+        <input type="text" name="postcode" value="{{currentUser.address.postcode}}"/>
       </div>
 
-      <div class="field">
-        <label>Postcode</label>
-        <input type="text" name="postcode" />
-      </div>
+<!--############# Adress section 
+<h2>Address</h2>
+  <div class="field" >
+    <label>Address Line 1:</label>
+    <input type="text" name="addressLine1"/>
+  </div>
+  <div class="field" >
+    <label>Address Line 2:</label>
+    <input type="text" name="addressLine2"/>
+  </div>
+  <div class="field" >
+    <label>City</label>
+    <input type="text" name="city"/>
+  </div>
 
       <div class="field">
         <label>Phone Number</label>
@@ -70,13 +79,19 @@
       </div>
       <!--############# Dietry requirements #############-->
 
-      <h3>Dietary requirements</h3>
+<div class="field" >
+    <input type="text" name="allergies"/>
+</div>
+<!--############# Dietry requirements #############-->
 
       <div class="field">
         <label>What are your dietary requirements?</label>
         <input type="text" name="dietaryRequirements" />
       </div>
 
+<div class="field" >
+    <input type="text" name="dietaryRequirements"/>
+</div>
 
       <!--############# budget #############-->
 
@@ -85,6 +100,7 @@
       <br>
       Max price: <span id="sliderStatus">50</span>
 
+      <!--############# Quantity #############-->
 
       <!--############# Quantity #############-->
 

@@ -540,3 +540,18 @@ ul.order-list {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Order list displayed in boxes */
+
+div.order-list {
+  border: solid 1px black;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 55%;
+}
+
+/* New order */
+
+.do-not-want {
+  color: red;
+}

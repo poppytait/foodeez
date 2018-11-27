@@ -21,29 +21,7 @@
         <input type="text" name="postcode" value="{{currentUser.address.postcode}}" />
       </div>
 
-      <!--############# Adress section 
-<h2>Address</h2>
-  <div class="field" >
-    <label>Address Line 1:</label>
-    <input type="text" name="addressLine1"/>
-  </div>
-  <div class="field" >
-    <label>Address Line 2:</label>
-    <input type="text" name="addressLine2"/>
-  </div>
-  <div class="field" >
-    <label>City</label>
-    <input type="text" name="city"/>
-  </div>
-
-      <div class="field">
-        <label>Phone Number</label>
-        <input type="text" name="phoneNumber" />
-      </div>
--->
-
-      <!-- ############# Food Select section #############-->
-      <h2>Anything you don't want?</h2>
+      <h2>Anything you <span class="do-not-want">don't</span> want?</h2>
       <div class="check-boxes">
 
         <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
@@ -67,32 +45,23 @@
         <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
         <label for="turkish">Turkish</label>
 
-        <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
-        <label for="mexican">Mexican</label>
-      </div>
-      <!--############# Allergies #############-->
+      <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
+      <label for="mexican">Mexican</label>
+</div>
+   
 
       <h3>Allergies</h3>
 
       <div class="field">
-        <label>Allergies?</label>
         <input type="text" name="allergies" />
       </div>
-      <!--############# Dietry requirements #############-->
 
+<h3>Dietary Requirements</h3>
       <div class="field">
-        <input type="text" name="allergies" />
-      </div>
-      <!--############# Dietry requirements #############-->
-
-      <div class="field">
-        <label>What are your dietary requirements?</label>
+       
         <input type="text" name="dietaryRequirements" />
       </div>
 
-      <div class="field">
-        <input type="text" name="dietaryRequirements" />
-      </div>
 
       <!--############# budget #############-->
 

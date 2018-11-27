@@ -101,7 +101,8 @@ router.post('/:id/delete', (req, res, next) => {
 router.post('/:id/accept', (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndUpdate(id, { $set: {
-    willServe: true
+    willServe: true,
+    isProccessing: false
   }
   })
     .then(() => {
@@ -115,7 +116,8 @@ router.post('/:id/accept', (req, res, next) => {
 router.post('/:id/reject', (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndUpdate(id, { $set: {
-    willServe: false
+    willServe: false,
+    isProccessing: false
   }
   })
     .then(() => {

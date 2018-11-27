@@ -8,6 +8,7 @@
   <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
   {{#unless currentUser.isCustomer}}
+    {{#unless order.willServe}}
   <div class="field">
     <label>Price</label>
     <input type="number" name="price" />
@@ -23,5 +24,13 @@
   </a>
   </form>
   {{/unless}}
+  {{/unless}}
+  {{#if order.willServe}}
+  <form method="POST" action="/orderlist/{{order._id}}/close">
+  <a href="/orderlist/{{order._id}}/delivered">
+    <button>Close Order</button>
+  </a>
+  </form>
+  {{/if}}
 </ul>
 <script src="javascripts/boxCheck.js"></script>

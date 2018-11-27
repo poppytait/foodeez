@@ -4,9 +4,49 @@
 <p>Please wait until your order is accepted by a secret restaurant</p>
 
 <div id="order-container">
-<input type="hidden" id="order-id" value="{{order._id}}">
-<h1 id="status"></h1>
-<div id="link-status"></div>
+  <input type="hidden" id="order-id" value="{{order._id}}">
+  <h1 id="status"></h1>
+  <div id="link-status"></div>
 </div>
+
+<div class="hidden" id="confetti-container">
+  <button type="button hidden" id="order-delivered-btn">My order has arrived</button>
+</div>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../javascripts/order-checking.js"></script>
+
+
+
+<script>
+
+  document.getElementById("order-delivered-btn").addEventListener("click", function () {
+
+    const duration = 30 * 1000;
+    let end = Date.now() + duration;
+
+    (function frame() {
+      //confetti from left edge
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      //confetti from right edge
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  });
+
+
+
+</script>

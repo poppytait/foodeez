@@ -1,6 +1,8 @@
 var URL = 'http://localhost:3000';
 
 let statusCheck = null;
+let statusCheck2 = null;
+
 let checkOrderStatus = () => {
   if (statusCheck === 1) {
     clearInterval(intervalID);
@@ -26,4 +28,23 @@ let checkOrderStatus = () => {
     });
 };
 
+let checkDeliveredStatus = () => {
+  if (statusCheck2 === 1) {
+    clearInterval(intervalID2);
+  }
+  const id = document.getElementById('order-id').value;
+  const confettiContainer = document.getElementById('confetti-container');
+
+  axios.get(`${URL}/order/${id}/json`)
+    .then((response) => {
+      if (response.data.isCompleted === true) {
+        confettiContainer.classList.remove('hidden');
+        statusCheck2 = 1;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 const intervalID = setInterval(checkOrderStatus, 1000);
+const intervalID2 = setInterval(checkDeliveredStatus, 1000);

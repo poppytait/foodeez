@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/order');
 const Restaurant = require('../models/restaurant');
+const formMiddleware = require('../middlewares/formMiddleware');
 
 /* GET orderlist page. */
 router.get('/', (req, res, next) => {
@@ -37,14 +38,19 @@ router.get('/:id', (req, res, next) => {
 
 router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
+  const data = {
+    messages: req.flash('message-name')
+  };
   Order.findById(id)
     .then((result) => {
-      res.render('order/order-edit', { order: result });
+      data.order = result;
+      // console.log(data);
+      res.render('order/order-edit', data);
     })
     .catch(next);
 });
 
-router.post('/:id/edit', (req, res, next) => {
+router.post('/:id/edit', formMiddleware.requireFields, (req, res, next) => {
   const id = req.params.id;
   const {
     addressLine1,

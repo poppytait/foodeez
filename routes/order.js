@@ -11,9 +11,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 /* GET order page. */
 router.get('/', authMiddleware.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
-  console.log(user);
-
-  res.render('order/order', user.address);
+  res.render('order/order', user);
 });
 
 /* POST order page */

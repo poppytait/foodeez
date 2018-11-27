@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  margin: 0;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -18,7 +19,6 @@ h1, h2, h3, p {
 
 
 body {
-  padding: 50px;
   font: 14px 'Niramit', sans-serif;
   background-color: #ffc244;
   margin: 0;
@@ -26,9 +26,13 @@ body {
   text-align: center;
 }
 
+
 a {
   color: #00B7FF;
   text-decoration: none;
+}
+a::selection{
+  background: none;
 }
 ul {
   /*for search bar*/
@@ -36,6 +40,35 @@ ul {
   padding: 0px;
   border-top: 0.5px solid #00000052;
 }
+#order-btn{
+  padding: 20px;
+  border: 2px solid;
+  background: #00828d;
+  color: white;
+  font-size: 8vw;
+  text-shadow: 1px 2px 2px black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 13px 2px black;
+  /*to stop weird select affect*/
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+#order-btn:hover{
+  box-shadow: inset 2px 2px 13px 2px black;
+}
+#order-btn:hover::selection{
+  background: yellow; 
+}
+#order-btn::selection{
+   background: yellow; 
+}
+
+
 
 .logoutbtn button {
   color: #00B7FF;
@@ -169,6 +202,16 @@ h1, p{
    
   
 }
+#edit-btn {
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #4CAF50;
+  cursor: pointer;
+  margin-top: 10px;
+   
+  
+}
 
 /*---- 404 styles ----*/
 
@@ -250,7 +293,7 @@ form .field.has-error input {
 /* Log in pages */
 
 .wrapper {
-  margin-top: 80px;
+  margin-top: 50px;
   margin-bottom: 80px;
 }
 
@@ -314,15 +357,18 @@ form .field.has-error input {
   float: right;
   margin-top: 15px;
 }
-
+.check-boxes input{
+  float: right;
+  padding: 30px;
+}
 /* Burger navbar for customer */
 
 #menuToggle
 {
   display: block;
-  position: absolute;
-  top: 50px;
-  right: 50px;
+  position: fixed;
+  top: 15px;
+  right: 15px;
   
   z-index: 1;
   
@@ -415,14 +461,16 @@ form .field.has-error input {
  */
 #menu
 {
-  position: absolute;
-  width: 300px;
-  margin: -100px 0 0 0;
+  
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
   padding: 50px;
   padding-top: 125px;
   right: -100px;
-  
-  background: #5d6560cf;
+  top: 0;
+  background: #000000eb;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -446,6 +494,7 @@ form .field.has-error input {
 {
   transform: scale(1.0, 1.0);
   opacity: 1;
+  right: 0;
 }
 
 .validation {
@@ -463,4 +512,7 @@ form .field.has-error input {
   margin-bottom: 20px;
   background: #e6e6dd40;
   clear: both;
+}
+.orders-list ul {
+  padding-top: 20px;
 }

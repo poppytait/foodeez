@@ -4,6 +4,9 @@
 
 <div>
   <ul class="order-list">
+<div class="orders-list">
+  
+
     {{#each orders}}
     <div class="order-list">
     <ul>
@@ -20,7 +23,7 @@
       </a>
       {{else}}
       <a href="/orderlist/{{this._id}}/edit">
-        <button>Edit Order</button>
+        <button id="edit-btn">Edit Order</button>
       </a>
       <form method="POST" action="/orderlist/{{this._id}}/delete">
         <div class="field submit">
@@ -31,7 +34,7 @@
     </ul>
     </div>
     {{/each}}
-  </ul>
+  
 </div>
 
 

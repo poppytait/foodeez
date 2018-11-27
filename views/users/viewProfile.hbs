@@ -8,14 +8,16 @@
 {{currentUser.address.city}}<br />
 {{currentUser.address.postcode}}<br />
 {{currentUser.phoneNumber}}<br />
+{{#if currentUser.isCustomer}}
 <h2>Allergies</h2>
 {{currentUser.allergies}}<br />
 <h2>Dietary Requirements</h2>
 {{currentUser.dietaryRequirements}}<br />
+{{/if}}
 
 <a href="/users/editProfile">Edit Profile</a>
 
-  {{#if messages.length}}
+{{#if messages.length}}
 <ul class="validation">
   {{#each messages}}<li>{{this}}</li>{{/each}}
 </ul>

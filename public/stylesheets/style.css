@@ -464,3 +464,10 @@ form .field.has-error input {
   background: #e6e6dd40;
   clear: both;
 }
+
+ul.order-list {
+  list-style-type: none;
+}
+.order-list ul {
+  list-style-type: none;
+}

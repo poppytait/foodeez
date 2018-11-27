@@ -455,3 +455,12 @@ form .field.has-error input {
 }
 
 
+.canvas{
+  width: 300px;
+  height: 100px;
+  border: 3px double #463838b8;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #e6e6dd40;
+  clear: both;
+}

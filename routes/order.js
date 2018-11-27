@@ -71,7 +71,7 @@ router.post('/new', authMiddleware.requireUser, (req, res, next) => {
 
 /* GET no restaurants found page. */
 router.get('/norestaurantsfound', authMiddleware.requireUser, (req, res, next) => {
-  res.render('order/order-norestaurantsfound');
+  res.render('order/norestaurantsfound');
 });
 
 /* GET tracking delivery page. */

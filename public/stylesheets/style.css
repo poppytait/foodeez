@@ -30,7 +30,7 @@ a {
   color: #00B7FF;
   text-decoration: none;
 }
-ul {
+.dropdown-content ul {
   /*for search bar*/
   list-style: none;
   padding: 0px;
@@ -450,8 +450,8 @@ form .field.has-error input {
 
 .validation {
   list-style-type: none;
-  -webkit-transform: translateX(-40px);
-  transform: translateX(-40px); /* 40px to the left */
+  -webkit-transform: translateX(-20px);
+  transform: translateX(-20px); /* 20px to the left */
 }
 
 

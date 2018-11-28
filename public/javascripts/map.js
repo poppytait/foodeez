@@ -1,6 +1,6 @@
 'use strict';
 
-var URL = 'http://localhost:3000';
+var root_URL = 'http://localhost:3000';
 
 const id = document.getElementById('order-id').value;
 
@@ -24,7 +24,7 @@ const main = () => {
     alert(' Your browser doesn\'t support Geolocation');
   }
 
-  axios.get(`${URL}/order/${id}/restaurants`)
+  axios.get(`${root_URL}/order/${id}/restaurants`)
     .then((result) => {
       result.data.forEach(restaurant => {
         new mapboxgl.Marker()

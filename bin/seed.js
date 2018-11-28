@@ -122,14 +122,15 @@ for (let i = 0; i < restauranteurs.length; i++) {
   const restaurantName = restaurants[i].restaurantName;
   const restaurantFoodType = restaurants[i].foodType;
   const coordinates = restaurants[i].location.coordinates;
+  console.log(restaurants[i].location.coordinates);
 
   User.create(restauranteurs[i])
     .then(restauranteur => {
       Restaurant.create({
         restaurantName: restaurantName,
         foodType: restaurantFoodType,
-        ownerId: restauranteur._id,
-        location: { coordinates: coordinates }
+        location: { coordinates: coordinates },
+        ownerId: restauranteur._id
       });
       console.log('restaurant created');
     })

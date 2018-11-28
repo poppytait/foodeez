@@ -9,36 +9,43 @@
   <li>Budget: {{order.budget}}</li>
   {{#unless order.isCompleted}}
   {{#unless currentUser.isCustomer}}
-    {{#unless order.willServe}}
+  {{#unless order.willServe}}
   <div class="field">
     <label>Price</label>
     <input type="number" name="price" />
   </div>
-  <form method="POST" action="/orderlist/{{order._id}}/accept">
-  <a href="/orderlist/{{order._id}}/accept">
-    <button>Accept Order</button>
-  </a>
+  <div class="field submit">
+    <form method="POST" action="/orderlist/{{order._id}}/accept">
+      <a href="/orderlist/{{order._id}}/accept">
+        <button id="edit-btn">Accept Order</button>
+      </a>
+  </div>
   </form>
   <form method="POST" action="/orderlist/{{order._id}}/reject">
-  <a href="/orderlist/{{order._id}}/reject">
-    <button>Reject Order</button>
-  </a>
+    <div class="field submit">
+      <a href="/orderlist/{{order._id}}/reject">
+        <button>Reject Order</button>
+      </a>
+    </div>
   </form>
   {{/unless}}
   {{/unless}}
   {{#if order.willServe}}
   <form method="POST" action="/orderlist/{{order._id}}/close">
-  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <p>please sign below</p>
     <canvas class="canvas"></canvas>
-    <button>Close Order</button>
-  </a>
+    <br>
+    <div class="field submit">
+      <button id="edit-btn">Close Order</button>
+      </a>
+    </div>
   </form>
   {{/if}}
   {{/unless}}
   {{#if order.isCompleted}}
-    <h3>Order Delivered!</h3>
-    <a href="/orderlist">Back to order list</a>
+  <h3>Order Delivered!</h3>
+  <a href="/orderlist">Back to order list</a>
   {{/if}}
 </ul>
 <script src="../../javascripts/signBox.js"></script>

@@ -1,6 +1,6 @@
 'use strict';
 
-var root_URL = 'http://localhost:3000';
+const root_URL = 'http://localhost:3000';
 
 const id = document.getElementById('order-id').value;
 
@@ -27,8 +27,10 @@ const main = () => {
   axios.get(`${root_URL}/order/${id}/restaurants`)
     .then((result) => {
       result.data.forEach(restaurant => {
+        let lat = restaurant.location.coordinates[0];
+        let lng = restaurant.location.coordinates[1];
         new mapboxgl.Marker()
-          .setLngLat(restaurant.location.coordinates.reverse())
+          .setLngLat([lat, lng])
           .addTo(map);
       });
     })
@@ -36,3 +38,10 @@ const main = () => {
 };
 
 window.addEventListener('load', main);
+
+/* //map.js:35 Error: `LngLatLike` argument must be specified as a LngLat instance, an object {lng: <lng>, lat: <lat>}, an object {lon: <lng>, lat: <lat>}, or an array of [<lng>, <lat>]
+at Function.yu.convert (lng_lat.js:121)
+at o.setLngLat (marker.js:251)
+at result.data.forEach.restaurant (map.js:31)
+at Array.forEach (<anonymous>)
+at axios.get.then (map.js:29) */

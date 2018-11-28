@@ -15,13 +15,21 @@
 <div class="hidden" id="confetti-container">
   <button type="button hidden" id="order-delivered-btn">My order has arrived</button>
 </div>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-<script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
 <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/map.js"></script>
 <script src="/javascripts/order-checking.js"></script>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3dhdGsiLCJhIjoiY2pwMWF1bWpqMDFtNDNrbHd1d3pwcHhoNiJ9.TLI7Nks9DAwjQSxDEgRsbQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v10'
+});
+</script>
 <script>
   document.getElementById("order-delivered-btn").addEventListener("click", function () {
 

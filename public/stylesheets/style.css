@@ -3,8 +3,8 @@ html {
     margin: 0;
     height: 100%;
     /* background: linear-gradient(70deg, #e9eeef, #c4e4e4); */
-    background: url(asian.jpg);
-    background-size: cover;
+    /* background: url(asian.jpg);
+    background-size: cover; */
     
     /* background-repeat: no-repeat; */
 }
@@ -37,9 +37,20 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  height: 100%;
 }
 
-
+.index-container {
+    background: url(asian.jpg);
+    background-size: cover; 
+    
+     background-repeat: no-repeat;
+     height: 100%;
+}
+.index-shadow {
+  background: #00000069;
+  height: 100%;
+}
 a {
   color: #2196F3;
   text-decoration: none;
@@ -303,8 +314,8 @@ form .field {
 
 form label {
 	display: block;
-	margin-bottom: 10px;
-	font-style: bold;
+  font-style: bold;
+  margin-bottom: 44px;
 }
 /*attempting cool css for form lines*/
 form input {
@@ -641,12 +652,17 @@ ul.order-list {
 /* Order list displayed in boxes */
 
 div.order-list {
-  border: solid 1px black;
-  margin-bottom: 10px;
-  display: inline-block;
-  width: 55%;
+  border: solid 1px #00000047;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 55%;
 }
-
+.order-list-container {
+      background: wheat;
+}
+.order-list-container h1 {
+    color: white;
+}
 /* New order */
 
 .do-not-want {

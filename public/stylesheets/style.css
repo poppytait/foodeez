@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-<<<<<<< HEAD
     margin: 0;
     height: 100%;
     /* background: linear-gradient(70deg, #e9eeef, #c4e4e4); */
@@ -8,11 +7,6 @@ html {
     background-size: cover;
     
     /* background-repeat: no-repeat; */
-=======
-  margin: 0;
-  background: linear-gradient(70deg, #e9eeef, #c4e4e4);
-  height: 100%;
->>>>>>> 4d4fb514d716cde686348627891ee192531f7497
 }
 
 *, *:before, *:after {

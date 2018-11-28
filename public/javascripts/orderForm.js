@@ -52,13 +52,13 @@ const goToBudget = () => {
 // show function
 
 const showSection = section => {
-  section.style.transitionDuration = '2s';
+  section.style.transitionDuration = '1s';
   section.style.width = '100%';
-  section.style.height = '100vh';
+  section.style.height = '100%';
 };
 // hide function
 const hideSection = section => {
-  section.style.transitionDuration = '2s';
+  section.style.transitionDuration = '1s';
   section.style.width = '100%';
   section.style.height = '0px';
 };
@@ -66,3 +66,18 @@ const hideSection = section => {
 const removeHide = section => {
   section.className.remove = 'hide-section';
 };
+
+function findOdd (A) {
+  // happy coding!
+  var count;
+  A.forEach((element) => {
+    for (var i = 0; i < A.length; i++) {
+      if (element === A.length) {
+        count++;
+      }
+    };
+    if (!count % 2 === 0) {
+      return A[i];
+    }
+  });
+}

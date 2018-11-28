@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -22,7 +22,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 // npm install mongoose
 
-mongoose.connect('mongodb://localhost/foodeez', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE

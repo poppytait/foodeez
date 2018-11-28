@@ -3,7 +3,6 @@
 const formMiddleware = {}; // We create an empty object and then we modify it
 
 formMiddleware.requireFields = (req, res, next) => { // requireFields is the name of the function
-  console.log(req.path);
   if (req.path === '/signup' || req.path === '/login') {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -23,7 +22,6 @@ formMiddleware.requireFields = (req, res, next) => { // requireFields is the nam
       return res.redirect('/order');
     }
   } else if (req.path === '/editProfile') {
-    console.log('Hi');
     const { addressLine1, addressLine2, city, postcode, phoneNumber } = req.body;
     if (!addressLine1 || !addressLine2 || !city || !postcode || !phoneNumber) {
       req.flash('message-name', 'Contact details cannot be empty'); // Contact details cannot be empty

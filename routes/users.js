@@ -5,15 +5,15 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const formMiddleware = require('../middlewares/formMiddleware');
 
 /* GET users listing. */
-router.get('/', (req, res, next) => {
+router.get('/', authMiddleware.requireUser, (req, res, next) => {
   res.send('respond with a resource');
 });
 
-router.get('/viewProfile', (req, res, next) => {
+router.get('/viewProfile', authMiddleware.requireUser, (req, res, next) => {
   res.render('users/viewProfile');
 });
 
-router.get('/editProfile', (req, res, next) => {
+router.get('/editProfile', authMiddleware.requireUser, (req, res, next) => {
   const user = req.session.currentUser;
   const data = {
     messages: req.flash('message-name'),

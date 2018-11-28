@@ -15,11 +15,15 @@ const restaurantSchema = new Schema({
   },
   foodType: {
     type: String,
-    // enum: ['American', 'Chinese', 'Spanish', 'Indian', 'Italian', 'Japanese', 'Turkish', 'Mexican'],
+    enum: ['american', 'chinese', 'spanish', 'indian', 'italian', 'japanese', 'turkish', 'mexican'],
     required: true
+  },
+  location: {
+    coordinates: [Number]
   }
-
 });
+
+restaurantSchema.index({ location: '2dsphere' });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 

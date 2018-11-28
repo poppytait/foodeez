@@ -3,9 +3,10 @@ const router = express.Router();
 const Order = require('../models/order');
 const Restaurant = require('../models/restaurant');
 const formMiddleware = require('../middlewares/formMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 /* GET orderlist page. */
-router.get('/', (req, res, next) => {
+router.get('/', authMiddleware.requireUser, (req, res, next) => {
   if (req.session.currentUser.isCustomer) {
     Order.find({ userId: req.session.currentUser._id })
       .populate('userId')
@@ -18,7 +19,6 @@ router.get('/', (req, res, next) => {
       .then((result) => {
         Order.find({ restaurantId: result[0]._id })
           .then((results) => {
-            console.log(results);
             res.render('order/orderlist', { orders: results });
           })
           .catch(next);
@@ -27,7 +27,7 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
@@ -36,7 +36,7 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id/edit', (req, res, next) => {
+router.get('/:id/edit', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   const data = {
     messages: req.flash('message-name')
@@ -44,13 +44,12 @@ router.get('/:id/edit', (req, res, next) => {
   Order.findById(id)
     .then((result) => {
       data.order = result;
-      // console.log(data);
       res.render('order/order-edit', data);
     })
     .catch(next);
 });
 
-router.post('/:id/edit', formMiddleware.requireFields, (req, res, next) => {
+router.post('/:id/edit', authMiddleware.requireUser, formMiddleware.requireFields, (req, res, next) => {
   const id = req.params.id;
   const {
     addressLine1,
@@ -84,7 +83,7 @@ router.post('/:id/edit', formMiddleware.requireFields, (req, res, next) => {
 });
 
 /* GET view order page (restaurant user) */
-router.get('/:id/view', (req, res, next) => {
+router.get('/:id/view', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {
@@ -93,8 +92,7 @@ router.get('/:id/view', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/:id/delete', (req, res, next) => {
-  console.log('Hello');
+router.post('/:id/delete', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndRemove(id)
     .then(() => {
@@ -104,7 +102,7 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 // accepting order
-router.post('/:id/accept', (req, res, next) => {
+router.post('/:id/accept', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndUpdate(id, { $set: {
     willServe: true,
@@ -119,7 +117,7 @@ router.post('/:id/accept', (req, res, next) => {
 
 // rejecting order
 // accepting order
-router.post('/:id/reject', (req, res, next) => {
+router.post('/:id/reject', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndUpdate(id, { $set: {
     willServe: false,
@@ -132,7 +130,7 @@ router.post('/:id/reject', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/:id/close', (req, res, next) => {
+router.post('/:id/close', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findByIdAndUpdate(id, { $set: {
     isCompleted: true

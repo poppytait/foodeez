@@ -8,9 +8,9 @@
   <input type="hidden" id="order-id" value="{{order._id}}">
   <h2 id="status"></h2>
   <div id="link-status"></div>
+<div id='map' style='width: 800px; height: 600px;'></div>
 </div>
 
-<div id='map' style='width: 800px; height: 600px;'></div>
 
 <div class="hidden" id="confetti-container">
   <button type="button hidden" id="order-delivered-btn">My order has arrived</button>
@@ -21,8 +21,8 @@
 
 <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascripts/map.js"></script>
 <script src="/javascripts/order-checking.js"></script>
+<script src="/javascripts/map.js"></script>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3dhdGsiLCJhIjoiY2pwMWF1bWpqMDFtNDNrbHd1d3pwcHhoNiJ9.TLI7Nks9DAwjQSxDEgRsbQ';
 var map = new mapboxgl.Map({

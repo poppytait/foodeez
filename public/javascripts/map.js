@@ -1,6 +1,6 @@
 'use strict';
 
-var root_URL = 'http://localhost:3000';
+const root_URL = 'http://localhost:3000';
 
 const id = document.getElementById('order-id').value;
 

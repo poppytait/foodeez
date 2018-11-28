@@ -46,5 +46,5 @@ let checkDeliveredStatus = () => {
       console.log(error);
     });
 };
-const intervalID = setInterval(checkOrderStatus, 1000);
-const intervalID2 = setInterval(checkDeliveredStatus, 1000);
+const intervalID = setInterval(checkOrderStatus, 500);
+const intervalID2 = setInterval(checkDeliveredStatus, 2000);

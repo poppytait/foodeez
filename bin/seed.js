@@ -104,24 +104,32 @@ restauranteurs.forEach(restauranteurs => {
 const restaurants = [
   {
     restaurantName: 'China King',
-    foodType: 'chinese'
+    foodType: 'chinese',
+    location: {
+      coordinates: [41.3975248, 2.1910079]
+    }
   },
   {
     restaurantName: 'Mexican Madness',
-    foodType: 'mexican'
+    foodType: 'mexican',
+    location: {
+      coordinates: [41.4007419, 2.1987251]
+    }
   }
 ];
 
 for (let i = 0; i < restauranteurs.length; i++) {
   const restaurantName = restaurants[i].restaurantName;
   const restaurantFoodType = restaurants[i].foodType;
+  const coordinates = restaurants[i].location.coordinates;
 
   User.create(restauranteurs[i])
     .then(restauranteur => {
       Restaurant.create({
         restaurantName: restaurantName,
         foodType: restaurantFoodType,
-        ownerId: restauranteur._id
+        ownerId: restauranteur._id,
+        location: { coordinates: coordinates }
       });
       console.log('restaurant created');
     })

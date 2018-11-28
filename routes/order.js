@@ -80,13 +80,16 @@ router.get('/norestaurantsfound', authMiddleware.requireUser, (req, res, next) =
 /* GET order-processed page. */
 router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
+  if (!ObjectId.isValid(id)) {
+    return next();
+  }
   // console.log(req.session.currentUser);
   Order.findById(id)
     .then((result) => {
-      if (!result.userId.equals(req.session.currentUser._id)) {
-        return next(); // Protecting route for other users
-      } else if (result === null) {
+      if (result === null) {
         return next(); // Protecting for typing orderIds that don't exist
+      } else if (!result.userId.equals(req.session.currentUser._id)) {
+        return next(); // Protecting route for other users
       } else if (result.willServe === false) {
         res.render('order/order-rejected', { order: result });
       } else if (result.willServe === true) {
@@ -104,6 +107,12 @@ router.get('/:id/json', authMiddleware.requireUser, (req, res, next) => {
     .then((result) => {
       res.json(result);
     })
+    .catch(next);
+});
+
+router.get('/:id/restaurants', authMiddleware.requireUser, (req, res, next) => {
+  Restaurant.find()
+    .then(restaurants => res.json(restaurants))
     .catch(next);
 });
 

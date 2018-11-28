@@ -27,6 +27,8 @@
     <input type="text" name="phoneNumber" value="{{user.phoneNumber}}" />
   </div>
 
+  {{#if currentUser.isCustomer}}
+
   <h2>Allergies?</h2>
   <div class="field">
     <input type="text" name="allergies" value="{{user.allergies}}" />
@@ -36,6 +38,8 @@
   <div class="field">
     <input type="text" name="dietaryRequirements" value="{{user.dietaryRequirements}}" />
   </div>
+
+  {{/if}}
 
   {{> errorMessages}}
 

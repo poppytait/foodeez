@@ -692,3 +692,11 @@ div.orders-list {
 #order-container p {
   color: white;
 }
+#map {
+  max-width: 90%;
+  height: 600px;
+  display: flex;
+  padding: 20px;
+  margin-bottom: 40px;
+  display: none;
+}

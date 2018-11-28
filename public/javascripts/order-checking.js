@@ -1,5 +1,5 @@
 var root_URL = 'http://localhost:3000';
-
+console.log('linked');
 let statusCheck = null;
 let statusCheck2 = null;
 
@@ -10,6 +10,8 @@ let checkOrderStatus = () => {
   const id = document.getElementById('order-id').value;
   const status = document.getElementById('status');
   const linkStatus = document.getElementById('link-status');
+  const mapElement = document.getElementById('map');
+
   axios.get(`${root_URL}/order/${id}/json`)
     .then((response) => {
       if (response.data.willServe === false) {
@@ -19,8 +21,11 @@ let checkOrderStatus = () => {
         statusCheck = 1;
       } else if (response.data.willServe === true) {
         status.innerText = 'YAY! your order has been accepted';
+        mapElement.style.display = 'flex';
+        confetti();
       } else {
         status.innerText = 'We are awaiting confirmation';
+        mapElement.style.display = 'none';
       }
     })
     .catch((error) => {

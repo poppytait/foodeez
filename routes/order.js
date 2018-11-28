@@ -72,23 +72,22 @@ router.post('/new', authMiddleware.requireUser, formMiddleware.requireFields, (r
     .catch(next);
 });
 
-/* GET order delivered page */
-router.get('/order-delivered', (req, res, next) => {
-  res.render('order/order-delivered');
-});
-
 /* GET no restaurants found page. */
 router.get('/norestaurantsfound', authMiddleware.requireUser, (req, res, next) => {
   res.render('order/order-norestaurantsfound');
 });
 
 /* GET order-processed page. */
-router.get('/:id', (req, res, next) => {
+router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
+  // console.log(req.session.currentUser);
   Order.findById(id)
     .then((result) => {
-      if (result.willServe === false) {
-        console.log('false');
+      if (!result.userId.equals(req.session.currentUser._id)) {
+        return next(); // Protecting route for other users
+      } else if (result === null) {
+        return next(); // Protecting for typing orderIds that don't exist
+      } else if (result.willServe === false) {
         res.render('order/order-rejected', { order: result });
       } else if (result.willServe === true) {
         res.render('order/order-completed', { order: result });
@@ -99,7 +98,7 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id/json', (req, res, next) => {
+router.get('/:id/json', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
   Order.findById(id)
     .then((result) => {

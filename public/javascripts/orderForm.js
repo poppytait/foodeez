@@ -54,13 +54,13 @@ const goToBudget = () => {
 const showSection = section => {
   section.style.transitionDuration = '1s';
   section.style.width = '100%';
-  section.style.height = '100%';
+  section.style.height = '100vh';
 };
 // hide function
 const hideSection = section => {
   section.style.transitionDuration = '1s';
   section.style.width = '100%';
-  section.style.height = '0px';
+  section.style.height = '0vh';
 };
 
 const removeHide = section => {

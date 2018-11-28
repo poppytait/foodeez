@@ -1,11 +1,12 @@
+
+<div id="order-container">
 {{> customerNavBar}}
+
 
 <h1>Your order is being processed</h1>
 <p>Please wait until your order is accepted by a secret restaurant</p>
-
-<div id="order-container">
   <input type="hidden" id="order-id" value="{{order._id}}">
-  <h1 id="status"></h1>
+  <h2 id="status"></h2>
   <div id="link-status"></div>
 </div>
 

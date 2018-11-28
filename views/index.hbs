@@ -1,4 +1,6 @@
-
+      <div class="top-nav">
+    <img src="images/transparent-foodeez.png" class="logo">
+      </div>
       <nav id="nav-bar">
         <div class="dropdown">
         <a href ="#" class="dropbtn"><input type="text" class="location-input" value="Barcelona"> <i class="fas fa-angle-down"></i></a>
@@ -8,8 +10,9 @@
         </div>
         </div>
       </nav>
-    <img src="images/transparent-foodeez.png" class="logo">
-    <h2>Makes food ordering eezy</h2>
+      <div class="flex-container">
+      <div class="main-content">
+    <h2 class="front-header">Makes food ordering eezy</h2>
       <div class="bottom-nav-bar">
           {{#unless currentUser}}
       <a href="/auth/signup" id="signup-btn">Sign Up</a>
@@ -18,6 +21,8 @@
         {{#if currentUser}}
         <a href="/order" id="order-btn">Make New Order</a>
         {{/if}}
+        </div>
+      </div>
       </div>
     <script type="text/javascript" src="javascripts/locations.js"></script>
         <script type="text/javascript" src="javascripts/index.js"></script>

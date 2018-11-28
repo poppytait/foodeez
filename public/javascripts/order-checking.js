@@ -1,4 +1,4 @@
-var URL = 'http://localhost:3000';
+var root_URL = 'http://localhost:3000';
 
 let statusCheck = null;
 let statusCheck2 = null;
@@ -10,7 +10,7 @@ let checkOrderStatus = () => {
   const id = document.getElementById('order-id').value;
   const status = document.getElementById('status');
   const linkStatus = document.getElementById('link-status');
-  axios.get(`${URL}/order/${id}/json`)
+  axios.get(`${root_URL}/order/${id}/json`)
     .then((response) => {
       if (response.data.willServe === false) {
         status.innerText = 'Sorry, Your Order has been Rejected';
@@ -35,7 +35,7 @@ let checkDeliveredStatus = () => {
   const id = document.getElementById('order-id').value;
   const confettiContainer = document.getElementById('confetti-container');
 
-  axios.get(`${URL}/order/${id}/json`)
+  axios.get(`${root_URL}/order/${id}/json`)
     .then((response) => {
       if (response.data.isCompleted === true) {
         confettiContainer.classList.remove('hidden');

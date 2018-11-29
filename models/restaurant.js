@@ -13,13 +13,16 @@ const restaurantSchema = new Schema({
     type: String,
     required: true
   },
+  location: {
+    // coordinates: Array
+    lat: Number,
+    lng: Number
+
+  },
   foodType: {
     type: String,
     enum: ['american', 'chinese', 'spanish', 'indian', 'italian', 'japanese', 'turkish', 'mexican'],
     required: true
-  },
-  location: {
-    coordinates: [Number]
   }
 });
 

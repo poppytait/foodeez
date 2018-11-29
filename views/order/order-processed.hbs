@@ -1,16 +1,19 @@
-
 <div id="order-container">
-{{> customerNavBar}}
+  {{> customerNavBar}}
 
   <input type="hidden" id="order-id" value="{{order._id}}">
   <h2 id="status"></h2>
   <div id="link-status"></div>
-<div id='map' style='width: 800px; height: 600px;'></div>
+  <div id='map' style='width: 800px; height: 600px;'></div>
 </div>
 
 
 <div class="hidden" id="confetti-container">
-  <button type="button hidden" id="order-delivered-btn">My order has arrived</button>
+  <div class="field submit">
+    <button type="submit hidden" id="submit">My order has arrived</button>
+    <br><br>
+    <button type="submit hidden" id="submit">Logout</button>
+  </div>
 </div>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
@@ -22,10 +25,10 @@
 <script src="/javascripts/map.js"></script>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3dhdGsiLCJhIjoiY2pwMWF1bWpqMDFtNDNrbHd1d3pwcHhoNiJ9.TLI7Nks9DAwjQSxDEgRsbQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v10'
-});
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v10'
+  });
 </script>
 <script>
   document.getElementById("order-delivered-btn").addEventListener("click", function () {
@@ -54,5 +57,5 @@ style: 'mapbox://styles/mapbox/streets-v10'
       }
     }());
   });
-  
+
 </script>

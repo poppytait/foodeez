@@ -28,12 +28,6 @@ mongoose.connect(process.env.MONGODB_URI, {
   reconnectTries: Number.MAX_VALUE
 });
 
-mongoose.connect('mongodb://localhost/mapbox-example', {
-  keepAlive: true,
-  useNewUrlParser: true,
-  reconnectTries: Number.MAX_VALUE
-});
-
 // session
 app.use(session({
   store: new MongoStore({

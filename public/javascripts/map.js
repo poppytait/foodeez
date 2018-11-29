@@ -22,7 +22,7 @@ const main = () => {
     alert(' Your browser doesn\'t support Geolocation');
   }
 
-  axios.get(`http://localhost:3000/order/${id}/restaurants`)
+  axios.get(`http://foodeezapp.herokuapp.com/order/${id}/restaurants`)
     .then((result) => {
       result.data.forEach(restaurant => {
         let lat = restaurant.location.coordinates[0];

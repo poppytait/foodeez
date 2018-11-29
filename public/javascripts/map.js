@@ -1,7 +1,5 @@
 'use strict';
 
-const root_URL = 'http://localhost:3000';
-
 const id = document.getElementById('order-id').value;
 
 const main = () => {
@@ -24,7 +22,7 @@ const main = () => {
     alert(' Your browser doesn\'t support Geolocation');
   }
 
-  axios.get(`${root_URL}/order/${id}/restaurants`)
+  axios.get(`http://localhost:3000/order/${id}/restaurants`)
     .then((result) => {
       result.data.forEach(restaurant => {
         let lat = restaurant.location.coordinates[0];

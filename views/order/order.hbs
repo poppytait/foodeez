@@ -62,20 +62,16 @@
       <h2>Allergies</h2>
 
       <div class="field">
-        <input type="text" name="allergies" />
+        <input type="text" name="allergies" value="{{currentUser.allergies}}" />
       </div>
 
 <!--############# Dietry requirements #############-->
 
 <h2>Dietary Requirements</h2>
       <div class="field">
-       
-        <input type="text" name="dietaryRequirements" />
+        <input type="text" name="dietaryRequirements" value="{{currentUser.dietaryRequirements}}" />
       </div>
 
-      <div class="field" >
-          <input type="text" name="dietaryRequirements"/>
-      </div>
       <a class="next" id="go-to-budget-button">next</a>
     </section>
     <section class="form-section" id="form-budget">

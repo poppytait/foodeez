@@ -13,6 +13,7 @@
       <a href="/orderlist"><li>Order List</li></a>
       {{#if currentUser.isCustomer}}
       <a href="/order"><li>New Order</li></a>
+      <a href="/"><li>Change location</li></a>
       {{/if}}
        <form class = "logoutbtn" action="/auth/logout" method="POST">
          <button type="submit">Logout</button>

@@ -1,5 +1,5 @@
 // npm install mongoose
-
+require('dotenv').config();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Restaurant = require('../models/restaurant');
@@ -11,7 +11,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 mongoose.connect(
-  'mongodb://localhost/foodeez',
+  process.env.MONGODB_URI,
   {
     keepAlive: true,
     useNewUrlParser: true,

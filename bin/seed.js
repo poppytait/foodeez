@@ -129,7 +129,7 @@ for (let i = 0; i < restauranteurs.length; i++) {
       Restaurant.create({
         restaurantName: restaurantName,
         foodType: restaurantFoodType,
-        location: { coordinates: coordinates },
+        // 'location: { coordinates: coordinates },
         ownerId: restauranteur._id
       });
       console.log('restaurant created');

@@ -710,3 +710,10 @@ div.orders-list {
   margin-bottom: 40px;
   display: none;
 }
+
+.profile-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+};

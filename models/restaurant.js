@@ -19,7 +19,7 @@ const restaurantSchema = new Schema({
     required: true
   },
   location: {
-    coordinates: [Number]
+    coordinates: [Number, Number]
   }
 });
 

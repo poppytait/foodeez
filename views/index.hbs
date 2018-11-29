@@ -20,9 +20,12 @@
       <a href="/auth/signup" id="signup-btn">Sign Up</a>
       <a href="/auth/login" id="login-btn">Log In</a>
       {{/unless}}
-        {{#if currentUser}}
+        {{#if currentUser.isCustomer}}
         <a href="/order" id="order-btn">Make New Order</a>
         {{/if}}
+        {{#unless currentUser.isCustomer}}
+        <a href="/orderlist" id="order-btn">Go to order list</a>
+        {{/unless}}
         </div>
       </div>
       </div>

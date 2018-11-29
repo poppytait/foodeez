@@ -44,7 +44,11 @@ let checkDeliveredStatus = () => {
     .then((response) => {
       if (response.data.isCompleted === true) {
         confettiContainer.classList.remove('hidden');
+        let mapElement2 = document.getElementById('map');
+        mapElement2.style.display = 'none';
+
         statusCheck2 = 1;
+        statusCheck = 1;
       }
     })
     .catch((error) => {

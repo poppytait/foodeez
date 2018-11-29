@@ -1,15 +1,27 @@
 html {
   box-sizing: border-box;
+<<<<<<< HEAD
     margin: 0;
     height: 100%;
     /* background: linear-gradient(70deg, #e9eeef, #c4e4e4); */
-    background: url(asian.jpg);
-    background-size: cover;
+    /* background: url(asian.jpg);
+    background-size: cover; */
     
     /* background-repeat: no-repeat; */
+=======
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(70deg, #e9eeef, #c4e4e4);
+  *//* background: url(asian.jpg); */
+    background-size: cover;
+
+  /* background-repeat: no-repeat; */
+>>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -20,31 +32,47 @@ For headers: font-family: 'Righteous', cursive;
 
 */
 
-h1, h2, h3, p { 
-  font-family: 'Righteous', cursive;
+h1,
+h2,
+h3,
+p {
+  font-family: "Righteous", cursive;
   color: #352e2e;
-    /* text-decoration: underline; */
-   /*  border-bottom: 1px solid #f5f5dc8c; */
-    /* box-shadow: 0px 1px 20px 0px black; */
-   
-    border-radius: 30px;
+  /* text-decoration: underline; */
+  /*  border-bottom: 1px solid #f5f5dc8c; */
+  /* box-shadow: 0px 1px 20px 0px black; */
+
+  border-radius: 30px;
 }
 
-
 body {
-  font: 14px 'Niramit', sans-serif;
+  font: 14px "Niramit", sans-serif;
   /*background-color:#0096882e;*/
   margin: 0;
   padding: 0;
   text-align: center;
+  height: 100%;
 }
 
-
+<<<<<<< HEAD
+.index-container {
+    background: url(asian.jpg);
+    background-size: cover; 
+    
+     background-repeat: no-repeat;
+     height: 100%;
+}
+.index-shadow {
+  background: #00000069;
+  height: 100%;
+}
+=======
+>>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 a {
-  color: #2196F3;
+  color: #2196f3;
   text-decoration: none;
 }
-a::selection{
+a::selection {
   background: none;
 }
 ul {
@@ -54,7 +82,7 @@ ul {
   border-top: 0.5px solid #00000052;
 }
 
-.front-header{
+.front-header {
   padding: 48px;
   color: white;
   padding-bottom: 35px;
@@ -63,7 +91,7 @@ ul {
 #order-btn {
   padding: 12px;
   /* border: 2px solid #ffffff38; */
-  background: #FF9800;
+  background: #ff9800;
   color: white;
   font-size: 4vw;
   /* text-shadow: 1px 2px 2px black; */
@@ -75,23 +103,20 @@ ul {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  }
+}
 
-
-#order-btn:hover{
+#order-btn:hover {
   box-shadow: inset 2px 2px 13px 2px black;
 }
-#order-btn:hover::selection{
-  background: yellow; 
+#order-btn:hover::selection {
+  background: yellow;
 }
-#order-btn::selection{
-   background: yellow; 
+#order-btn::selection {
+  background: yellow;
 }
-
-
 
 .logoutbtn button {
-  color: #2196F3;
+  color: #2196f3;
   text-decoration: none;
   background: none;
   padding: 10px 0;
@@ -102,11 +127,11 @@ ul {
 a:hover {
   color: #08b9ff80;
 }
-h1, p{
+h1,
+p {
   text-align: center;
-  
 }
-h1{
+h1 {
   font-size: 2.5em;
 }
 /* Nav bar home page */
@@ -114,24 +139,23 @@ h1{
 #nav-bar {
   clear: both;
   color: #000;
-   
-    text-align: center;
-    background-color: #fff;
-    text-decoration: none;
-    font-size: 30px;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 2px 2px 0 rgba(0,0,0,.07), 0 0 0 0 rgba(0,0,0,.07);
-  
-  
+
+  text-align: center;
+  background-color: #fff;
+  text-decoration: none;
+  font-size: 30px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.07),
+    0 0 0 0 rgba(0, 0, 0, 0.07);
 }
 
-#nav-bar i{
+#nav-bar i {
   color: black;
 }
-.top-nav{
+.top-nav {
   padding: 12px;
   background: #ff9300d6;
   height: 51px;
@@ -144,7 +168,6 @@ h1{
 }
 
 .dropdown-content {
- 
   position: relative;
   background-color: #fff;
   min-width: 260px;
@@ -159,26 +182,25 @@ h1{
   text-align: center;
   padding: 10px 2px;
   margin: 0;
-  
 }
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
 
-.location-input{
+.location-input {
   border: 0px;
-    padding: 6px;
-    text-align: center;
-    font-size: 28px;
-    font-family: 'Righteous', cursive;
-    color: #2196F3;
+  padding: 6px;
+  text-align: center;
+  font-size: 28px;
+  font-family: "Righteous", cursive;
+  color: #2196f3;
 }
-.location-list{
+.location-list {
   position: absolute;
-    background: white;
-    width: 100%;
-    margin-top: 0;
+  background: white;
+  width: 100%;
+  margin-top: 0;
 }
 .location-list li:hover {
   background-color: #00828d;
@@ -197,10 +219,10 @@ h1{
 
 .menuToggle {
   display: block;
-    width:100%;
+  width: 100%;
 }
 .dropdown:hover .dropbtn {
-    color:#08b9ff80;
+  color: #08b9ff80;
 }
 
 .dropbtn {
@@ -226,7 +248,7 @@ h1{
   padding: 12px;
   /* border: 2px solid #ffffff38; */
   background: #fff;
-  color: #FF9800;
+  color: #ff9800;
   font-size: 4vw;
   /* text-shadow: 1px 2px 2px black; */
   border-radius: 29px;
@@ -238,13 +260,12 @@ h1{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
- 
 }
 
 #login-btn {
   padding: 12px;
   /* border: 2px solid #ffffff38; */
-  background: #FF9800;
+  background: #ff9800;
   color: white;
   font-size: 4vw;
   /* text-shadow: 1px 2px 2px black; */
@@ -256,23 +277,32 @@ h1{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-   
-  
 }
 #edit-btn {
   padding: 5px 20px;
   text-align: center;
   font-size: 16px;
-  background-color: #4CAF50;
   cursor: pointer;
   margin-top: 10px;
-   
-  
+  padding: 12px;
+  /* border: 2px solid #ffffff38; */
+  background: #2196f3;
+  color: white;
+  font-size: 4vw;
+  /* text-shadow: 1px 2px 2px black; */
+  border-radius: 29px;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*---- 404 styles ----*/
 
-.dropped-image{
+.dropped-image {
   max-width: 75%;
   text-align: center;
 }
@@ -283,32 +313,37 @@ h1{
 */
 .not-found-container h1 {
   text-align: center;
-    position: relative;
-    display: inline;
-    top: 96px;
-    font-size: 10vw;
-    text-transform: capitalize;
-    text-shadow: 2px 2px 2px #ffc000;
+  position: relative;
+  display: inline;
+  top: 96px;
+  font-size: 10vw;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 2px #ffc000;
 }
 
 /* -- forms -- */
 
 form.is-processing {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 form .field {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 form label {
+<<<<<<< HEAD
 	display: block;
-	margin-bottom: 10px;
-	font-style: bold;
+  font-style: bold;
+  margin-bottom: 44px;
+=======
+  display: block;
+  margin-bottom: 10px;
+  font-style: bold;
+>>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 /*attempting cool css for form lines*/
 form input {
-  
   padding: 5px;
   font-size: 16px;
   border: white;
@@ -328,7 +363,7 @@ form .submit {
 form .submit button {
   padding: 12px;
   /* border: 2px solid #ffffff38; */
-  background: #FF9800;
+  background: #ff9800;
   color: white;
   font-size: 4vw;
   /* text-shadow: 1px 2px 2px black; */
@@ -351,14 +386,14 @@ form .validation {
 }
 
 form .field.has-error label {
-	color: red;
+  color: red;
 }
 form .field.has-error input {
-	border: 1px solid  red;
+  border: 1px solid red;
 }
 /* form manipulation */
 
-.form-section{
+.form-section {
   width: 100%;
   height: 100%;
   border: 2px solid #00000008;
@@ -366,7 +401,7 @@ form .field.has-error input {
   margin-bottom: 13px;
   padding: 6px;
 }
-.hide-section{
+.hide-section {
   width: 100%;
   height: 0px;
 
@@ -375,10 +410,10 @@ form .field.has-error input {
 .hide-section h2 {
   display: none;
 }
-.hide-section div{
+.hide-section div {
   display: none;
 }
-.hidden-section{
+.hidden-section {
   display: none;
 }
 
@@ -393,7 +428,7 @@ form .field.has-error input {
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #f3f3f3f3;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: 2px solid #00000066;
   box-shadow: inset 0px 0px 20px 1px #312b2b61;
 }
@@ -403,7 +438,6 @@ form .field.has-error input {
 }
 
 .submit-btn {
-  
   font-size: 20px;
   border-radius: 10px;
   background-color: #177e89;
@@ -419,22 +453,21 @@ form .field.has-error input {
   margin-bottom: 30px;
 }
 
-.login-info{
-  
-    height: 48px;
-    box-sizing: border-box;
-    font-size: 16px;
-    line-height: 24px;
-    caret-color: #00CCBC;
-    padding: 12px 16px;
-    border: 1px solid #bac3c3;
-    border-radius: 3px;
-    box-shadow: inset 0 2px 0 rgba(0,0,0,0.05), inset 0 0 0 100px #fff;
-    transition-property: box-shadow;
-    transition-duration: 150ms;
-    transition-timing-function: ease-out;
-    width: 100%;
-    margin-bottom: 8px;
+.login-info {
+  height: 48px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 24px;
+  caret-color: #00ccbc;
+  padding: 12px 16px;
+  border: 1px solid #bac3c3;
+  border-radius: 3px;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.05), inset 0 0 0 100px #fff;
+  transition-property: box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .email-password-titles {
@@ -445,44 +478,41 @@ form .field.has-error input {
   padding-bottom: 8px;
 }
 
-
 .cross {
   float: right;
   margin-top: 15px;
 }
-.check-boxes input{
+.check-boxes input {
   float: right;
   padding: 30px;
 }
 /* Burger navbar for customer */
 
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: fixed;
   top: 15px;
   right: 15px;
-  
+
   z-index: 1;
-  
+
   -webkit-user-select: none;
   user-select: none;
 }
 
-#menuToggle input
-{
+#menuToggle input {
   display: block;
   width: 40px;
   height: 32px;
   position: absolute;
   top: -7px;
   left: -5px;
-  
+
   cursor: pointer;
-  
+
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  
+
   -webkit-touch-callout: none;
 }
 
@@ -490,37 +520,32 @@ form .field.has-error input {
  * Just a quick hamburger
  */
 
-
-#menuToggle span
-{
+#menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  
+
   background: #0098fa99;
   border-radius: 3px;
-  
+
   z-index: 1;
-  
+
   transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 #order-container #menuToggle span {
   background: white;
 }
 
-#menuToggle span:first-child
-{
+#menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
+#menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
@@ -528,8 +553,7 @@ form .field.has-error input {
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ span
-{
+#menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #fff;
@@ -538,8 +562,7 @@ form .field.has-error input {
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
+#menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
@@ -547,8 +570,7 @@ form .field.has-error input {
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
+#menuToggle input:checked ~ span:nth-last-child(2) {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
 }
@@ -557,9 +579,7 @@ form .field.has-error input {
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu
-{
-  
+#menu {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -572,15 +592,14 @@ form .field.has-error input {
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
-  
+
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
-  
-  transition: transform 1.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  transition: transform 1.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-#menu li
-{
+#menu li {
   padding: 10px 0;
   font-size: 22px;
 }
@@ -588,9 +607,8 @@ form .field.has-error input {
 /*
  * And let's fade it in from the left
  */
-#menuToggle input:checked ~ ul
-{
-  transform: scale(1.0, 1.0);
+#menuToggle input:checked ~ ul {
+  transform: scale(1, 1);
   opacity: 1;
   right: 0;
 }
@@ -600,8 +618,7 @@ form .field.has-error input {
   border-top: none;
 }
 
-
-.canvas{
+.canvas {
   width: 300px;
   height: 100px;
   border: 3px double #463838b8;
@@ -623,9 +640,8 @@ ul.order-list {
 }
 
 .check-boxes {
-  text-align:left;
+  text-align: left;
 }
-
 
 /* Order delivered button - star explosion */
 
@@ -641,12 +657,35 @@ ul.order-list {
 /* Order list displayed in boxes */
 
 div.order-list {
+<<<<<<< HEAD
+  border: solid 1px #00000047;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 55%;
+}
+.order-list-container {
+      background: wheat;
+}
+.order-list-container h1 {
+    color: white;
+=======
   border: solid 1px black;
   margin-bottom: 10px;
   display: inline-block;
   width: 55%;
+  border: solid 1px black;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 55%;
+  border-radius: 10px;
+  background: white;
 }
 
+div.orders-list {
+  margin-top: 20px;
+
+>>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
+}
 /* New order */
 
 .do-not-want {
@@ -659,13 +698,12 @@ div.order-list {
 
 /*order page*/
 
-#order-container{
+#order-container {
   background: linear-gradient(70deg, black, #00b7f7);
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 .order-container h1 {
   color: white;
@@ -673,7 +711,7 @@ div.order-list {
 #status {
   color: white;
 }
-.next{
+.next {
   padding: 12px;
   /* border: 2px solid #ffffff38; */
   text-transform: capitalize;

@@ -23,9 +23,11 @@
         {{#if currentUser.isCustomer}}
         <a href="/order" id="order-btn">Make New Order</a>
         {{/if}}
+        {{#if currentUser}}
         {{#unless currentUser.isCustomer}}
         <a href="/orderlist" id="order-btn">Go to order list</a>
         {{/unless}}
+        {{/if}}
         </div>
       </div>
       </div>

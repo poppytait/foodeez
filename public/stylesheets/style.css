@@ -634,6 +634,15 @@ ul.order-list {
   transform: translate(-50%, -50%);
 }
 
+#logout-btn{
+  background-color: #27afdc;
+  border-radius: 5px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Order list displayed in boxes */
 
 div.order-list {

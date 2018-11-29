@@ -90,10 +90,6 @@ router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
         return next(); // Protecting for typing orderIds that don't exist
       } else if (!result.userId.equals(req.session.currentUser._id)) {
         return next(); // Protecting route for other users
-      } else if (result.willServe === false) {
-        res.render('order/order-rejected', { order: result });
-      } else if (result.willServe === true) {
-        res.render('order/order-completed', { order: result });
       } else if (result.willServe === null) {
         res.render('order/order-processed', { order: result });
       }

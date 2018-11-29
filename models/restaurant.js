@@ -18,9 +18,9 @@ const restaurantSchema = new Schema({
     enum: ['american', 'chinese', 'spanish', 'indian', 'italian', 'japanese', 'turkish', 'mexican'],
     required: true
   },
-    location: {
-      coordinates: [Number, Number]
-    }
+  location: {
+    coordinates: [Number, Number]
+  }
 });
 
 restaurantSchema.index({ location: '2dsphere' });

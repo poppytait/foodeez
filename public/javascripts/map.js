@@ -1,4 +1,4 @@
-
+'use strict';
 const id = document.getElementById('order-id').value;
 
 const main = () => {
@@ -27,7 +27,7 @@ const main = () => {
         let lat = restaurant.location.coordinates[0];
         let lng = restaurant.location.coordinates[1];
         new mapboxgl.Marker()
-          .setLngLat([lat, lng])
+          .setLngLat([lng, lat])
           .addTo(map);
       });
     })

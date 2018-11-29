@@ -1,22 +1,11 @@
 html {
   box-sizing: border-box;
-<<<<<<< HEAD
     margin: 0;
     height: 100%;
     /* background: linear-gradient(70deg, #e9eeef, #c4e4e4); */
     /* background: url(asian.jpg);
     background-size: cover; */
-    
     /* background-repeat: no-repeat; */
-=======
-  margin: 0;
-  height: 100%;
-  background: linear-gradient(70deg, #e9eeef, #c4e4e4);
-  *//* background: url(asian.jpg); */
-    background-size: cover;
-
-  /* background-repeat: no-repeat; */
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 
 *,
@@ -27,7 +16,7 @@ html {
 
 /* Fonts 
 
-For body: font-family: 'Niramit', sans-serif;
+For body: font-family: 'Allerta', sans-serif;
 For headers: font-family: 'Righteous', cursive;
 
 */
@@ -36,7 +25,7 @@ h1,
 h2,
 h3,
 p {
-  font-family: "Righteous", cursive;
+  font-family: 'Allerta', sans-serif;
   color: #352e2e;
   /* text-decoration: underline; */
   /*  border-bottom: 1px solid #f5f5dc8c; */
@@ -54,7 +43,6 @@ body {
   height: 100%;
 }
 
-<<<<<<< HEAD
 .index-container {
     background: url(asian.jpg);
     background-size: cover; 
@@ -66,8 +54,6 @@ body {
   background: #00000069;
   height: 100%;
 }
-=======
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 a {
   color: #2196f3;
   text-decoration: none;
@@ -153,7 +139,9 @@ h1 {
 }
 
 #nav-bar i {
-  color: black;
+  color: gray;
+  margin-right: 7px;
+
 }
 .top-nav {
   padding: 12px;
@@ -192,8 +180,8 @@ h1 {
   border: 0px;
   padding: 6px;
   text-align: center;
-  font-size: 28px;
-  font-family: "Righteous", cursive;
+  font-size: 24px;
+  font-family: "Allerta", sans-serif;
   color: #2196f3;
 }
 .location-list {
@@ -220,6 +208,7 @@ h1 {
 .menuToggle {
   display: block;
   width: 100%;
+
 }
 .dropdown:hover .dropbtn {
   color: #08b9ff80;
@@ -284,6 +273,7 @@ h1 {
   font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
+  margin-bottom: 10px;
   padding: 12px;
   /* border: 2px solid #ffffff38; */
   background: #2196f3;
@@ -332,15 +322,9 @@ form .field {
 }
 
 form label {
-<<<<<<< HEAD
 	display: block;
   font-style: bold;
   margin-bottom: 44px;
-=======
-  display: block;
-  margin-bottom: 10px;
-  font-style: bold;
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 /*attempting cool css for form lines*/
 form input {
@@ -362,11 +346,9 @@ form .submit {
 
 form .submit button {
   padding: 12px;
-  /* border: 2px solid #ffffff38; */
   background: #ff9800;
   color: white;
   font-size: 4vw;
-  /* text-shadow: 1px 2px 2px black; */
   border-radius: 29px;
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
   -webkit-touch-callout: none;
@@ -396,7 +378,7 @@ form .field.has-error input {
 .form-section {
   width: 100%;
   height: 100%;
-  border: 2px solid #00000008;
+  
   /* box-shadow: 2px 2px 20px 2px; */
   margin-bottom: 13px;
   padding: 6px;
@@ -427,10 +409,8 @@ form .field.has-error input {
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;
-  background-color: #f3f3f3f3;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 2px solid #00000066;
-  box-shadow: inset 0px 0px 20px 1px #312b2b61;
+  background-color: #fffffff3;
+  box-shadow: inset 0px 0px 20px 1px #312b2b0a;
 }
 
 #id {
@@ -657,18 +637,6 @@ ul.order-list {
 /* Order list displayed in boxes */
 
 div.order-list {
-<<<<<<< HEAD
-  border: solid 1px #00000047;
-    margin-bottom: 10px;
-    display: inline-block;
-    width: 55%;
-}
-.order-list-container {
-      background: wheat;
-}
-.order-list-container h1 {
-    color: white;
-=======
   border: solid 1px black;
   margin-bottom: 10px;
   display: inline-block;
@@ -684,7 +652,6 @@ div.order-list {
 div.orders-list {
   margin-top: 20px;
 
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 /* New order */
 
@@ -699,7 +666,7 @@ div.orders-list {
 /*order page*/
 
 #order-container {
-  background: linear-gradient(70deg, black, #00b7f7);
+  background: linear-gradient(70deg, #3c5b68, #00b7f7);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -743,3 +710,10 @@ div.orders-list {
   margin-bottom: 40px;
   display: none;
 }
+
+.profile-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+};

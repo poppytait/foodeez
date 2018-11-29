@@ -2,13 +2,13 @@ var root_URL = 'http://localhost:3000';
 console.log('linked');
 let statusCheck = null;
 let statusCheck2 = null;
+const status = document.getElementById('status');
 
 let checkOrderStatus = () => {
   if (statusCheck === 1) {
     clearInterval(intervalID);
   }
   const id = document.getElementById('order-id').value;
-  const status = document.getElementById('status');
   const linkStatus = document.getElementById('link-status');
   const mapElement = document.getElementById('map');
 
@@ -20,8 +20,9 @@ let checkOrderStatus = () => {
 
         statusCheck = 1;
       } else if (response.data.willServe === true) {
-        status.innerText = 'YAY! your order has been accepted';
+        status.innerText = 'YAY! Your order has been accepted and may come from one of the following restaurants.';
         mapElement.style.display = 'flex';
+        statusCheck = 1;
         confetti();
       } else {
         status.innerText = 'We are awaiting confirmation';
@@ -46,6 +47,7 @@ let checkDeliveredStatus = () => {
         confettiContainer.classList.remove('hidden');
         let mapElement2 = document.getElementById('map');
         mapElement2.style.display = 'none';
+        status.innerText = '';
 
         statusCheck2 = 1;
         statusCheck = 1;

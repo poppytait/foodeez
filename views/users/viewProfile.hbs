@@ -1,7 +1,7 @@
 {{> customerNavBar}}
-
+<div class="profile-container">
 <h1>My Profile</h1>
-
+<div class="profile-info-container">
 <h2>Contact Details</h2>
 {{currentUser.address.addressLine1}}<br />
 {{currentUser.address.addressLine2}}<br />
@@ -17,8 +17,11 @@
 
 <a href="/users/editProfile">Edit Profile</a>
 
+
 {{#if messages.length}}
 <ul class="validation">
   {{#each messages}}<li>{{this}}</li>{{/each}}
 </ul>
 {{/if}}
+</div>
+</div>

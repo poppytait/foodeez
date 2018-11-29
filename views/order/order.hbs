@@ -1,6 +1,7 @@
-{{> customerNavBar}}
+
 
 <div class="wrapper">
+  {{> customerNavBar}}
   <div class="formlogin new-order-container">
     <h1>New Order</h1>
     <form method="POST" action="/order/new" id="order">
@@ -21,7 +22,7 @@
       <div class="field">
         <input type="text" name="postcode" value="{{currentUser.address.postcode}}" placeholder="Postcode" />
       </div>
-      <a class="next" id="go-to-food-button">next</a>
+      <a class="next" id="go-to-food-button" onlick="hideInfoBoxes()">next</a>
   </section>
 
 
@@ -106,3 +107,6 @@
         document.getElementById('peopleStatus').innerHTML = val;
       }
     </script>
+
+  
+    

@@ -1,22 +1,11 @@
 html {
   box-sizing: border-box;
-<<<<<<< HEAD
     margin: 0;
     height: 100%;
     /* background: linear-gradient(70deg, #e9eeef, #c4e4e4); */
     /* background: url(asian.jpg);
     background-size: cover; */
-    
     /* background-repeat: no-repeat; */
-=======
-  margin: 0;
-  height: 100%;
-  background: linear-gradient(70deg, #e9eeef, #c4e4e4);
-  *//* background: url(asian.jpg); */
-    background-size: cover;
-
-  /* background-repeat: no-repeat; */
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 
 *,
@@ -54,7 +43,6 @@ body {
   height: 100%;
 }
 
-<<<<<<< HEAD
 .index-container {
     background: url(asian.jpg);
     background-size: cover; 
@@ -66,8 +54,6 @@ body {
   background: #00000069;
   height: 100%;
 }
-=======
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 a {
   color: #2196f3;
   text-decoration: none;
@@ -332,15 +318,9 @@ form .field {
 }
 
 form label {
-<<<<<<< HEAD
 	display: block;
   font-style: bold;
   margin-bottom: 44px;
-=======
-  display: block;
-  margin-bottom: 10px;
-  font-style: bold;
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 /*attempting cool css for form lines*/
 form input {
@@ -657,18 +637,6 @@ ul.order-list {
 /* Order list displayed in boxes */
 
 div.order-list {
-<<<<<<< HEAD
-  border: solid 1px #00000047;
-    margin-bottom: 10px;
-    display: inline-block;
-    width: 55%;
-}
-.order-list-container {
-      background: wheat;
-}
-.order-list-container h1 {
-    color: white;
-=======
   border: solid 1px black;
   margin-bottom: 10px;
   display: inline-block;
@@ -684,7 +652,6 @@ div.order-list {
 div.orders-list {
   margin-top: 20px;
 
->>>>>>> 83b972c3130cd5edb8bbc7460d13efc372eb6b35
 }
 /* New order */
 

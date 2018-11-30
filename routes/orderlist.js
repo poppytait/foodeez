@@ -104,9 +104,11 @@ router.post('/:id/delete', authMiddleware.requireUser, (req, res, next) => {
 // accepting order
 router.post('/:id/accept', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
+  const { price } = req.body;
   Order.findByIdAndUpdate(id, { $set: {
     willServe: true,
-    isProccessing: false
+    isProccessing: false,
+    price: price
   }
   })
     .then(() => {

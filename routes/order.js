@@ -89,7 +89,7 @@ router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
       if (result === null) {
         return next(); // Protecting for typing orderIds that don't exist
       } else if (!result.userId.equals(req.session.currentUser._id)) {
-        return next(); // Protecting route for other users
+        return next(); // Protecting route from other users
       } else if (result.willServe === null) {
         res.render('order/order-processed', { order: result });
       }
@@ -99,9 +99,18 @@ router.get('/:id', authMiddleware.requireUser, (req, res, next) => {
 
 router.get('/:id/json', authMiddleware.requireUser, (req, res, next) => {
   const id = req.params.id;
+  if (!ObjectId.isValid(id)) {
+    return next();
+  }
   Order.findById(id)
     .then((result) => {
-      res.json(result);
+      if (result === null) {
+        return next(); // Protecting for typing orderIds that don't exist
+      } else if (!result.userId.equals(req.session.currentUser._id)) {
+        return next(); // Protecting route from other users
+      } else {
+        res.json(result);
+      }
     })
     .catch(next);
 });

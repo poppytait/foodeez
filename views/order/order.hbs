@@ -21,6 +21,7 @@
       <div class="field">
         <input type="text" name="postcode" value="{{currentUser.address.postcode}}" placeholder="Postcode" />
       </div>
+      <a class="next hidden" id="go-back-to-address-button">back</a>
       <a class="next" id="go-to-food-button">next</a>
   </section>
 
@@ -55,6 +56,7 @@
       <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
       <label for="mexican">Mexican</label>
       </div>
+      <a class="next hidden" id="go-back-to-food-button">back</a>
       <a class="next" id="go-to-allergies-button">next</a>
     </section>
       <!--############# Allergies #############-->
@@ -72,7 +74,7 @@
        
         <input type="text" name="dietaryRequirements" />
       </div>
-      
+      <a class="next hidden" id="go-back-to-allergies-button">back</a>
       <a class="next" id="go-to-budget-button">next</a>
     </section>
     <section class="form-section" id="form-budget">

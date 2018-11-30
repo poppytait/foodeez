@@ -633,7 +633,25 @@ ul.order-list {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 50px;
-  background: orange;
+  background: #51bd51;
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 12px;
+  /* border: 2px solid #ffffff38; */
+  color: white;
+  font-size: 4vw;
+  /* text-shadow: 1px 2px 2px black; */
+  border-radius: 29px;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #logout-btn{
@@ -643,6 +661,26 @@ ul.order-list {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 12px;
+  /* border: 2px solid #ffffff38; */
+  background: #2196f3;
+  color: white;
+  font-size: 4vw;
+  /* text-shadow: 1px 2px 2px black; */
+  border-radius: 29px;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 /* Order list displayed in boxes */

@@ -6,99 +6,102 @@
     <form method="POST" action="/order/new" id="order">
 
       <!--############# Adress section #############-->
-  <section class="form-section" id="form-address">
+      <section class="form-section" id="form-address">
 
-     <h2>Address</h2>
-      <div class="field">
-        <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}" placeholder="Street name and nº"/>
-      </div>
-      <div class="field">
-        <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}" placeholder="Apartment floor and nº" />
-      </div>
-      <div class="field">
-        <input type="text" name="city" value="{{currentUser.address.city}}" placeholder="City" />
-      </div>
-      <div class="field">
-        <input type="text" name="postcode" value="{{currentUser.address.postcode}}" placeholder="Postcode" />
-      </div>
-      <a class="next" id="go-to-food-button">next</a>
-  </section>
+        <h2>Address</h2>
+        <div class="field">
+          <input type="text" name="addressLine1" value="{{currentUser.address.addressLine1}}" placeholder="Street name and nº" />
+        </div>
+        <div class="field">
+          <input type="text" name="addressLine2" value="{{currentUser.address.addressLine2}}" placeholder="Apartment floor and nº" />
+        </div>
+        <div class="field">
+          <input type="text" name="city" value="{{currentUser.address.city}}" placeholder="City" />
+        </div>
+        <div class="field">
+          <input type="text" name="postcode" value="{{currentUser.address.postcode}}" placeholder="Postcode" />
+        </div>
+        <a class="next hidden" id="go-back-to-address-button">back</a>
+        <a class="next" id="go-to-food-button">next</a>
+      </section>
 
 
 
       <!--############# Food Select section #############-->
-    <section class="form-section" id="form-food">
-      <h2>Anything you <span class="do-not-want">don't</span> want?</h2>
-      <div class="check-boxes">
+      <section class="form-section" id="form-food">
+        <h2>Anything you <span class="do-not-want">don't</span> want?</h2>
+        <div class="check-boxes">
 
-        <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
-        <label for="american">American</label>
+          <input type="checkbox" id="american" value="american" name="undesiredFoodType" unchecked>
+          <label for="american">American</label>
 
-        <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
-        <label for="chinese">Chinese</label>
+          <input type="checkbox" id="chinese" value="chinese" name="undesiredFoodType" unchecked>
+          <label for="chinese">Chinese</label>
 
-        <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
-        <label for="spanish">Spanish</label>
+          <input type="checkbox" id="spanish" value="spanish" name="undesiredFoodType" unchecked>
+          <label for="spanish">Spanish</label>
 
-        <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
-        <label for="indian">Indian</label>
+          <input type="checkbox" id="indian" value="indian" name="undesiredFoodType" unchecked>
+          <label for="indian">Indian</label>
 
-        <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
-        <label for="italian">Italian</label>
+          <input type="checkbox" id="italian" value="italian" name="undesiredFoodType" unchecked>
+          <label for="italian">Italian</label>
 
-        <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
-        <label for="japanese">Japanese</label>
+          <input type="checkbox" id="japanese" value="japanese" name="undesiredFoodType" unchecked>
+          <label for="japanese">Japanese</label>
 
-        <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
-        <label for="turkish">Turkish</label>
+          <input type="checkbox" id="turkish" value="turkish" name="undesiredFoodType" unchecked>
+          <label for="turkish">Turkish</label>
 
-      <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
-      <label for="mexican">Mexican</label>
-      </div>
-      <a class="next" id="go-to-allergies-button">next</a>
-    </section>
-      <!--############# Allergies #############-->
-    <section class="form-section" id="form-allergies">
-      <h2>Allergies</h2>
-
-      <div class="field">
-        <input type="text" name="allergies" />
-      </div>
-
-<!--############# Dietry requirements #############-->
-
-<h2>Dietary Requirements</h2>
-      <div class="field">
-       
-        <input type="text" name="dietaryRequirements" />
-      </div>
-      
-      <a class="next" id="go-to-budget-button">next</a>
-    </section>
-    <section class="form-section" id="form-budget">
-      <!--############# budget #############-->
-
-      <h2>Budget</h2>
-      <input class="budgetslider" type="range" min="10" max="100" value="50" name="budget" steps="10" onInput="sliderChange(this.value)">
-      <br>
-      Max price: <span id="sliderStatus">50</span>
-
-      <!--############# Quantity #############-->
-
-      <h2>How Many Are You?</h2>
-      <input class="range-slider" type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
-      <br>
-      People Count: <span id="peopleStatus">4</span>
-
-      {{> errorMessages}}
-
-      <div class="field submit">
-        <button type="submit">Order</button>
-      </div>
+          <input type="checkbox" id="mexican" value="mexican" name="undesiredFoodType" unchecked>
+          <label for="mexican">Mexican</label>
+        </div>
+        <a class="next hidden" id="go-back-to-food-button">back</a>
+        <a class="next" id="go-to-allergies-button">next</a>
       </section>
+      <!--############# Allergies #############-->
+        <section class="form-section" id="form-allergies">
+          <h2>Allergies</h2>
+
+          <div class="field">
+            <input type="text" name="allergies" />
+          </div>
+
+          <!--############# Dietry requirements #############-->
+
+          <h2>Dietary Requirements</h2>
+          <div class="field">
+
+            <input type="text" name="dietaryRequirements" />
+          </div>
+          <!--
+        <a class="next hidden" id="go-back-to-allergies-button">back</a>
+        <a class="next" id="go-to-budget-button">next</a> -->
+        </section>
+        <section class="form-section" id="form-budget">
+          <!--############# budget #############-->
+
+          <h2>Budget</h2>
+          <input class="budgetslider" type="range" min="10" max="100" value="50" name="budget" steps="10" onInput="sliderChange(this.value)">
+          <br>
+          Max price: <span id="sliderStatus">50</span>
+
+          <!--############# Quantity #############-->
+
+          <h2>How Many Are You?</h2>
+          <input class="range-slider" type="range" min="1" max="10" value="4" name="numberOfFoodeez" steps="10" onInput="peopleCount(this.value)">
+          <br>
+          People Count: <span id="peopleStatus">4</span>
+
+          {{> errorMessages}}
+
+          <div class="field submit">
+            <button type="submit">Order</button>
+          </div>
+        </section>
     </form>
 
-  <script src="javascripts/orderForm.js"></script>
+    <script src="javascripts/orderForm.js"></script>
 
     <script type="text/javascript">
       const sliderChange = val => {

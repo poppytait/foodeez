@@ -808,6 +808,9 @@ div.orders-list {
     -ms-user-select: none;
     user-select: none;
   }
+  .form .submit button{
+    font-size: 1vw;
+  }
 }
 
 
@@ -831,12 +834,18 @@ div.orders-list {
   .next{
     font-size: 3vw;
   }
+  .form .submit button{
+    font-size: 1vw;
+  }
   
 }
 
 @media only screen and (min-width: 530px ){ 
   .next{
     font-size: 3vw;
+  }
+  .form .submit button{
+    font-size: 1vw;
   }
   #order-btn{
     padding: 18px;
@@ -863,9 +872,15 @@ div.orders-list {
   .next{
     font-size: 2vw;
   }
+  .form .submit button{
+    font-size: 1vw;
+  }
 }
 @media only screen and (min-width: 930px ){
   .next{
+    font-size: 2vw;
+  }
+  .form .submit button{
     font-size: 1vw;
   }
 }

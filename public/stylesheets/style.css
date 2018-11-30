@@ -828,11 +828,16 @@ div.orders-list {
   -ms-user-select: none;
   user-select: none;
   }
+  .next{
+    font-size: 3vw;
+  }
   
 }
 
 @media only screen and (min-width: 530px ){ 
-
+  .next{
+    font-size: 3vw;
+  }
   #order-btn{
     padding: 18px;
   border: 2px solid #ffffff;
@@ -848,7 +853,19 @@ div.orders-list {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  }
   .bottom-nav-bar{
   padding: 0px;
 }
+}
+
+@media only screen and (min-width: 720px ){
+  .next{
+    font-size: 2vw;
+  }
+}
+@media only screen and (min-width: 930px ){
+  .next{
+    font-size: 1vw;
+  }
 }

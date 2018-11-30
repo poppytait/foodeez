@@ -66,18 +66,3 @@ const hideSection = section => {
 const removeHide = section => {
   section.className.remove = 'hide-section';
 };
-
-function findOdd (A) {
-  // happy coding!
-  var count;
-  A.forEach((element) => {
-    for (var i = 0; i < A.length; i++) {
-      if (element === A.length) {
-        count++;
-      }
-    };
-    if (!count % 2 === 0) {
-      return A[i];
-    }
-  });
-}

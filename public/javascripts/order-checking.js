@@ -1,4 +1,4 @@
-var root_URL = 'http://localhost:3000';
+var root_URL = 'https://foodeezapp.herokuapp.com';
 console.log('linked');
 let statusCheck = null;
 let statusCheck2 = null;

@@ -770,6 +770,8 @@ div.orders-list {
   justify-content: center;
 }
 
+.budgetslider, .canvas, .range-slider { margin-bottom: 1em; }
+
 /* Media Queries */
 
 @media only screen and (min-width: 449px ) {

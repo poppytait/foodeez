@@ -14,10 +14,7 @@ const restaurantSchema = new Schema({
     required: true
   },
   location: {
-    // coordinates: Array
-    lat: Number,
-    lng: Number
-
+    coordinates: [Number, Number]
   },
   foodType: {
     type: String,

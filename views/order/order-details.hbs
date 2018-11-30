@@ -6,20 +6,24 @@
   <li>Allergies: {{order.allergies}} </li>
   <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
   <li>Budget: {{order.budget}}</li>
-  <!-- <li>Price: {{order.price}}</li> -->
+  {{#if order.willServe}}
+  <li>Price: {{order.price}}</li>
+  {{/if}}
   {{#unless order.isCompleted}}
   {{#unless currentUser.isCustomer}}
   {{#unless order.willServe}}
-  <div class="field">
-    <label>Price</label>
-    <input type="number" name="price" />
-  </div>
-  <div class="field submit">
-    <form method="POST" action="/orderlist/{{order._id}}/accept">
+
+  <form method="POST" action="/orderlist/{{order._id}}/accept">
+    <div class="field">
+      <label>Price</label>
+      <input type="number" name="price" />
+    </div>
+    <div class="field submit">
+
       <a href="/orderlist/{{order._id}}/accept">
         <button id="edit-btn">Accept Order</button>
       </a>
-  </div>
+    </div>
   </form>
   <form method="POST" action="/orderlist/{{order._id}}/reject">
     <div class="field submit">

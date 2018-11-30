@@ -18,6 +18,20 @@ const goToFood = (foodSection, addressSection) => {
 };
 goToFoodButton.addEventListener('click', foodAppear);
 
+const addressAppear = () => {
+  goBackToAddress(foodSection, addressSection);
+};
+
+const goBackToAddress = (foodSection, addressSection) => {
+  addressSection.classList.remove('hide-section');
+  goBackToAddressButton.classList.add('hidden');
+  goToFoodButton.classList.remove('hidden');
+  showSection(addressSection);
+  resetHeight(addressSection);
+};
+
+goBackToAddressButton.addEventListener('click', addressAppear);
+
 // section 2 - food
 const goToAllergiesButton = document.getElementById('go-to-allergies-button');
 const goBackToFoodButton = document.getElementById('go-back-to-food-button');
@@ -38,6 +52,20 @@ const goToAllergies = () => {
   hideSection(foodSection);
   hideSection(goToAllergiesButton);
 };
+
+const foodAppearBack = () => {
+  goBackToFood(addressSection, allergySection);
+};
+
+const goBackToFood = () => {
+  foodSection.classList.remove('hide-section');
+  goBackToFoodButton.classList.add('hidden');
+  goToAllergiesButton.classList.remove('hidden');
+  showSection(foodSection);
+  addHeight(foodSection);
+};
+
+goBackToFoodButton.addEventListener('click', foodAppearBack);
 
 // section 3 - allergies/delivery
 /*
@@ -76,6 +104,11 @@ const hideSection = section => {
 // set height to 0 in final section
 const resetHeight = section => {
   section.style.height = '50vh';
+};
+
+// set height to 0 in final section
+const addHeight = section => {
+  section.style.height = '100vh';
 };
 
 const removeHide = section => {

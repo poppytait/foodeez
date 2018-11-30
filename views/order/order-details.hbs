@@ -5,9 +5,9 @@
   <li>Phone Number: {{order.phoneNumber}}</li>
   <li>Allergies: {{order.allergies}} </li>
   <li>Dietary Requirements: {{order.dietaryRequirements}} </li>
-  <li>Budget: {{order.budget}}</li>
+  <li>Budget: {{order.budget}} €</li>
   {{#if order.willServe}}
-  <li>Price: {{order.price}}</li>
+  <li>Price: {{order.price}} €</li>
   {{/if}}
   {{#unless order.isCompleted}}
   {{#unless currentUser.isCustomer}}

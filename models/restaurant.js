@@ -19,6 +19,7 @@ const restaurantSchema = new Schema({
       default: 'Point'
     },
     coordinates: [Number, Number]
+
   },
   foodType: {
     type: String,
